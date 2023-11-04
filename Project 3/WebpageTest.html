@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocAn Team 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #FF0000;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ChocAn Team 6</h1>
+    <div class="tabs">
+        <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
+        <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
+        <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
+    </div>
+    <div class="tab-content" id="mainClassDiagram">
+        <h2>Main Class Diagram</h2>
+        <img src="folder/ClassDiagramKyemba.png" alt="Main Class Diagram">
+        <!-- Your Main Class Diagram content goes here -->
+    </div>
+    <div class="tab-content" id="couplingAndCohesion">
+        <h2>Coupling and Cohesion Paragraph</h2>
+        <!-- Your Coupling and Cohesion content goes here -->
+    </div>
+    <div class="tab-content" id="useCaseSequenceDiagrams">
+        <h2>Use Case Sequence Diagrams</h2>
+        <img src="folder/image.jpg" alt="Use Case Sequence Diagrams">
+        <!-- Your Use Case Sequence Diagrams content goes here -->
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+            });
+
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.style.display = 'block';
+            }
+        }
+
+        // Show the default tab (Main Class Diagram) on page load
+        showTab('mainClassDiagram');
+    </script>
+</body>
+</html>
