@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <h1>Welcome to ChocAn Team 6</h1>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>CWID</th>
+      <th>Hours Contributed</th>
+    </tr>
+    <tr>
+      <td>Evan Childers</td>
+      <td>epchilders@crimson.ua.edu</td>
+      <td>12225947</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Joesph Hampton</td>
+      <td>jbhampton1@crimson.ua.edu</td>
+      <td>12205044</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Sophia Kyemba</td>
+      <td>snkyemba@crimson.ua.edu</td>
+      <td>12217662</td>
+      <td>4</td>
+   </tr>
+   <tr>
+      <td>Walter Mink</td>
+      <td>wwmink@crimson.ua.edu</td>
+      <td>12054656</td>
+      <td>4</td>
+    </tr>
+   <tr>
+      <td>Rayshaun Dunklin</td>
+      <td>rjdunklin@crimson.ua.edu</td>
+      <td>11998444</td>
+      <td>4</td>
+    </tr>
+  </table>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<h2>Team 6 Task Distribution Table</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Team Member</th>
+    <th>Task Performed</th>
+    <th>Percentage Contributed</th>
+  </tr>
+  <tr>
+    <td>Rayshaun Dunklin</td>
+    <td>Request Provider Directory and Backup Sequence Diagrams</td>
+    <td>16.6%</td>
+  </tr>
+  <tr>
+    <td>Joseph Hampton</td>
+    <td>Submitter, Paragraph</td>
+    <td>16.6%</td>
+  </tr>
+<tr>
+    <td>Walter Mink</td>
+    <td>Generate Report Sequence Diagram</td>
+    <td>16.6%</td>
+  </tr>
+  <tr>
+    <td>Sophia Kyemba</td>
+    <td>Bill ChocAn Sequence Diagram</td>
+    <td>16.6%</td>
+  </tr>
+  <tr>
+    <td>Evan Childers</td>
+    <td>Request Report Sequence Diagram</td>
+    <td>16.6%</td>
+  </tr>
+  <tr>
+    <td>Emily Steinbach</td>
+    <td>Manage Reports Sequence Diagram</td>
+    <td>16.6%</td>
+  </tr>
+</table>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocAn Team 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #FF0000;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
+        <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
+        <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
+	<div class="tab" onclick="showTab('bitBucket')">BitBucket Repo Data</div>
+    </div>
+    <div class="tab-content" id="mainClassDiagram">
+        <h2>Main Class Diagram</h2>
+        <img src = "ClassDiagProj3.png">
+    </div>
+    <div class="tab-content" id="couplingAndCohesion">
+        <h2>Coupling and Cohesion Paragraph</h2>
+        <!-- Your Coupling and Cohesion content goes here -->
+    </div>
+    <div class="tab-content" id="useCaseSequenceDiagrams">
+        <h2>Use Case Sequence Diagrams</h2>
+        <!-- Your Use Case Sequence Diagrams content goes here -->
+    </div>
+    <div class="tab-content" id="bitBucket">
+        <h2>BitBucket Repo Data</h2>
+        <!-- Your BitBucket Repo Data content goes here -->
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+            });
+
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.style.display = 'block';
+            }
+        }
+
+        // Show the default tab (Main Class Diagram) on page load
+        showTab('mainClassDiagram');
+    </script>
+</body>
+</html>
