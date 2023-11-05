@@ -5,8 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChocAn Team 6</title>
     <style>
+        /* Reset margins and padding for consistent cross-browser rendering */
+        body, h1, h2, table {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* General body styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif; /* Use Arial or a default sans-serif font */
+            line-height: 1.6;
+            color: #333; /* A dark grey color for text */
+            background-color: #f4f4f4; /* A light grey background color */
+            padding: 20px; /* Padding around the entire body content */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%; /* Make table use the full width available */
+            border-collapse: collapse; /* Collapse borders to avoid double lines */
+            margin-bottom: 20px; /* Add space below each table */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px; /* Set a max width for the container */
+            margin: auto; /* Center the container */
+            background: white; /* Background color for the content area */
+            padding: 20px; /* Padding inside the container */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow around container */
+        }  
+    
+        /* Header styles */
+        h1, h2 {
+            color: #444; /* A slightly lighter grey for headers */
+            text-align: center; /* Center-align all header text */
+            margin-bottom: 20px; /* Add space below headers */
+        }
+
+        /* Table cell and header styles */
+        th, td {
+            border: 1px solid #ddd; /* Light grey border for table cells */
+            padding: 10px; /* Padding within table cells */
+            text-align: left; /* Align text to the left in table cells */
+        }
+
+        /* Table header cell styles */
+        th {
+            background-color: #333; /* Dark background for header cells */
+            color: white; /* White text for contrast against dark background */
+        }
+
+        /* Alternate row coloring for table rows */
+        tr:nth-child(even) {
+            background-color: #f8f8f8; /* Light grey background for even rows */
+        }
+
+        /* Image styles */
+        img {
+            max-width: 100%; /* Ensure image is not wider than its container */
+            height: auto; /* Keep image aspect ratio */
+            display: block; /* Block display to allow margin auto to center */
+            margin: 0 auto; /* Center image horizontally */
         }
 
         .tabs {
@@ -17,7 +77,7 @@
             flex: 1;
             text-align: center;
             padding: 10px;
-            background-color: #FF0000;
+            background-color: #E57373;
             cursor: pointer;
             border: 1px solid #ccc;
         }
@@ -29,144 +89,136 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to ChocAn Team 6</h1>
-    <div class="tabs">
-        <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
-        <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
-        <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
-	<div class="tab" onclick="showTab('bitBucket')">BitBucket Repo Data</div>
-    </div>
+    <div class="container">
+        <h1>Welcome to ChocAn Team 6</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>CWID</th>
+                <th>Hours Contributed</th>
+            </tr>
+            <tr>
+                <td>Evan Childers</td>
+                <td>epchilders@crimson.ua.edu</td>
+                <td>12225947</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Joesph Hampton</td>
+                <td>jbhampton1@crimson.ua.edu</td>
+                <td>12205044</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Sophia Kyemba</td>
+                <td>snkyemba@crimson.ua.edu</td>
+                <td>12217662</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Walter Mink</td>
+                <td>wwmink@crimson.ua.edu</td>
+                <td>12054656</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Rayshaun Dunklin</td>
+                <td>rjdunklin@crimson.ua.edu</td>
+                <td>12064253</td>
+                <td>5</td>
+            </tr>
+        </table>
+        <h2>Team 6 Task Distribution Table</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Team Member</th>
+                <th>Task Performed</th>
+                <th>Percentage Contributed</th>
+            </tr>
+            <tr>
+                <td>Rayshaun Dunklin</td>
+                <td>Request Provider Directory and Backup Sequence Diagrams</td>
+                <td>16.6%</td>
+            </tr>
+            <tr>
+                <td>Joseph Hampton</td>
+                <td>Submitter, Paragraph</td>
+                <td>16.6%</td>
+            </tr>
+            <tr>
+                <td>Walter Mink</td>
+                <td>Generate Report Sequence Diagram</td>
+                <td>16.6%</td>
+            </tr>
+            <tr>
+                <td>Sophia Kyemba</td>
+                <td>Bill ChocAn Sequence Diagram</td>
+                <td>16.6%</td>
+            </tr>
+            <tr>
+                <td>Evan Childers</td>
+                <td>Request Report Sequence Diagram</td>
+                <td>16.6%</td>
+            </tr>
+            <tr>
+                <td>Emily Steinbach</td>
+                <td>Manage Reports Sequence Diagram</td>
+                <td>16.6%</td>
+            </tr>
+        </table>
+        <div class="tabs">
+            <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
+            <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
+            <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
+	       <div class="tab" onclick="showTab('bitBucket')">BitBucket Repo Data</div>
+        </div>
+        <div class="tab-content" id="mainClassDiagram">
+            <h2>Main Class Diagram</h2>
+            <img src = "ClassDiagProj3.png">
+        </div>
+        <div class="tab-content" id="couplingAndCohesion">
+            <h2>Coupling and Cohesion Paragraph</h2>
+            <p> There is high coupling between each of the controllers and their respective views. Because each controller has a direct dependence on their respective view, any change to the view would mean a corresponding change to the controller is needed. This issue makes the system difficult to maintain and update. On the cohesion end, there are also several issues. By having certain classes, such as the ReportController class, complete multiple tasks, such as generate reports as well as update the view, forces the classes to have multiple types of functionality which makes it difficult to maintain and reason about. By having separated classes that would work together, one to generate reports and the other to update views, there is more cohesion and abstraction, which make the software easier to maintain and update. Regardless of these problems, the design for the software has relatively low coupling and high cohesion, which makes it so that the software designers, us, will have an easier time in maintaining and evolving the software to adhere with whatever problems arise, either through what the customer requests, or through our own observance. We believe that an architecture that could work effectively in this scenario would be the “layered architecture”, as outlined in “An Introduction to Software Architecture”. We propose that the software could be split into three separate layers, the Presentation Layer, which includes the terminals, the Application Layer, which includes the controllers, and finally the Direct Access Layer, which is composed of the data classes.The layered architecture proposed includes several benefits, including a reduced coupling, as each layer is loosely coupled, increased cohesion, as each layer has specific and singular responsibility, and reusability, as these layers can be reused in similar projects. For these reasons, we believe that layered architecture is the most applicable architecture for our design.
+            </p>
+        </div>
+        <div class="tab-content" id="useCaseSequenceDiagrams">
+            <h2>Use Case Sequence Diagrams</h2>
+            <h3> Bill ChocAn Sequence Diagram </h3>
+            <img src = "BillChocAnSequenceKyemba.png">
+            <h3> Manage Records Sequence Diagram </h3>
+            <img src = "ManageRecordsSequence.png">
+            <h3> Generate Reports Sequence Diagram </h3>
+            <img src = "Proj3 Sequence Generate Reports.png">
+            <h3> Generate Member Report Sequence Diagram </h3>
+            <img src = "Proj3 Sequence Member.png">
+            <h3> Generate Manager Report Sequence Diagram </h3>
+            <img src = "Project 3 Sequence Manager.png">
+            <h3> Generate Provider Report Sequence Diagram </h3>
+            <img src = "Project 3 Sequence Provider.png">
+            <h3> Request Provider Directory Sequence Diagram </h3>
+            <img src = "Request Provider Directory Sequence Diagram (2).png">
+        </div>
+        <div class="tab-content" id="bitBucket">
+            <h2>BitBucket Repo Data</h2>
+            <!-- Your BitBucket Repo Data content goes here -->
+        </div>
 
-  
-  <table border="1">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>CWID</th>
-      <th>Hours Contributed</th>
-    </tr>
-    <tr>
-      <td>Evan Childers</td>
-      <td>epchilders@crimson.ua.edu</td>
-      <td>12225947</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Joesph Hampton</td>
-      <td>jbhampton1@crimson.ua.edu</td>
-      <td>12205044</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Sophia Kyemba</td>
-      <td>snkyemba@crimson.ua.edu</td>
-      <td>12217662</td>
-      <td>4</td>
-   </tr>
-   <tr>
-      <td>Walter Mink</td>
-      <td>wwmink@crimson.ua.edu</td>
-      <td>12054656</td>
-      <td>4</td>
-    </tr>
-   <tr>
-      <td>Rayshaun Dunklin</td>
-      <td>rjdunklin@crimson.ua.edu</td>
-      <td>11998444</td>
-      <td>4</td>
-    </tr>
-  </table>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
+        <script>
+            function showTab(tabId) {
+                const tabs = document.querySelectorAll('.tab-content');
+                tabs.forEach(tab => {
+                    tab.style.display = 'none';
+                });
 
-<h2>Team 6 Task Distribution Table</h2>
-
-<table style="width:100%">
-  <tr>
-    <th>Team Member</th>
-    <th>Task Performed</th>
-    <th>Percentage Contributed</th>
-  </tr>
-  <tr>
-    <td>Rayshaun Dunklin</td>
-    <td>Request Provider Directory and Backup Sequence Diagrams</td>
-    <td>16.6%</td>
-  </tr>
-  <tr>
-    <td>Joseph Hampton</td>
-    <td>Submitter, Paragraph</td>
-    <td>16.6%</td>
-  </tr>
-<tr>
-    <td>Walter Mink</td>
-    <td>Generate Report Sequence Diagram</td>
-    <td>16.6%</td>
-  </tr>
-  <tr>
-    <td>Sophia Kyemba</td>
-    <td>Bill ChocAn Sequence Diagram</td>
-    <td>16.6%</td>
-  </tr>
-  <tr>
-    <td>Evan Childers</td>
-    <td>Request Report Sequence Diagram</td>
-    <td>16.6%</td>
-  </tr>
-  <tr>
-    <td>Emily Steinbach</td>
-    <td>Manage Reports Sequence Diagram</td>
-    <td>16.6%</td>
-  </tr>
-</table>
-    <div class="tab-content" id="mainClassDiagram">
-        <h2>Main Class Diagram</h2>
-        <img src = "ClassDiagProj3.png">
-    </div>
-    <div class="tab-content" id="couplingAndCohesion">
-        <h2>Coupling and Cohesion Paragraph</h2>
-        <p> There is high coupling between each of the controllers and their respective views. Because each controller has a direct dependence on their respective view, any change to the view would mean a corresponding change to the controller is needed. This issue makes the system difficult to maintain and update. On the cohesion end, there are also several issues. By having certain classes, such as the ReportController class, complete multiple tasks, such as generate reports as well as update the view, forces the classes to have multiple types of functionality which makes it difficult to maintain and reason about. By having separated classes that would work together, one to generate reports and the other to update views, there is more cohesion and abstraction, which make the software easier to maintain and update. Regardless of these problems, the design for the software has relatively low coupling and high cohesion, which makes it so that the software designers, us, will have an easier time in maintaining and evolving the software to adhere with whatever problems arise, either through what the customer requests, or through our own observance. We believe that an architecture that could work effectively in this scenario would be the “layered architecture”, as outlined in “An Introduction to Software Architecture”. We propose that the software could be split into three separate layers, the Presentation Layer, which includes the terminals, the Application Layer, which includes the controllers, and finally the Direct Access Layer, which is composed of the data classes.The layered architecture proposed includes several benefits, including a reduced coupling, as each layer is loosely coupled, increased cohesion, as each layer has specific and singular responsibility, and reusability, as these layers can be reused in similar projects. For these reasons, we believe that layered architecture is the most applicable architecture for our design.
-</p>
-    </div>
-    <div class="tab-content" id="useCaseSequenceDiagrams">
-        <h2>Use Case Sequence Diagrams</h2>
-	<h3> Bill ChocAn Sequence Diagram </h3>
-        <img src = "BillChocAnSequenceKyemba.png">
-	<h3> Manage Records Sequence Diagram </h3>
-	<img src = "ManageRecordsSequence.png">
-	<h3> Generate Reports Sequence Diagram </h3>
-	<img src = "Proj3 Sequence Generate Reports.png">
-	<h3> Member Sequence Diagram </h3>
-	<img src = "Proj3 Sequence Member.png">
-	<h3> Manager Sequence Diagram </h3>
-	<img src = "Project 3 Sequence Manager.png">
-	<h3> Provider Sequence Diagram </h3>
-	<img src = "Project 3 Sequence Provider.png">
-	<h3> Request Provider Directory Sequence Diagram </h3>
-	<img src = "Request Provider Directory Sequence Diagram (2).png">
-    </div>
-    <div class="tab-content" id="bitBucket">
-        <h2>BitBucket Repo Data</h2>
-        <!-- Your BitBucket Repo Data content goes here -->
-    </div>
-
-    <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.style.display = 'none';
-            });
-
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
+                const selectedTab = document.getElementById(tabId);
+                if (selectedTab) {
+                    selectedTab.style.display = 'block';
+                }
             }
-        }
-
-        // Show the default tab (Main Class Diagram) on page load
-        showTab('mainClassDiagram');
-    </script>
+            // Show the default tab (Main Class Diagram) on page load
+            showTab('mainClassDiagram');
+        </script>
+    </div>
 </body>
 </html>
