@@ -1,7 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocAn Team 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #FF0000;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+    </style>
+</head>
 <body>
-  <h1>Welcome to ChocAn Team 6</h1>
+    <h1>Welcome to ChocAn Team 6</h1>
+    <div class="tabs">
+        <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
+        <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
+        <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
+	<div class="tab" onclick="showTab('bitBucket')">BitBucket Repo Data</div>
+    </div>
+
+  
   <table border="1">
     <tr>
       <th>Name</th>
@@ -85,41 +121,6 @@ table, th, td {
     <td>16.6%</td>
   </tr>
 </table>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChocAn Team 6</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .tabs {
-            display: flex;
-        }
-
-        .tab {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            background-color: #FF0000;
-            cursor: pointer;
-            border: 1px solid #ccc;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="tabs">
-        <div class="tab" onclick="showTab('mainClassDiagram')">Main Class Diagram</div>
-        <div class="tab" onclick="showTab('couplingAndCohesion')">Coupling and Cohesion Paragraph</div>
-        <div class="tab" onclick="showTab('useCaseSequenceDiagrams')">Use Case Sequence Diagrams</div>
-	<div class="tab" onclick="showTab('bitBucket')">BitBucket Repo Data</div>
-    </div>
     <div class="tab-content" id="mainClassDiagram">
         <h2>Main Class Diagram</h2>
         <img src = "ClassDiagProj3.png">
@@ -131,7 +132,20 @@ table, th, td {
     </div>
     <div class="tab-content" id="useCaseSequenceDiagrams">
         <h2>Use Case Sequence Diagrams</h2>
-        <!-- Your Use Case Sequence Diagrams content goes here -->
+	<h3> Bill ChocAn Sequence Diagram </h3>
+        <img src = "BillChocAnSequenceKyemba.png">
+	<h3> Manage Records Sequence Diagram </h3>
+	<img src = "ManageRecordsSequence.png">
+	<h3> Generate Reports Sequence Diagram </h3>
+	<img src = "Proj3 Sequence Generate Reports.png">
+	<h3> Member Sequence Diagram </h3>
+	<img src = "Proj3 Sequence Member.png">
+	<h3> Manager Sequence Diagram </h3>
+	<img src = "Project 3 Sequence Manager.png">
+	<h3> Provider Sequence Diagram </h3>
+	<img src = "Project 3 Sequence Provider.png">
+	<h3> Request Provider Directory Sequence Diagram </h3>
+	<img src = "Request Provider Directory Sequence Diagram (2).png">
     </div>
     <div class="tab-content" id="bitBucket">
         <h2>BitBucket Repo Data</h2>
