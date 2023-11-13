@@ -14,16 +14,16 @@ public class ProviderTerminal {
 
         System.out.println("Welcome to Provider Terminal. \nEnter your 9 digit provider ID:");
         int ID = sc.nextInt();
-        while(!(providerIDs.contains(ID)) && tries > 0) {
+        while (!(providerIDs.contains(ID)) && tries > 0) {
             System.out.println("Invalid ID. Remaining attempts: " + tries);
             ID = sc.nextInt();
             tries --;
         }
-        if(providerIDs.contains(ID)) {
+        if (providerIDs.contains(ID)) {
             System.out.println("Welcome provider! Would you like to verify a member, enter a service, consult the provider directory, or exit?");
             System.out.println("Enter 1 for Member Verification\nEnter 2 for Service Entry\nEnter 3 for Provider Directory\nEnter 4 to Exit");
             int choice = sc.nextInt();
-            if(choice == 1) {
+            if (choice == 1) {
                 //enter service
             } else if(choice == 2) {
 
@@ -35,8 +35,5 @@ public class ProviderTerminal {
                 System.out.println("Invalid choice. Goodbye!");
             }
         }
-    }
-    public void enterService() {
-
     }
 }
