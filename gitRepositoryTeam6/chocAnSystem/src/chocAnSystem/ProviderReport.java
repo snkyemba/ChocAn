@@ -1,5 +1,6 @@
 package chocAnSystem;
 import java.util.Vector;
+import java.util.*;
 
 import chocAnSystem.MemberReport.Service;
 public class ProviderReport {
@@ -13,12 +14,12 @@ public class ProviderReport {
 	class Service{
 		//note that I changed date to type String instead of Date type because it should
 		//be in the form "MM-DD-YY"
-		private String date;
+		private Date date = new Date();
 		private String providerName;
 		private String serviceName;
 		private double fee;
 		
-		public Service(String date, String providerName, String serviceName, double fee) {
+		public Service(Date date, String providerName, String serviceName, double fee) {
 			this.date = date;
 			this.providerName = providerName;
 			this.serviceName = serviceName;
@@ -26,7 +27,7 @@ public class ProviderReport {
 			
 		}
 		//getter and setter methods
-		public String getDate(){
+		public Date getDate(){
 			return date;
 		}
 		public String getProviderName() {
@@ -38,7 +39,7 @@ public class ProviderReport {
 		public double getFee() {
 			return fee;
 		}
-		public void setDate(String newDate) {
+		public void setDate(Date newDate) {
 			date = newDate;
 		}
 		public void setProviderName(String newProviderName) {
