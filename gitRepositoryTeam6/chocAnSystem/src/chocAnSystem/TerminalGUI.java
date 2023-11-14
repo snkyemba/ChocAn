@@ -1,4 +1,5 @@
 package chocAnSystem;
+import chocAnSystem.ManagerTerminal;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -85,7 +86,7 @@ public class TerminalGUI extends JFrame {
     private void initClip() {
         try {
             // Load audio file from the same directory as the program
-            URL audioFileURL = getClass().getResource("/song.wav");
+            URL audioFileURL = getClass().getResource("/gangnam.wav");
 
             if (audioFileURL != null) {
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFileURL);
