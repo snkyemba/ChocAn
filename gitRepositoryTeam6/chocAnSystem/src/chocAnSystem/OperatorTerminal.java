@@ -2,5 +2,6 @@ package chocAnSystem;
 
 public class OperatorTerminal {
 
-    int x;
+    MemberController memberController;
+    ProviderController providerController;
 }
