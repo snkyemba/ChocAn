@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 Class for entries in a Provider Directory that has elements for a service code, service name, and service fee.
  */
 public class ProviderDirectory {
-
     // Class Attributes. Service code should be 6 digits and service name should be no more than 20 characters
     private int serviceCode;
     private String serviceName;
@@ -13,6 +12,16 @@ public class ProviderDirectory {
 
     // Basic class constructor for creating new instances of the class
     public ProviderDirectory(int serviceCode, String serviceName, float serviceFee) {
+        // Validate service code
+        if (Integer.toString(serviceCode).length() != 6) {
+            throw new IllegalArgumentException("Service code must be 6 digits");
+        }
+
+        // Validate service name
+        if (serviceName.length() > 20) {
+            throw new IllegalArgumentException("Service name must be no more than 20 characters");
+        }
+
         this.serviceCode = serviceCode;
         this.serviceName = serviceName;
         this.serviceFee = serviceFee;
@@ -22,6 +31,16 @@ public class ProviderDirectory {
     public ProviderDirectory(String jsonString) {
         Gson gson = new Gson();
         ProviderDirectory directoryEntry = gson.fromJson(jsonString, ProviderDirectory.class);
+
+        // Validate service code
+        if (Integer.toString(directoryEntry.serviceCode).length() != 6) {
+            throw new IllegalArgumentException("Service code must be 6 digits");
+        }
+
+        // Validate service name
+        if (directoryEntry.serviceName != null && directoryEntry.serviceName.length() > 20) {
+            throw new IllegalArgumentException("Service name must be no more than 20 characters");
+        }
 
         this.serviceCode = directoryEntry.serviceCode;
         this.serviceName = directoryEntry.serviceName;
