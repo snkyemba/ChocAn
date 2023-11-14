@@ -5,5 +5,7 @@ public class OperatorTerminal {
     MemberController memberController;
     ProviderController providerController;
 
-    int x;
+    int x = 100000000;
+
+
 }
