@@ -17,6 +17,9 @@ public class OperatorTerminal {
     public void viewMainMenu(){
 
     }
+    public static void main(String[] args){
+        System.out.println("Hello World");
+    }
 
 
 
