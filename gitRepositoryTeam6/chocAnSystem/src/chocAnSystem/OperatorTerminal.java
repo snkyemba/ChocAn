@@ -5,7 +5,19 @@ public class OperatorTerminal {
     MemberController memberController;
     ProviderController providerController;
 
-    int x = 100000000;
+    public void manageMemberRecords(){
+
+    }
+    public void manageProviderRecords(){
+
+    }
+    public void backupData(){
+
+    }
+    public void viewMainMenu(){
+
+    }
+
 
 
 }
