@@ -1,5 +1,4 @@
 package chocAnSystem;
-import chocAnSystem.ManagerTerminal;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

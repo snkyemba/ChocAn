@@ -1,5 +1,5 @@
 package chocAnSystem;
-
+import chocAnSystem.ReportController;
 import java.util.Scanner;
 import java.util.Vector;
 /** This class is by Sophia Kyemba. */

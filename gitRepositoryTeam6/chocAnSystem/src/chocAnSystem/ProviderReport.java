@@ -2,8 +2,8 @@ package chocAnSystem;
 import java.util.Vector;
 //Provider Report Class created by EvanChilders
 import java.util.*;
+import java.util.Date;
 
-import chocAnSystem.MemberReport.Service;
 public class ProviderReport {
 	String name;
 	int number;
@@ -13,8 +13,6 @@ public class ProviderReport {
 	int zip;
 	
 	class Service{
-		//note that I changed date to type String instead of Date type because it should
-		//be in the form "MM-DD-YY"
 		private Date date = new Date();
 		private String providerName;
 		private String serviceName;

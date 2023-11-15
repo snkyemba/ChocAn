@@ -1,12 +1,14 @@
 package chocAnSystem;
-import chocAnSystem.Report;
+import chocAnSystem.ManagerReport;
+import chocAnSystem.ProviderReport;
+import chocAnSystem.MemberReport;
 
 public class ReportController {
 	
 	private MemberReport memberReport;
 	private ManagerReport managerReport;
 	private ProviderReport providerReport;
-	private ManagerTerminal view;
+	//private ManagerTerminal view;
 	
 	public ReportController() {
         this.memberReport = new MemberReport("John Doe", 123, "123 Main St", "City", "State", 12345);

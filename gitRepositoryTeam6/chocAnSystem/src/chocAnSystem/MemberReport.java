@@ -1,6 +1,6 @@
 package chocAnSystem;
-//import chocAnSystem.ManagerReport;
 import java.util.Vector;
+import java.util.Date;
 //Member Report class by EvanChilders
 public class MemberReport {
 	private String name;
@@ -15,17 +15,17 @@ public class MemberReport {
 		class Service{
 			//note that I changed date to type String instead of Date type because it should
 			//be in the form "MM-DD-YY"
-			private String date;
+			private Date date;
 			private String providerName;
 			private String serviceName;
 			
-			public Service(String date, String providerName, String serviceName) {
+			public Service(Date date, String providerName, String serviceName) {
 				this.date = date;
 				this.providerName = providerName;
 				this.serviceName = serviceName;
 				
 			}
-			public String getDate(){
+			public Date getDate(){
 				return date;
 			}
 			public String getProviderName() {
@@ -34,7 +34,7 @@ public class MemberReport {
 			public String getServiceName() {
 				return serviceName;
 			}
-			public void setDate(String newDate) {
+			public void setDate(Date newDate) {
 				date = newDate;
 			}
 			public void setProviderName(String newProviderName) {
