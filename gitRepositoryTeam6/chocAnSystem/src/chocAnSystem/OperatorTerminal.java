@@ -5,16 +5,14 @@ import java.util.Scanner;
 
 
 public class OperatorTerminal {
-
-    private int operatorID;
     static Scanner scanner = new Scanner(System.in);
     static Vector<Integer> listID = new Vector<>();
 
     static{
-        listID.add(1234567);
-        listID.add(7654321);
-        listID.add(3216547);
-        listID.add(4561237);
+        listID.add(123456789);
+        listID.add(987654321);
+        listID.add(321654987);
+        listID.add(456123789);
 
     }
 
@@ -39,7 +37,7 @@ public class OperatorTerminal {
         int testOpID;
         int tries = 3;
         while(tries > 0) {
-            System.out.println("Hello, please input your 7 digit Operator ID");
+            System.out.println("Hello, please input your 9 digit Operator ID");
             testOpID = Integer.parseInt(scanner.nextLine());
             if (checkID(testOpID)) {
                 System.out.println("Access Granted!");
