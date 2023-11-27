@@ -47,7 +47,6 @@ public class ServiceRecord {
     }
 
     // Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
-    // TODO: Figure out how to properly deserialize dates in multiple formats from JSON
     public ServiceRecord(String jsonString) {
         // Create a Gson instance
         GsonBuilder builder = new GsonBuilder();

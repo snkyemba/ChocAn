@@ -16,7 +16,7 @@ public class ServiceRecordConstructorTestSuccess {
     int memberNumber = 123456789;
     int serviceCode = 123456;
     String comments = "Test comments";
-    String jsonString = "{\"currentDate\":\"" + currentDate.toString() + "\",\"serviceDate\":\"" + serviceDate.toString() + "\",\"providerNumber\":" + providerNumber + ",\"memberNumber\":" + memberNumber + ",\"serviceCode\":" + serviceCode + ",\"comments\":\"" + comments + "\"}";
+    String jsonString = "{\"currentDate\":\"" + currentDate + "\",\"serviceDate\":\"" + serviceDate + "\",\"providerNumber\":" + providerNumber + ",\"memberNumber\":" + memberNumber + ",\"serviceCode\":" + serviceCode + ",\"comments\":\"" + comments + "\"}";
 
     // Test objects
     ServiceRecord testEntry1;
@@ -34,7 +34,6 @@ public class ServiceRecordConstructorTestSuccess {
     }
 
     // Test using JSON constructor
-    // NOTE: This test will fail right now since I don't know how to deserialize multiple date formats from GSON
     @Test
     public void testJsonConstructor () {
         testEntry2 = new ServiceRecord(jsonString);
