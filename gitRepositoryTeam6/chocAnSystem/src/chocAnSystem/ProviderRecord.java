@@ -8,6 +8,11 @@ public class ProviderRecord extends RosterRecord {
         super(name, number, address, city, state, zip);
         this.fee = fee;
     }
+    public ProviderRecord(){
+        super("",0,"","","",0);
+        fee = 0;
+
+    }
 
     // Manage Fee
     public void manageFee(double amount) {

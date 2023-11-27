@@ -8,6 +8,10 @@ public class MemberRecord extends RosterRecord {
         super(name, number, address, city, state, zip);
         this.balance = balance;
     }
+    public MemberRecord(){
+        super("",0,"","","",0);
+        balance = 0;
+    }
 
     // Manage Balance
 
