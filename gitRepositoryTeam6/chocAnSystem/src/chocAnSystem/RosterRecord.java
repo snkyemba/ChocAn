@@ -4,7 +4,8 @@ public class RosterRecord {
     private String name, address, city, state;
     private int number, zip;
 
-    public void RosterRecord(String name,int number, String address, String city, String state, int zip){
+    // Constructor
+    public RosterRecord(String name, int number, String address, String city, String state, int zip){
         this.name = name;
         this.number = number;
         this.address = address;
@@ -13,43 +14,53 @@ public class RosterRecord {
         this.zip = zip;
     }
 
-    public void setName(String n){
-        name = n;
-    }
-    public void setNumber(int n){
-        number = n;
-    }
-    public void setAddress(String a){
-        address = a;
-    }
-    public void setCity(String c){
-        city = c;
-    }
-    public void setState(String s){
-        state = s;
-    }
-    public void setZip(int z){
-        zip = z;
-    }
-
-    public String getName(){
+    // Getter and Setter
+    public String getName() {
         return name;
     }
-    public int getNumber(){
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumber() {
         return number;
     }
-    public String getAddress(){
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getAddress() {
         return address;
     }
-    public String getCity(){
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
         return city;
     }
-    public String getState(){
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
         return state;
     }
-    public int getZip(){
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZip() {
         return zip;
     }
 
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
 
 }
