@@ -2,19 +2,20 @@ package chocAnSystem;
 
 public class RosterRecord {
     private String name, address, city, state;
-    private int number, zip;
+    private long number;
+    private int zip;
 
     // Constructor
-    public RosterRecord(String name, int number, String address, String city, String state, int zip){
+    public RosterRecord(String name, long number, String address, String city, String state, int zip) {
         this.name = name;
-        this.number = number;
+        setNumber(number); // Use the setter to ensure validation
         this.address = address;
         this.city = city;
         this.state = state;
-        this.zip = zip;
+        setZip(zip); // Use the setter to ensure validation
     }
 
-    // Getter and Setter
+    // Getter and Setter for name
     public String getName() {
         return name;
     }
@@ -23,14 +24,20 @@ public class RosterRecord {
         this.name = name;
     }
 
-    public int getNumber() {
+    // Getter and Setter for number
+    public long getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber(long number) {
+        if (String.valueOf(number).length() == 10) {
+            this.number = number;
+        } else {
+            throw new IllegalArgumentException("Number must be 10 digits");
+        }
     }
 
+    // Getter and Setter for address
     public String getAddress() {
         return address;
     }
@@ -39,6 +46,7 @@ public class RosterRecord {
         this.address = address;
     }
 
+    // Getter and Setter for city
     public String getCity() {
         return city;
     }
@@ -47,6 +55,7 @@ public class RosterRecord {
         this.city = city;
     }
 
+    // Getter and Setter for state
     public String getState() {
         return state;
     }
@@ -55,12 +64,17 @@ public class RosterRecord {
         this.state = state;
     }
 
+    // Getter and Setter for zip with validation
     public int getZip() {
         return zip;
     }
 
     public void setZip(int zip) {
-        this.zip = zip;
+        // Check if zip is exactly 5 digits
+        if (String.valueOf(zip).length() == 5) {
+            this.zip = zip;
+        } else {
+            throw new IllegalArgumentException("Zip code must be 5 digits");
+        }
     }
-
 }
