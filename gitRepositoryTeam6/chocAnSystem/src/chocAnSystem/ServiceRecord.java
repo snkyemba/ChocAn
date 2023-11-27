@@ -1,17 +1,19 @@
 package chocAnSystem;
+
 import java.util.Date;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class ServiceRecord {
-    private Date currentDate;
-    private Date serviceDate;
+    private String currentDate;
+    private String serviceDate;
     private int providerNumber;
     private int memberNumber;
     private int serviceCode;
     private String comments;
 
     // Basic class constructor for creating new instances of the class
-    public ServiceRecord(Date currentDate, Date serviceDate, int providerNumber, int memberNumber, int serviceCode, String comments) {
+    public ServiceRecord(String currentDate, String serviceDate, int providerNumber, int memberNumber, int serviceCode, String comments) {
         this.currentDate = currentDate;
         this.serviceDate = serviceDate;
 
@@ -45,8 +47,11 @@ public class ServiceRecord {
     }
 
     // Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
+    // TODO: Figure out how to properly deserialize dates in multiple formats from JSON
     public ServiceRecord(String jsonString) {
-        Gson gson = new Gson();
+        // Create a Gson instance
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
         ServiceRecord serviceRecord = gson.fromJson(jsonString, ServiceRecord.class);
 
         this.currentDate = serviceRecord.currentDate;
@@ -87,11 +92,11 @@ public class ServiceRecord {
         return gson.toJson(this);
     }
 
-    public Date getCurrentDate() {
+    public String getCurrentDate() {
         return currentDate;
     }
 
-    public Date getServiceDate() {
+    public String getServiceDate() {
         return serviceDate;
     }
 

@@ -1,15 +1,17 @@
 package chocAnSystem;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class ServiceRecordConstructorTestSuccess {
 
     // Test data and expected values
-    Date currentDate = new Date();
-    Date serviceDate = new Date();
+    SimpleDateFormat currentFormatter = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss");
+    SimpleDateFormat serviceFormatter = new SimpleDateFormat("MM-dd-yyyy");
+    String currentDate = currentFormatter.format(new Date());
+    String serviceDate = serviceFormatter.format(new Date());
     int providerNumber = 123456789;
     int memberNumber = 123456789;
     int serviceCode = 123456;
