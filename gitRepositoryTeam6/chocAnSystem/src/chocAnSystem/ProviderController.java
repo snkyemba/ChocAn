@@ -6,10 +6,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
-import com.google.gson.Gson;
 
 public class ProviderController {
-
     /*
     List of Methods we need to implement:
     - verifyProvider
@@ -32,7 +30,7 @@ public class ProviderController {
     If the file or folder do not exist, they will be created. If they do exist, the new entries will be appended to
     the end of the file... I hope.
      */
-    public void saveService(int code, String name, float fee, String filePath) {
+    public void saveServiceType(int code, String name, float fee, String filePath) {
         // Create a new instance of the ProviderDirectory class
         ProviderDirectory service = new ProviderDirectory(code, name, fee);
 
@@ -42,7 +40,8 @@ public class ProviderController {
         // Create a new file object for the file we want to save to
         File file = new File(filePath);
 
-        // Create the file and folder if they do not exist yet
+        // Create the folders on the absolute path if they don't exist
+        // TODO: Does this even work?
         file.getParentFile().mkdirs();
 
         // Write the JSON string to the file
@@ -51,7 +50,7 @@ public class ProviderController {
             writer.write(jsonString);
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            //TODO: Handle this exception
         }
     }
 }
