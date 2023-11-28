@@ -1,5 +1,4 @@
 package chocAnSystem;
-
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.io.File;
@@ -26,6 +25,11 @@ public class ProviderController {
      */
 
     /*
+    I need a function that can read a JSON file and deserialize it into an array regardless of what type of object is in the file.
+    How can I do this?
+     */
+
+    /*
     Testing method for creating a provider directory with entries. Takes service info and a file path as parameters.
     If the file doesn't exist, it will be created. If it does exist, the new entry will be appended to the end of the file.
      */
@@ -37,7 +41,7 @@ public class ProviderController {
         // Write JSON string to file
         try {
             FileWriter writer = new FileWriter(filePath, true);
-            writer.write(jsonString + "\n");
+            writer.write(jsonString + " ");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
