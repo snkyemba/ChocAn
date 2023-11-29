@@ -1,4 +1,4 @@
-package packageWorks;
+package chocAnSystem;
 import java.util.Scanner;
 
 import java.util.Vector;
