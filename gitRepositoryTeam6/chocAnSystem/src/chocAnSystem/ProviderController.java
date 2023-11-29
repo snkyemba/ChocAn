@@ -1,11 +1,8 @@
 package chocAnSystem;
+
 import java.util.Date;
 import java.util.Vector;
 import java.text.SimpleDateFormat;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class ProviderController {
     /*

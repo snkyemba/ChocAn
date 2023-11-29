@@ -64,7 +64,7 @@ public class GenericSerializer {
         // Add the provided instance to the Vector (either new or deserialized)
         vector.add(newInstance);
 
-        // Step 3: Serialize the Vector back into a JSON file
+        // Serialize the Vector back into a JSON file
         try {
             serializeJsonArray(vector, filePath);
         } catch (IOException e) {
