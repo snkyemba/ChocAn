@@ -12,22 +12,9 @@ public class ProviderController {
     List of Methods we need to implement:
     - verifyProvider
     - verifyMember
-    - addMember (Testing only) STARTED
-        - Needs to save member to file, create new file if it doesn't exist yet
-    - addProvider (Testing only) STARTED
-        - Needs to save provider to file, create new file if it doesn't exist yet
     - lookupServiceByCode
     - lookupServiceByName
     - listServices
-    - addService (testing only) STARTED
-        - Needs to save service to file, create new file if it doesn't exist yet
-    - addServiceRecord STARTED
-        - Needs to save service record to file, create new file if it doesn't exist yet
-     */
-
-    /*
-    I need a function that can read a JSON file and deserialize it into an array regardless of what type of object is in the file.
-    How can I do this?
      */
 
     // Method to create / add to file containing provider records
