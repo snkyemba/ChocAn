@@ -8,6 +8,66 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ProviderController {
+    private List<ProviderDirectory> providerList;
+    public boolean verifyProvider(int providerNumber) {
+        List<ProviderDirectory> providers = getProviderList();
+        for (ProviderDirectory provider : providers) {
+            if (provider.getProviderNumber() == providerNumber) {
+                return true; // Provider found
+            }
+        }
+        return false; // Provider not found
+    }
+    private List<ProviderDirectory> getProviderList() {
+        return providerList;
+    }
+    private List<MemberRecord> memberList;
+    public boolean verifyMember(int memberNumber) {
+        List<MemberRecord> members = getMemberList();
+        for (MemberRecord member : members) {
+            if (member.getMemberNumber() == memberNumber) {
+                return true; // Member found
+            }
+        }
+        return false; // Member not found
+    }
+    private List<MemberRecord> getMemberList() {
+        return memberList;
+    }
+    private List<ServiceRecord> serviceList;
+    public ServiceRecord lookupServiceByCode(int serviceCode) {
+        List<ServiceRecord> services = getServiceList();
+        for (ServiceRecord service : services) {
+            if (service.getServiceCode() == serviceCode) {
+                return service; // Service found
+            }
+        }
+        return null; // Service not found
+    }
+    private List<ServiceRecord> getServiceList() {
+        return serviceList;
+    }
+    private List<ServiceRecord> serviceList;
+    public ServiceRecord lookupServiceByName(String serviceName) {
+        List<ServiceRecord> services = getServiceList();
+        for (ServiceRecord service : services) {
+            if (service.getServiceName().equalsIgnoreCase(serviceName)) {
+                return service; // Service found
+            }
+        }
+        return null; // Service not found
+    }
+    private List<ServiceRecord> getServiceList() {
+        return serviceList;
+    }
+    private List<ServiceRecord> serviceList;
+    public List<ServiceRecord> listServices() {
+        List<ServiceRecord> services = getServiceList();
+        return services;
+    }
+    private List<ServiceRecord> getServiceList() {
+        return serviceList;
+    }
     /*
     List of Methods we need to implement:
     - verifyProvider
