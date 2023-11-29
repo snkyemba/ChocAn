@@ -4,7 +4,7 @@
 /**
  * 
  */
-module JavaProject4 {
+module gitRepositoryTeam6{
     requires java.desktop;
-	requires junit;
+//	requires junit;
 }
