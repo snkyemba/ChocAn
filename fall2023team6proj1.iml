@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/bin" />
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
+    <content url="file://$MODULE_DIR$/gitRepositoryTeam6">
       <sourceFolder url="file://$MODULE_DIR$/gitRepositoryTeam6/chocAnSystem/Tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/gitRepositoryTeam6/chocAnSystem/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gitRepositoryTeam6/chocAnSystem/ProgramFiles" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/gitRepositoryTeam6/chocAnSystem/TestFiles" type="java-test-resource" />
     </content>
     <orderEntry type="jdk" jdkName="20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" name="lib (2)" level="project" />
   </component>
 </module>

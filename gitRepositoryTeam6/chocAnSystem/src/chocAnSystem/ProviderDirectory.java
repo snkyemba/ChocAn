@@ -57,11 +57,9 @@ public class ProviderDirectory {
     public int getServiceCode() {
         return serviceCode;
     }
-
     public String getServiceName() {
         return serviceName;
     }
-
     public float getServiceFee() {
         return serviceFee;
     }
