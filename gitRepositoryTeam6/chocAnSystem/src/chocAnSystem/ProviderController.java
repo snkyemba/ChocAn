@@ -100,4 +100,21 @@ public class ProviderController {
         // Return empty Optional if service code is not found
         return Optional.empty();
     }
+
+    // Method to return vector of all service types
+    public Vector<ProviderDirectory> getServiceTypes(String filePath) {
+        // Create new Vector to hold service types
+        Vector<ProviderDirectory> serviceTypes = new Vector<>();
+
+        // Deserialize JSON file into Vector
+        try {
+            serviceTypes = GenericSerializer.deserializeJsonArray(filePath, ProviderDirectory.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exceptions or return from the method
+        }
+
+        // Return Vector
+        return serviceTypes;
+    }
 }
