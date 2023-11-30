@@ -7,8 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
-import java.io.OutputStream;
-import java.io.PrintStream;
 
 public class TerminalGUI extends JFrame {
     private JTextArea terminalOutput;
@@ -28,7 +26,7 @@ public class TerminalGUI extends JFrame {
         JButton managerButton = new JButton("Manager Terminal");
         JButton providerButton = new JButton("Provider Terminal");
         JButton operatorButton = new JButton("Operator Terminal");
-        ImageIcon emoji = new ImageIcon(getClass().getResource("NoEmoji.jpeg"));
+        ImageIcon emoji = new ImageIcon(getClass().getResource("chocAnSystem/NoEmoji.jpeg"));
         JLabel noEmoji = new JLabel(emoji);
         ImageIcon chocolatePic = new ImageIcon(getClass().getResource("Chocolate.jpeg"));
         JLabel chocolate = new JLabel(chocolatePic);
