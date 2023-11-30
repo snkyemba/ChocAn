@@ -1,8 +1,5 @@
 package chocAnSystem;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Vector;
 import java.util.Scanner;
 
@@ -10,13 +7,13 @@ public class MemberController {
     MemberRecord memberRecord = new MemberRecord();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
 
-    FileWriter memberFile;
+    BufferedWriter memberFile;
 
 
 
     {
         try {
-            memberFile = new FileWriter("memberFileAdd.txt");
+            memberFile = new BufferedWriter(new FileWriter("memberFileAdd.txt", true));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +77,7 @@ public class MemberController {
 
     }
 
-    public void memberToFile(FileWriter memberFile, MemberRecord memberRecord){
+    public void memberToFile(BufferedWriter memberFile, MemberRecord memberRecord){
         try {
             memberFile.write("name: " + memberRecord.getName() + "\n");
             memberFile.write("number: " + String.valueOf(memberRecord.getNumber())+ "\n");
@@ -88,7 +85,7 @@ public class MemberController {
             memberFile.write("city: " + memberRecord.getCity()+ "\n");
             memberFile.write("state: " + memberRecord.getState()+ "\n");
             memberFile.write("zip: " + String.valueOf(memberRecord.getZip())+ "\n");
-            memberFile.write("balance: " + String.valueOf(memberRecord.getBalance())+ "\n");
+            memberFile.write("balance: " + String.valueOf(memberRecord.getBalance())+ "\n\n");
             memberFile.close();
         } catch (Exception e) {
             System.out.println("Error writing to file");
