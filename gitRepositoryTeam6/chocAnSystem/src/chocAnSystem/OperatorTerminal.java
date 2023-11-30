@@ -8,7 +8,10 @@ public class OperatorTerminal {
     static Scanner scanner = new Scanner(System.in);
     static Vector<Integer> listID = new Vector<>();
 
-    private bool isOperator = false;
+    private static MemberController memberController = new MemberController();
+
+    static boolean isOperator = false;
+    static boolean viewMain = true;
 
     static{
         listID.add(123456789);
@@ -19,7 +22,26 @@ public class OperatorTerminal {
     }
 
 
-    public void manageMemberRecords(){
+    public static void manageMemberRecords(){
+        System.out.println("What would you like to do?");
+        System.out.println("1. Add Member");
+        System.out.println("2. Update Member");
+        System.out.println("3. Delete Member");
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch(choice){
+            case 1:
+                memberController.addMember();
+                break;
+            case 2:
+                memberController.updateMember();
+                break;
+            case 3:
+                memberController.deleteMember();
+                break;
+            default:
+                System.out.println("Invalid choice, please try again");
+                break;
+        }
 
 
     }
@@ -30,13 +52,15 @@ public class OperatorTerminal {
 
     }
     public void viewMainMenu(){
-
+        viewMain = true;
     }
+
 
     public static boolean checkID(int testID){
         return listID.contains(testID);
     }
     public static void main(String[] args){
+
         int testOpID;
         int tries = 3;
         while(tries > 0 && !isOperator){
@@ -62,7 +86,7 @@ public class OperatorTerminal {
                 tries--;
             }
         }
-        if(isOperator){
+        if(isOperator && viewMain){
             System.out.println("What would you like to do?");
             System.out.println("1. Manage Member Records");
             System.out.println("2. Manage Provider Records");
@@ -72,15 +96,18 @@ public class OperatorTerminal {
             switch(choice){
                 case 1:
                     manageMemberRecords();
+                    viewMain = false;
                     break;
                 case 2:
-                    manageProviderRecords();
+                    //manageProviderRecords();
+                    viewMain = false;
                     break;
                 case 3:
-                    backupData();
+                    //backupData();
+                    viewMain = false;
                     break;
                 case 4:
-                    viewMainMenu();
+                    viewMain = true;
                     break;
                 default:
                     System.out.println("Invalid choice, please try again");
