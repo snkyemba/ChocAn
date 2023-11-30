@@ -26,7 +26,7 @@ public class TerminalGUI extends JFrame {
         JButton managerButton = new JButton("Manager Terminal");
         JButton providerButton = new JButton("Provider Terminal");
         JButton operatorButton = new JButton("Operator Terminal");
-        ImageIcon emoji = new ImageIcon(getClass().getResource("chocAnSystem/NoEmoji.jpeg"));
+        ImageIcon emoji = new ImageIcon(getClass().getResource("NoEmoji.jpeg"));
         JLabel noEmoji = new JLabel(emoji);
         ImageIcon chocolatePic = new ImageIcon(getClass().getResource("Chocolate.jpeg"));
         JLabel chocolate = new JLabel(chocolatePic);
@@ -106,8 +106,9 @@ public class TerminalGUI extends JFrame {
 
     private void openManagerTerminal() {
 
-        ManagerTerminal mTerminal = new ManagerTerminal();
-        mTerminal.startManagerTerminal();
+//        ManagerTerminal mTerminal = new ManagerTerminal();
+//        mTerminal.startManagerTerminal();
+        JOptionPane.showMessageDialog(this, "Manager Provider Terminal");
     }
 
     private void openProviderTerminal() {
