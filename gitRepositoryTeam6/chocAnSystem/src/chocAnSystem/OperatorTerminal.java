@@ -21,26 +21,51 @@ public class OperatorTerminal {
 
     }
 
-
-    public static void manageMemberRecords(){
+    private static void viewMainMemberMenu(){
         System.out.println("What would you like to do?");
         System.out.println("1. Add Member");
         System.out.println("2. Update Member");
         System.out.println("3. Delete Member");
-        int choice = Integer.parseInt(scanner.nextLine());
-        switch(choice){
-            case 1:
-                memberController.addMember();
-                break;
-            case 2:
-                memberController.updateMember();
-                break;
-            case 3:
-                memberController.deleteMember();
-                break;
-            default:
-                System.out.println("Invalid choice, please try again");
-                break;
+        System.out.println("4. Exit");
+    }
+    private static void viewMainOperatorMenu(){
+        System.out.println("What would you like to do?");
+        System.out.println("1. Manage Member Records");
+        System.out.println("2. Manage Provider Records");
+        //System.out.println("3. Backup Data");
+        System.out.println("3. Exit");
+    }
+    private static int getMenuChoiceOperator() {
+        viewMainOperatorMenu();
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+    private static int getMenuChoiceMember() {
+        viewMainMemberMenu();
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
+    public static void manageMemberRecords(){
+        int choice = 0;
+        while (choice != 4) {
+            switch (choice = getMenuChoiceMember()) {
+                case 1:
+                    memberController.addMember();
+                    break;
+                case 2:
+                    memberController.updateMember();
+                    break;
+                case 3:
+                    memberController.deleteMember();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again");
+                    break;
+            }
         }
 
 
@@ -87,31 +112,25 @@ public class OperatorTerminal {
             }
         }
         if(isOperator && viewMain){
-            System.out.println("What would you like to do?");
-            System.out.println("1. Manage Member Records");
-            System.out.println("2. Manage Provider Records");
-            System.out.println("3. Backup Data");
-            System.out.println("4. View Main Menu");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch(choice){
-                case 1:
-                    manageMemberRecords();
-                    viewMain = false;
-                    break;
-                case 2:
-                    //manageProviderRecords();
-                    viewMain = false;
-                    break;
-                case 3:
-                    //backupData();
-                    viewMain = false;
-                    break;
-                case 4:
-                    viewMain = true;
-                    break;
-                default:
-                    System.out.println("Invalid choice, please try again");
-                    break;
+
+            int choice = 0;
+            while(choice != 3) {
+                switch (choice = getMenuChoiceOperator()) {
+                    case 1:
+                        manageMemberRecords();
+                        viewMain = false;
+                        break;
+                    case 2:
+                        //manageProviderRecords();
+                        viewMain = false;
+                        break;
+                    case 3:
+                        System.out.println("Exiting...");
+                        break;
+                    default:
+                        System.out.println("Invalid choice, please try again");
+                        break;
+                }
             }
         }
         else{
