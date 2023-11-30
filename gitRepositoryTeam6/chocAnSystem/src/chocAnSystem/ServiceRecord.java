@@ -1,15 +1,20 @@
 package chocAnSystem;
 
-import java.util.Date;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+// This class for Service Record entries is by Walter Mink
 public class ServiceRecord {
+    // Class Attributes. Current date should be in the format MM-dd-yyyy HH:mm:ss
     private String currentDate;
+    // Service date should be in the format MM-dd-yyyy
     private String serviceDate;
+    // Provider number and Member number should be 9 digits
     private int providerNumber;
     private int memberNumber;
+    // Service code should be 6 digits
     private int serviceCode;
+    // Comments should be no more than 100 characters
     private String comments;
 
     // Basic class constructor for creating new instances of the class
@@ -91,6 +96,7 @@ public class ServiceRecord {
         return gson.toJson(this);
     }
 
+    // Value getters
     public String getCurrentDate() {
         return currentDate;
     }

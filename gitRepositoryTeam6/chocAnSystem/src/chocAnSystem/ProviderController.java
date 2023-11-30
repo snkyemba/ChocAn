@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.io.IOException;
 import java.util.Optional;
 
+// This Provider Controller Class is by Walter Mink and Rayshaun Dunkin
 public class ProviderController {
     // Method to create / add to file containing provider records
     public void saveServiceType(int code, String name, float fee, String filePath) {

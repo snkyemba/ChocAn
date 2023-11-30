@@ -1,9 +1,7 @@
 package chocAnSystem;
 import com.google.gson.Gson;
 
-/*
-Class for entries in a Provider Directory that has elements for a service code, service name, and service fee.
- */
+// This class for Provider Directory entries is by Walter Mink
 public class ProviderDirectory {
     // Class Attributes. Service code should be 6 digits and service name should be no more than 20 characters
     private int serviceCode;

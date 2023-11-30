@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Vector;
 
+// This class for generic JSON serialization and deserialization is by Walter Mink
 public class GenericSerializer {
     // Generic function for deserializing a JSON file into a Vector of classType objects
     public static <T> Vector<T> deserializeJsonArray(String filePath, Class<T> classType) throws IOException {
+        // Create a Gson instance
         Gson gson = new Gson();
+        // Create a Vector to hold the objects
         Vector<T> vector;
 
         // Use try-with-resources for automatic resource management
@@ -47,12 +50,14 @@ public class GenericSerializer {
 
     // Generic function for processing a JSON file
     public static <T> void processJsonFile(String filePath, T newInstance) {
+        // Create a Vector to hold the objects
         Vector<T> vector = new Vector<>();
+        // Create a File object
         File file = new File(filePath);
 
         // Check if the file exists
         if (file.exists()) {
-            // Step 1: Deserialize the existing JSON file into a Vector of objects
+            // Deserialize the existing JSON file into a Vector of objects
             try {
                 vector = deserializeJsonArray(filePath, (Class<T>) newInstance.getClass());
             } catch (IOException e) {
