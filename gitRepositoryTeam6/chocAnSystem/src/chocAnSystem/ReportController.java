@@ -1,7 +1,5 @@
 package chocAnSystem;
-import chocAnSystem.ProviderReport;
-import chocAnSystem.MemberReport;
-import chocAnSystem.ManagerReport;
+import chocAnSystem.Report;
 
 public class ReportController {
 
