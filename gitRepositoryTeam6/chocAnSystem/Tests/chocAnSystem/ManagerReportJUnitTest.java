@@ -1,7 +1,7 @@
 package chocAnSystem;
 //This is Evan's test for ManagerReport
 //Manager Report was created by Evan Childers
-/*import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 
 public class ManagerReportJUnitTest {
@@ -21,4 +21,4 @@ public class ManagerReportJUnitTest {
         assertEquals(managerReport.totalNumConsults, 1);
         assertEquals(managerReport.totalFee, 1, 0.001);
     }
-}*/
+}

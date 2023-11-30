@@ -3,7 +3,7 @@ import java.util.Vector;
 //Provider Report Class created by EvanChilders
 import java.util.*;
 import java.util.Date;
-
+//Provider Report class by EvanChilders
 public class ProviderReport {
 	String name;
 	int number;

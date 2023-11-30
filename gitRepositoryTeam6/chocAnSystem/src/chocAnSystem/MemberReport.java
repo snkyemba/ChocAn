@@ -24,6 +24,9 @@ public class MemberReport {
 	public void addService(MemberReportService newService) {
 		serviceList.add(newService);
 	}
+	public Vector<MemberReportService> getServiceList(){
+		return serviceList;
+	}
 	
 	
 	public void toFile() {

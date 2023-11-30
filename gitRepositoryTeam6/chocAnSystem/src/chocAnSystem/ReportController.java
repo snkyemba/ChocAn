@@ -21,7 +21,7 @@ public class ReportController {
     	cal.set(Calendar.YEAR, 1988);
     	cal.set(Calendar.MONTH, Calendar.JANUARY);
     	cal.set(Calendar.DAY_OF_MONTH, 1);
-    	Date myDate = cal.getTime();
+    	String myDate = "01/01/1988";
     	MemberReportService myService = new MemberReportService(myDate, "Provider1", "Service1");
         memberReport.addService(myService);
         System.out.println("generate member report here");
@@ -39,7 +39,7 @@ public class ReportController {
     	cal.set(Calendar.YEAR, 1988);
     	cal.set(Calendar.MONTH, Calendar.JANUARY);
     	cal.set(Calendar.DAY_OF_MONTH, 1);
-    	Date myDate = cal.getTime();
+        String myDate = "01/01/1988";
         providerReport.addService(new ProviderReportService(myDate, "Provider1", "Service1", 50.0));
         System.out.println("generate provider report here");
     }

@@ -3,12 +3,12 @@ package chocAnSystem;
 import java.util.Date;
 
 class ProviderReportService{
-	private Date date = new Date();
+	private String date;
 	private String providerName;
 	private String serviceName;
 	private double fee;
 	
-	public ProviderReportService(Date date, String providerName, String serviceName, double fee) {
+	public ProviderReportService(String date, String providerName, String serviceName, double fee) {
 		this.date = date;
 		this.providerName = providerName;
 		this.serviceName = serviceName;
@@ -16,7 +16,7 @@ class ProviderReportService{
 		
 	}
 	//getter and setter methods
-	public Date getDate(){
+	public String getDate(){
 		return date;
 	}
 	public String getProviderName() {
@@ -28,7 +28,7 @@ class ProviderReportService{
 	public double getFee() {
 		return fee;
 	}
-	public void setDate(Date newDate) {
+	public void setDate(String newDate) {
 		date = newDate;
 	}
 	public void setProviderName(String newProviderName) {
