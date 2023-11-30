@@ -9,7 +9,7 @@ public class MemberRecord extends RosterRecord {
         this.balance = balance;
     }
     public MemberRecord(){
-        super("",0,"","","",0);
+        super("",1234567891,"","","",12345);
         balance = 0;
     }
 

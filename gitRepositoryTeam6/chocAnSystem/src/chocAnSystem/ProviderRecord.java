@@ -9,7 +9,7 @@ public class ProviderRecord extends RosterRecord {
         this.fee = fee;
     }
     public ProviderRecord(){
-        super("",0,"","","",0);
+        super("",1234567891,"","","",12345);
         fee = 0;
 
     }
