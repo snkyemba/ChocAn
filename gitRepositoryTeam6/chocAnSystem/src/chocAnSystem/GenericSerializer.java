@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class GenericSerializer {
     // Generic function for deserializing a JSON file into a Vector of classType objects
-    private static <T> Vector<T> deserializeJsonArray(String filePath, Class<T> classType) throws IOException {
+    public static <T> Vector<T> deserializeJsonArray(String filePath, Class<T> classType) throws IOException {
         Gson gson = new Gson();
         Vector<T> vector;
 
