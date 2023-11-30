@@ -108,8 +108,9 @@ public class TerminalGUI extends JFrame {
 
     private void openManagerTerminal() {
 
-        ManagerTerminal mTerminal = new ManagerTerminal();
-        mTerminal.startManagerTerminal();
+//        ManagerTerminal mTerminal = new ManagerTerminal();
+//        mTerminal.startManagerTerminal();
+        JOptionPane.showMessageDialog(this, "Manager Provider Terminal");
     }
 
     private void openProviderTerminal() {
