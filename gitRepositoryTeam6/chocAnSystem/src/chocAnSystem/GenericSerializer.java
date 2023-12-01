@@ -28,7 +28,7 @@ public class GenericSerializer {
     }
 
     // Generic function for serializing a Vector of classType objects into a JSON file
-    private static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
+    public static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
         // Create a Gson instance
         Gson gson = new Gson();
 

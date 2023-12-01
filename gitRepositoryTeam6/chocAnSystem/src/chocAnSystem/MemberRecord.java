@@ -4,7 +4,7 @@ public class MemberRecord extends RosterRecord {
     private double balance;
 
     // Constructor
-    public MemberRecord(String name, int number, String address, String city, String state, int zip, double balance) {
+    public MemberRecord(String name, long number, String address, String city, String state, int zip, double balance) {
         super(name, number, address, city, state, zip);
         this.balance = balance;
     }
@@ -17,6 +17,10 @@ public class MemberRecord extends RosterRecord {
 
     public void manageBalance(double amount) {
         this.balance += amount;
+    }
+
+    public void setBalance(double amount) {
+        this.balance = amount;
     }
 
     // Getter

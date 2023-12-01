@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MemberController {
     MemberRecord memberRecord = new MemberRecord();
+    Vector<MemberRecord> memberRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
 
 
@@ -37,14 +38,80 @@ public class MemberController {
     }
 
     public void updateMember(){
+        System.out.println("Enter member name to change: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter aspect to change: ");
+        String aspect = scanner.nextLine();
+        System.out.println("Enter new value: ");
+        String newValue = scanner.nextLine();
+        //search the json file for the name
+        try{
+            memberRecordVector = GenericSerializer.deserializeJsonArray("memberFile.json", MemberRecord.class);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < memberRecordVector.size(); i++){
+            if (memberRecordVector.get(i).getName().equals(name)){
+                if (aspect.equals("name")){
+                    memberRecord = new MemberRecord(newValue, memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
 
+                }
+                else if (aspect.equals("number")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), Integer.parseInt(newValue), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("address")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), newValue, memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
 
+                }
+                else if (aspect.equals("city")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), newValue, memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("state")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), newValue, memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("zip")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), Integer.parseInt(newValue), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("balance")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), Double.parseDouble(newValue));
+                }
+                else{
+                    System.out.println("Invalid aspect");
+                }
+                memberRecordVector.set(i, memberRecord);
+            }
+        }
 
+        try {
+            GenericSerializer.serializeJsonArray(memberRecordVector,"memberFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Member updated successfully");
 
     }
 
 
     public void deleteMember(){
+        System.out.println("Enter member name to delete: ");
+        String name = scanner.nextLine();
+        //search the json file for the name
+        try{
+            memberRecordVector = GenericSerializer.deserializeJsonArray("memberFile.json", MemberRecord.class);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < memberRecordVector.size(); i++){
+            if (memberRecordVector.get(i).getName().equals(name)){
+                memberRecordVector.remove(i);
+            }
+        }
+        try {
+            GenericSerializer.serializeJsonArray(memberRecordVector,"memberFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Member deleted successfully");
 
     }
 
