@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class TerminalGUI extends JFrame {
     private JTextArea terminalOutput;
+    MemberController memberController = new MemberController();
     ManagerTerminal mTerminal = new ManagerTerminal();
     ProviderTerminal pTerminal = new ProviderTerminal();
     OperatorTerminal oTerminal = new OperatorTerminal();
@@ -40,7 +41,7 @@ public class TerminalGUI extends JFrame {
         managerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                runParallelMethods();
+                openManagerMethod();
             }
         });
 
@@ -161,15 +162,16 @@ public class TerminalGUI extends JFrame {
                     JButton memberReportButton = new JButton("Member Report");
                     JButton providerReportButton = new JButton("Provider Report");
                     JButton managerReportButton = new JButton("Manager Report");
-
+                    JButton viewMainMenu = new JButton("View Main Menu");
                     // Set layout manager for the new JFrame
                     welcomeFrame.setLayout(new GridLayout(4, 1));
 
                     // Add components to the new JFrame
-                    welcomeFrame.add(welcomeLabel);
                     welcomeFrame.add(memberReportButton);
                     welcomeFrame.add(providerReportButton);
                     welcomeFrame.add(managerReportButton);
+                    welcomeFrame.add(viewMainMenu);
+
 
                     // Add ActionListener to the buttons (you will implement the actions)
                     memberReportButton.addActionListener(new ActionListener() {
@@ -190,6 +192,12 @@ public class TerminalGUI extends JFrame {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             mTerminal.requestReport();
+                        }
+                    });
+                    viewMainMenu.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            welcomeFrame.setVisible(false);
                         }
                     });
 
@@ -216,19 +224,10 @@ public class TerminalGUI extends JFrame {
 
         managerTerminalFrame.setVisible(true);
     }
-    private void startManagerTerminal() {
-      mTerminal.startManagerTerminal();
-    }
 
-    public void runParallelMethods() {
+    public void openManagerMethod() {
         // Create a thread for openManagerTerminal
         Thread openManagerThread = new Thread(() -> openManagerTerminal());
-
-//         Create a thread for startManagerTerminal
-//        Thread startManagerThread = new Thread(() -> {
-//            // Run startManagerTerminal asynchronously
-//            new Thread(() -> startManagerTerminal()).start();
-//        });
 
         // Start both threads
         openManagerThread.start();
@@ -248,8 +247,253 @@ public class TerminalGUI extends JFrame {
     }
 
     private void openOperatorTerminal() {
-        // Add logic to open Operator Terminal
-        JOptionPane.showMessageDialog(this, "Opening Operator Terminal");
+        JFrame operatorTerminalFrame = new JFrame("Operator Terminal");
+        operatorTerminalFrame.setSize(400, 200);
+        operatorTerminalFrame.setLocationRelativeTo(this);
+        operatorTerminalFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Create components for the JFrame
+        JLabel welcomeLabel = new JLabel("Welcome to Operator Terminal.");
+        JLabel idLabel = new JLabel("Enter your 9-digit operator ID:");
+        JTextField idTextField = new JTextField();
+        JButton submitButton = new JButton("Submit");
+
+        // Set layout manager for the JFrame
+        operatorTerminalFrame.setLayout(new GridLayout(4, 1));
+
+        // Add components to the JFrame
+        operatorTerminalFrame.add(welcomeLabel);
+        operatorTerminalFrame.add(idLabel);
+        operatorTerminalFrame.add(idTextField);
+        operatorTerminalFrame.add(submitButton);
+
+        // Add ActionListener to the Submit button
+        submitButton.addActionListener(new ActionListener() {
+            private int attempts = 0;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Check if the user has exceeded the maximum number of attempts
+                if (attempts >= 5) {
+                    JOptionPane.showMessageDialog(operatorTerminalFrame,
+                            "You have exceeded the maximum number of attempts.",
+                            "Max Attempts Exceeded", JOptionPane.ERROR_MESSAGE);
+                    operatorTerminalFrame.dispose();
+                    return;
+                }
+
+                // Get the entered manager ID
+                String operatorID = idTextField.getText();
+
+                // Check the validity of the manager ID (customize as needed)
+                if (oTerminal.checkID(Integer.parseInt(operatorID))) {
+                    // If valid, create a new window
+                    JFrame welcomeFrame = new JFrame("Welcome to the Operator Terminal!");
+                    welcomeFrame.setSize(400, 200);
+                    welcomeFrame.setLocationRelativeTo(operatorTerminalFrame);
+                    welcomeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                    // Create components for the new JFrame
+                    JLabel welcomeLabel = new JLabel("What would you like to do?");
+                    JButton manageMemberButton = new JButton("Manage Member Records");
+                    JButton manageProviderButton = new JButton("Manage Provider Records");
+                    JButton backUpDataButton = new JButton("Backup Data");
+                    JButton viewMainMenu = new JButton("View Main Menu");
+                    // Set layout manager for the new JFrame
+                    welcomeFrame.setLayout(new GridLayout(4, 1));
+
+                    // Add components to the new JFrame
+                    welcomeFrame.add(manageMemberButton);
+                    welcomeFrame.add(manageProviderButton);
+                    welcomeFrame.add(backUpDataButton);
+                    welcomeFrame.add(viewMainMenu);
+
+                    // Add ActionListener to the buttons (you will implement the actions)
+                    manageMemberButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // Open a new JFrame for managing member records
+                            JFrame manageMembersFrame = new JFrame("Manage Members");
+                            manageMembersFrame.setSize(400, 200);
+                            manageMembersFrame.setLocationRelativeTo(operatorTerminalFrame);
+                            manageMembersFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                            // Create components for the new JFrame
+                            JLabel promptLabel = new JLabel("What would you like to do?");
+                            JButton addMemberButton = new JButton("Add Member");
+                            JButton updateMemberButton = new JButton("Update Member");
+                            JButton deleteMemberButton = new JButton("Delete Member");
+
+                            // Set layout manager for the new JFrame
+                            manageMembersFrame.setLayout(new GridLayout(4, 1));
+
+                            // Add components to the new JFrame
+                            manageMembersFrame.add(promptLabel);
+                            manageMembersFrame.add(addMemberButton);
+                            manageMembersFrame.add(updateMemberButton);
+                            manageMembersFrame.add(deleteMemberButton);
+
+                            // Add ActionListeners to the buttons (you will implement the actions)
+                            addMemberButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Open a new JFrame for adding a member
+                                    JFrame addMemberFrame = new JFrame("Add Member");
+                                    addMemberFrame.setSize(400, 300);
+                                    addMemberFrame.setLocationRelativeTo(manageMembersFrame);
+                                    addMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                    // Create components for the new JFrame
+                                    JLabel nameLabel = new JLabel("Member's Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    JLabel numberLabel = new JLabel("Member's Number:");
+                                    JTextField numberTextField = new JTextField();
+
+                                    JLabel addressLabel = new JLabel("Member's Address:");
+                                    JTextField addressTextField = new JTextField();
+
+                                    JLabel cityLabel = new JLabel("Member's City:");
+                                    JTextField cityTextField = new JTextField();
+
+                                    JLabel stateLabel = new JLabel("Member's State:");
+                                    JTextField stateTextField = new JTextField();
+
+                                    JLabel zipLabel = new JLabel("Member's ZIP:");
+                                    JTextField zipTextField = new JTextField();
+
+                                    JLabel balanceLabel = new JLabel("Member's Balance:");
+                                    JTextField balanceTextField = new JTextField();
+
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Set layout manager for the new JFrame
+                                    addMemberFrame.setLayout(new GridLayout(8, 2));
+
+                                    // Add components to the new JFrame
+                                    addMemberFrame.add(nameLabel);
+                                    addMemberFrame.add(nameTextField);
+
+                                    addMemberFrame.add(numberLabel);
+                                    addMemberFrame.add(numberTextField);
+
+                                    addMemberFrame.add(addressLabel);
+                                    addMemberFrame.add(addressTextField);
+
+                                    addMemberFrame.add(cityLabel);
+                                    addMemberFrame.add(cityTextField);
+
+                                    addMemberFrame.add(stateLabel);
+                                    addMemberFrame.add(stateTextField);
+
+                                    addMemberFrame.add(zipLabel);
+                                    addMemberFrame.add(zipTextField);
+
+                                    addMemberFrame.add(balanceLabel);
+                                    addMemberFrame.add(balanceTextField);
+
+                                    addMemberFrame.add(new JLabel()); // Placeholder for better layout
+                                    addMemberFrame.add(submitButton);
+
+                                    // Add ActionListener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Retrieve entered values
+                                            String name = nameTextField.getText();
+                                            int number = Integer.parseInt(numberTextField.getText());
+                                            if (Integer.toString(number).length() != 10) {
+                                                JOptionPane.showMessageDialog(addMemberFrame, "Member Number must be 10 digits");
+                                                throw new IllegalArgumentException("Member number must be 10 digits");
+                                            }
+                                            String address = addressTextField.getText();
+                                            String city = cityTextField.getText();
+                                            String state = stateTextField.getText();
+                                            int zip = Integer.parseInt(zipTextField.getText());
+                                            if (Integer.toString(zip).length() != 5) {
+                                                JOptionPane.showMessageDialog(addMemberFrame, "ZIP must be 5 digits");
+                                                throw new IllegalArgumentException("ZIP must be 5 digits");
+                                            }
+                                            double balance = Double.parseDouble(balanceTextField.getText());
+
+                                            // Use the retrieved values as needed (you can pass them to your memberController)
+                                            // For now, just display them in a message
+                                            JOptionPane.showMessageDialog(manageMemberButton, "Added Member!");
+                                           memberController.addMember(name, number, address, city, state, zip, balance);
+
+                                            // Optionally, perform additional actions with the entered values
+
+                                            // Close the addMemberFrame
+                                            addMemberFrame.dispose();
+                                        }
+                                    });
+
+                                    // Show the new window
+                                    addMemberFrame.setVisible(true);
+                                }
+                            });
+
+                            updateMemberButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Implement logic for updating a member
+                                    JOptionPane.showMessageDialog(manageMembersFrame, "Update Member functionality to be implemented.");
+                                }
+                            });
+
+                            deleteMemberButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Implement logic for deleting a member
+                                    JOptionPane.showMessageDialog(manageMembersFrame, "Delete Member functionality to be implemented.");
+                                }
+                            });
+                            // Show the new window
+                            manageMembersFrame.setVisible(true);
+                        }
+                    });
+
+                    manageProviderButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            oTerminal.manageProviderRecords();
+                        }
+                    });
+
+                    backUpDataButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            oTerminal.backupData();
+                        }
+                    });
+                    viewMainMenu.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            welcomeFrame.setVisible(false);
+                        }
+                    });
+
+                    // Show the new window
+                    welcomeFrame.setVisible(true);
+
+                    // Close the Manager Terminal window
+                    operatorTerminalFrame.dispose();
+                } else {
+                    // If invalid, show a message or prompt for re-input
+                    JOptionPane.showMessageDialog(operatorTerminalFrame,
+                            "Invalid manager ID. Please enter a valid 9-digit ID. " + (5 - attempts) + " attempts left",
+                            "Invalid ID", JOptionPane.ERROR_MESSAGE);
+
+                    // Optionally clear the input field for re-entry
+                    idTextField.setText("");
+
+                    // Increment the attempts counter
+                    attempts++;
+                }
+            }
+        });
+
+        operatorTerminalFrame.setVisible(true);
     }
 
     public static void main(String[] args) {

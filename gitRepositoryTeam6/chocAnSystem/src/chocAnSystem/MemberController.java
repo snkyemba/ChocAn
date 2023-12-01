@@ -49,6 +49,11 @@ public class MemberController {
         System.out.println("Member added successfully");
         operatorTerminal.viewMainMenu();
     }
+    public void addMember(String name, int number, String address, String city, String state, int zip, double balance) {
+        memberRecord = new MemberRecord(name, number, address, city, state, zip, balance);
+        memberToFile(memberFile, memberRecord);
+
+    }
 
     public void updateMember(){
 
