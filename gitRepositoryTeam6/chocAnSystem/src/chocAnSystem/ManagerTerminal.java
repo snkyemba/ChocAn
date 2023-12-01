@@ -1,13 +1,14 @@
 package chocAnSystem;
 import java.util.Scanner;
-
 import java.util.Vector;
+
 /** This class is by Sophia Kyemba. */
 public class ManagerTerminal {
 
     private Scanner sc;
     private Vector<Integer> managerIDs;
     private ReportController reportController;
+    private int intInput;
 
     public ManagerTerminal() {
         this.sc = new Scanner(System.in);
@@ -16,21 +17,25 @@ public class ManagerTerminal {
         this.managerIDs.add(987654321);
         this.reportController = new ReportController();
     }
+    public void giveInput(String input){
+        intInput = Integer.parseInt(input);
+    }
+    public Vector<Integer> getManagerIDs() {
+        return managerIDs;
+    }
 	public static void main(String[] args) {
 		ManagerTerminal managerTerminal = new ManagerTerminal();
 		managerTerminal.startManagerTerminal();
-
 	}
     public void startManagerTerminal() {
-        int tries = 5;
-
+//        int tries = 5;
         System.out.println("Welcome to Manager Terminal. \nEnter your 9-digit manager ID:");
-        int ID = sc.nextInt();
-        while (!(managerIDs.contains(ID)) && tries > 0) {
-            System.out.println("Invalid ID. Remaining attempts: " + tries);
-            ID = sc.nextInt();
-            tries--;
-        }
+        int ID = intInput;
+//        while (!(managerIDs.contains(ID)) && tries > 0) {
+//            System.out.println("Invalid ID. Remaining attempts: " + tries);
+//            ID = intInput;
+//            tries--;
+//        }
         if (managerIDs.contains(ID)) {
             System.out.println("Welcome manager! Which report would you like to request?");
             System.out.println("Enter 1 for Member Report, 2 for Provider Report, "
