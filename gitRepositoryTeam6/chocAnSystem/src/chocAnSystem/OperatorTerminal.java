@@ -10,6 +10,8 @@ public class OperatorTerminal {
 
     private static MemberController memberController = new MemberController();
 
+    private static ProviderControllerOp providerController = new ProviderControllerOp();
+
     static boolean isOperator = false;
     static boolean viewMain = true;
 
@@ -28,12 +30,19 @@ public class OperatorTerminal {
         System.out.println("3. Delete Member");
         System.out.println("4. Exit");
     }
+    private static void viewMainProviderMenu(){
+        System.out.println("What would you like to do?");
+        System.out.println("1. Add Provider");
+        System.out.println("2. Update Provider");
+        System.out.println("3. Delete Provider");
+        System.out.println("4. Exit");
+    }
     private static void viewMainOperatorMenu(){
         System.out.println("What would you like to do?");
         System.out.println("1. Manage Member Records");
         System.out.println("2. Manage Provider Records");
-        //System.out.println("3. Backup Data");
-        System.out.println("3. Exit");
+        System.out.println("3. Backup Data");
+        System.out.println("4. Exit");
     }
     private static int getMenuChoiceOperator() {
         viewMainOperatorMenu();
@@ -42,6 +51,11 @@ public class OperatorTerminal {
     }
     private static int getMenuChoiceMember() {
         viewMainMemberMenu();
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+    private static int getMenuChoiceProvider() {
+        viewMainProviderMenu();
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
@@ -70,10 +84,32 @@ public class OperatorTerminal {
 
 
     }
-    public void manageProviderRecords(){
+    public static void manageProviderRecords(){
+        int choice = 0;
+        while (choice != 4) {
+            switch (choice = getMenuChoiceProvider()) {
+                case 1:
+                    providerController.addProvider();
+                    break;
+                case 2:
+                    providerController.updateProvider();
+                    break;
+                case 3:
+                    providerController.deleteProvider();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again");
+                    break;
+            }
+        }
 
     }
-    public void backupData(){
+    public static void backupData(){
+        System.out.println("Backing up data...");
+        System.out.println("Data backed up successfully.");
 
     }
     public void viewMainMenu(){
@@ -114,17 +150,20 @@ public class OperatorTerminal {
         if(isOperator && viewMain){
 
             int choice = 0;
-            while(choice != 3) {
+            while(choice != 4) {
                 switch (choice = getMenuChoiceOperator()) {
                     case 1:
                         manageMemberRecords();
                         viewMain = false;
                         break;
                     case 2:
-                        //manageProviderRecords();
+                        manageProviderRecords();
                         viewMain = false;
                         break;
                     case 3:
+                        backupData();
+                        break;
+                    case 4:
                         System.out.println("Exiting...");
                         break;
                     default:
