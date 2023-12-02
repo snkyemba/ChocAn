@@ -421,6 +421,10 @@ public class TerminalGUI extends JFrame {
                                                 throw new IllegalArgumentException("ZIP must be 5 digits");
                                             }
                                             double balance = Double.parseDouble(balanceTextField.getText());
+                                            if (Double.isNaN(balance)) {
+                                                JOptionPane.showMessageDialog(addMemberFrame, "Balance must be a double");
+                                                throw new IllegalArgumentException("Balance must be a double");
+                                            }
 
                                             // Use the retrieved values as needed (you can pass them to your memberController)
                                             // For now, just display them in a message
@@ -684,6 +688,10 @@ public class TerminalGUI extends JFrame {
                                                 throw new IllegalArgumentException("ZIP must be 5 digits");
                                             }
                                             double balance = Double.parseDouble(balanceTextField.getText());
+                                            if(Double.isNaN(balance)){
+                                                JOptionPane.showMessageDialog(addProviderFrame, "Balance must be a double");
+                                                throw new IllegalArgumentException("Balance must be a double");
+                                            }
 
                                             // Use the retrieved values as needed (you can pass them to your memberController)
                                             // For now, just display them in a message

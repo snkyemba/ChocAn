@@ -38,6 +38,7 @@ public class ProviderControllerOp {
     }
     public void addProvider(String name, int number, String address, String city, String state, int zip, double fee) {
         providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
+        GenericSerializer.processJsonFile("providerFile.json", providerRecord);
     }
 
     public void updateProvider() {
