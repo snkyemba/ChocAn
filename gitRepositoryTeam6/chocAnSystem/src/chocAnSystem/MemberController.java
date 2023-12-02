@@ -38,8 +38,18 @@ public class MemberController {
     }
     public void addMember(String name, int number, String address, String city, String state, int zip, double balance) {
         memberRecord = new MemberRecord(name, number, address, city, state, zip, balance);
-        memberToFile(memberFile, memberRecord);
+        GenericSerializer.processJsonFile("memberFile.json", memberRecord);
+//        memberToFile(memberFile, memberRecord);
 
+    }
+    public MemberRecord getMemberRecord(String name){
+        MemberRecord record = new MemberRecord();
+        for (int i = 0; i < memberRecordVector.size(); i++) {
+            if (memberRecordVector.get(i).getName().equals(name)) {
+                record = memberRecordVector.get(i);
+            }
+        }
+        return record;
     }
 
     public void updateMember(){
@@ -95,11 +105,81 @@ public class MemberController {
         System.out.println("Member updated successfully");
 
     }
+    public void updateMember(String selectedName, String selectedAspect, String selectedNewValue){
+        String name = selectedName;
+        String aspect = selectedAspect;
+        String newValue = selectedNewValue;
+        //search the json file for the name
+        try{
+            memberRecordVector = GenericSerializer.deserializeJsonArray("memberFile.json", MemberRecord.class);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < memberRecordVector.size(); i++){
+            if (memberRecordVector.get(i).getName().equals(name)){
+                if (aspect.equals("name")){
+                    memberRecord = new MemberRecord(newValue, memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
 
+                }
+                else if (aspect.equals("number")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), Integer.parseInt(newValue), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("address")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), newValue, memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+
+                }
+                else if (aspect.equals("city")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), newValue, memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("state")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), newValue, memberRecordVector.get(i).getZip(), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("zip")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), Integer.parseInt(newValue), memberRecordVector.get(i).getBalance());
+                }
+                else if (aspect.equals("balance")){
+                    memberRecord = new MemberRecord(memberRecordVector.get(i).getName(), memberRecordVector.get(i).getNumber(), memberRecordVector.get(i).getAddress(), memberRecordVector.get(i).getCity(), memberRecordVector.get(i).getState(), memberRecordVector.get(i).getZip(), Double.parseDouble(newValue));
+                }
+                else{
+                    System.out.println("Invalid aspect");
+                }
+                memberRecordVector.set(i, memberRecord);
+            }
+        }
+
+        try {
+            GenericSerializer.serializeJsonArray(memberRecordVector,"memberFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Member updated successfully");
+
+    }
 
     public void deleteMember(){
         System.out.println("Enter member name to delete: ");
         String name = scanner.nextLine();
+        //search the json file for the name
+        try{
+            memberRecordVector = GenericSerializer.deserializeJsonArray("memberFile.json", MemberRecord.class);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < memberRecordVector.size(); i++){
+            if (memberRecordVector.get(i).getName().equals(name)){
+                memberRecordVector.remove(i);
+            }
+        }
+        try {
+            GenericSerializer.serializeJsonArray(memberRecordVector,"memberFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Member deleted successfully");
+
+    }
+    public void deleteMember(String memName){
+        String name = memName;
         //search the json file for the name
         try{
             memberRecordVector = GenericSerializer.deserializeJsonArray("memberFile.json", MemberRecord.class);

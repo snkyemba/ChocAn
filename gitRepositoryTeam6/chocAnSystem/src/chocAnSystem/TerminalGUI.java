@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class TerminalGUI extends JFrame {
     private JTextArea terminalOutput;
+    ProviderControllerOp providerController = new ProviderControllerOp();
     MemberController memberController = new MemberController();
     ManagerTerminal mTerminal = new ManagerTerminal();
     ProviderTerminal pTerminal = new ProviderTerminal();
@@ -177,6 +178,7 @@ public class TerminalGUI extends JFrame {
                     memberReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport();
                         }
                     });
@@ -184,6 +186,7 @@ public class TerminalGUI extends JFrame {
                     providerReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport();
                         }
                     });
@@ -191,6 +194,7 @@ public class TerminalGUI extends JFrame {
                     managerReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport();
                         }
                     });
@@ -323,15 +327,17 @@ public class TerminalGUI extends JFrame {
                             JButton addMemberButton = new JButton("Add Member");
                             JButton updateMemberButton = new JButton("Update Member");
                             JButton deleteMemberButton = new JButton("Delete Member");
+                            JButton exitButton = new JButton("Exit");
 
                             // Set layout manager for the new JFrame
-                            manageMembersFrame.setLayout(new GridLayout(4, 1));
+                            manageMembersFrame.setLayout(new GridLayout(5, 1));
 
                             // Add components to the new JFrame
                             manageMembersFrame.add(promptLabel);
                             manageMembersFrame.add(addMemberButton);
                             manageMembersFrame.add(updateMemberButton);
                             manageMembersFrame.add(deleteMemberButton);
+                            manageMembersFrame.add(exitButton);
 
                             // Add ActionListeners to the buttons (you will implement the actions)
                             addMemberButton.addActionListener(new ActionListener() {
@@ -418,8 +424,8 @@ public class TerminalGUI extends JFrame {
 
                                             // Use the retrieved values as needed (you can pass them to your memberController)
                                             // For now, just display them in a message
+                                            memberController.addMember(name, number, address, city, state, zip, balance);
                                             JOptionPane.showMessageDialog(manageMemberButton, "Added Member!");
-                                           memberController.addMember(name, number, address, city, state, zip, balance);
 
                                             // Optionally, perform additional actions with the entered values
 
@@ -436,16 +442,143 @@ public class TerminalGUI extends JFrame {
                             updateMemberButton.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    // Implement logic for updating a member
-                                    JOptionPane.showMessageDialog(manageMembersFrame, "Update Member functionality to be implemented.");
+                                    // Create a new JFrame
+                                    JFrame updateMemberFrame = new JFrame("Enter member's information");
+
+                                    // Set the layout manager for the frame
+                                    updateMemberFrame.setLayout(new GridBagLayout());
+
+                                    // Create labels and text fields
+                                    JLabel nameLabel = new JLabel("Member's Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    JLabel aspectLabel = new JLabel("Aspect to change:");
+                                    JTextField aspectTextField = new JTextField();
+
+                                    JLabel valueLabel = new JLabel("New Aspect Value:");
+                                    JTextField valueTextField = new JTextField();
+
+                                    // Create the Submit button
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Add action listener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the "Submit" button click event
+                                            // You can retrieve values from text fields and perform specific actions here
+
+                                            // For example, retrieve values from text fields
+                                            String memberName = nameTextField.getText();
+                                            String aspectToChange = aspectTextField.getText();
+                                            String newAspectValue = valueTextField.getText();
+
+                                            // Implement logic for updating a member with the entered information
+                                            // You can replace the following line with your actual implementation
+                                            memberController.updateMember(memberName, aspectToChange, newAspectValue);
+                                            JOptionPane.showMessageDialog(updateMemberFrame, "If the member exists, their information has been updated!");
+                                            // Close the updateMemberFrame after submitting
+                                            updateMemberFrame.dispose();
+                                        }
+                                    });
+
+                                    // Create a GridBagConstraints to make the "Submit" button span the entire width
+                                    GridBagConstraints gbc = new GridBagConstraints();
+                                    gbc.gridx = 0;
+                                    gbc.gridy = 3; // Row 3
+                                    gbc.gridwidth = 2; // Span 2 columns
+                                    gbc.fill = GridBagConstraints.HORIZONTAL; // Make the button expand horizontally
+
+                                    // Add labels and text fields to the frame with GridBagConstraints
+                                    updateMemberFrame.add(nameLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(nameTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(aspectLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(aspectTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(valueLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(valueTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(submitButton, gbc);
+
+                                    // Center the frame on the screen
+                                    updateMemberFrame.setLocationRelativeTo(null);
+
+                                    // Set frame properties
+                                    updateMemberFrame.setSize(400, 200);
+                                    updateMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    updateMemberFrame.setVisible(true);
                                 }
                             });
 
                             deleteMemberButton.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    // Implement logic for deleting a member
-                                    JOptionPane.showMessageDialog(manageMembersFrame, "Delete Member functionality to be implemented.");
+                                    // Create a new JFrame
+                                    JFrame deleteMemberFrame = new JFrame("What is the name of the member you would like to delete?");
+
+                                    // Set the layout manager for the frame
+                                    deleteMemberFrame.setLayout(new GridBagLayout());
+
+                                    // Create labels and text fields
+                                    JLabel nameLabel = new JLabel("Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    // Create the Submit button
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Add action listener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the "Submit" button click event
+                                            // You can retrieve values from text fields and perform specific actions here
+
+                                            // For example, retrieve the name from the text field
+                                            String memberNameToDelete = nameTextField.getText();
+                                            memberController.deleteMember(memberNameToDelete);
+                                            JOptionPane.showMessageDialog(deleteMemberFrame, "Deleted member " + memberNameToDelete + " if their file exists");
+
+                                            // Close the deleteMemberFrame after submitting
+                                            deleteMemberFrame.dispose();
+                                        }
+                                    });
+
+                                    // Create a GridBagConstraints to arrange components
+                                    GridBagConstraints gbc = new GridBagConstraints();
+                                    gbc.gridx = 0;
+                                    gbc.gridy = 0;
+                                    gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
+                                    gbc.anchor = GridBagConstraints.WEST; // Align components to the left
+
+                                    // Add labels and text fields to the frame with GridBagConstraints
+                                    deleteMemberFrame.add(nameLabel, gbc);
+                                    gbc.gridy++;
+                                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                                    deleteMemberFrame.add(nameTextField, gbc);
+                                    gbc.gridy++;
+                                    gbc.weightx = 1.0; // Make the submit button take up the entire width
+                                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                                    deleteMemberFrame.add(submitButton, gbc);
+
+                                    // Center the frame on the screen
+                                    deleteMemberFrame.setLocationRelativeTo(null);
+
+                                    // Set frame properties
+                                    deleteMemberFrame.setSize(300, 200);
+                                    deleteMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    deleteMemberFrame.setVisible(true);
+                                }
+
+                            });
+                            exitButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Handle the "Exit" button click event
+                                    manageMembersFrame.dispose(); // Close the options frame
                                 }
                             });
                             // Show the new window
@@ -456,14 +589,285 @@ public class TerminalGUI extends JFrame {
                     manageProviderButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            oTerminal.manageProviderRecords();
+                            // Create a new JFrame
+                            JFrame optionsFrame = new JFrame("Provider Records");
+
+                            // Set the layout manager for the frame
+                            optionsFrame.setLayout(new GridLayout(5, 1, 0, 0)); // 4 rows, 1 column, with zero gaps
+
+                            // Create buttons
+                            JLabel title = new JLabel("What would you like to do?");
+                            JButton addProviderButton = new JButton("Add Provider");
+                            JButton updateProviderButton = new JButton("Update Provider");
+                            JButton deleteProviderButton = new JButton("Delete Provider");
+                            JButton exitButton = new JButton("Exit");
+
+                            // Add action listeners to the buttons
+                            addProviderButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Open a new JFrame for adding a member
+                                    JFrame addProviderFrame = new JFrame("Add Provider");
+                                    addProviderFrame.setSize(400, 300);
+                                    addProviderFrame.setLocationRelativeTo(optionsFrame);
+                                    addProviderFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                    // Create components for the new JFrame
+                                    JLabel nameLabel = new JLabel("Provider's Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    JLabel numberLabel = new JLabel("Provider's Number:");
+                                    JTextField numberTextField = new JTextField();
+
+                                    JLabel addressLabel = new JLabel("Provider's Address:");
+                                    JTextField addressTextField = new JTextField();
+
+                                    JLabel cityLabel = new JLabel("Provider's City:");
+                                    JTextField cityTextField = new JTextField();
+
+                                    JLabel stateLabel = new JLabel("Provider's State:");
+                                    JTextField stateTextField = new JTextField();
+
+                                    JLabel zipLabel = new JLabel("Provider's ZIP:");
+                                    JTextField zipTextField = new JTextField();
+
+                                    JLabel balanceLabel = new JLabel("Provider's Balance:");
+                                    JTextField balanceTextField = new JTextField();
+
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Set layout manager for the new JFrame
+                                    addProviderFrame.setLayout(new GridLayout(8, 2));
+
+                                    // Add components to the new JFrame
+                                    addProviderFrame.add(nameLabel);
+                                    addProviderFrame.add(nameTextField);
+
+                                    addProviderFrame.add(numberLabel);
+                                    addProviderFrame.add(numberTextField);
+
+                                    addProviderFrame.add(addressLabel);
+                                    addProviderFrame.add(addressTextField);
+
+                                    addProviderFrame.add(cityLabel);
+                                    addProviderFrame.add(cityTextField);
+
+                                    addProviderFrame.add(stateLabel);
+                                    addProviderFrame.add(stateTextField);
+
+                                    addProviderFrame.add(zipLabel);
+                                    addProviderFrame.add(zipTextField);
+
+                                    addProviderFrame.add(balanceLabel);
+                                    addProviderFrame.add(balanceTextField);
+
+                                    addProviderFrame.add(new JLabel()); // Placeholder for better layout
+                                    addProviderFrame.add(submitButton);
+
+                                    // Add ActionListener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Retrieve entered values
+                                            String name = nameTextField.getText();
+                                            int number = Integer.parseInt(numberTextField.getText());
+                                            if (Integer.toString(number).length() != 10) {
+                                                JOptionPane.showMessageDialog(addProviderFrame, "Provider Number must be 10 digits");
+                                                throw new IllegalArgumentException("Provider number must be 10 digits");
+                                            }
+                                            String address = addressTextField.getText();
+                                            String city = cityTextField.getText();
+                                            String state = stateTextField.getText();
+                                            int zip = Integer.parseInt(zipTextField.getText());
+                                            if (Integer.toString(zip).length() != 5) {
+                                                JOptionPane.showMessageDialog(addProviderFrame, "ZIP must be 5 digits");
+                                                throw new IllegalArgumentException("ZIP must be 5 digits");
+                                            }
+                                            double balance = Double.parseDouble(balanceTextField.getText());
+
+                                            // Use the retrieved values as needed (you can pass them to your memberController)
+                                            // For now, just display them in a message
+                                            JOptionPane.showMessageDialog(manageMemberButton, "Added Provider!");
+                                            providerController.addProvider(name, number, address, city, state, zip, balance);
+
+                                            // Optionally, perform additional actions with the entered values
+
+                                            // Close the addMemberFrame
+                                            addProviderFrame.dispose();
+                                        }
+                                    });
+
+                                    // Show the new window
+                                    addProviderFrame.setVisible(true);
+                                }
+                            });
+
+                            updateProviderButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Create a new JFrame
+                                    JFrame updateMemberFrame = new JFrame("Enter provider's information");
+
+                                    // Set the layout manager for the frame
+                                    updateMemberFrame.setLayout(new GridBagLayout());
+
+                                    // Create labels and text fields
+                                    JLabel nameLabel = new JLabel("Provider's Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    JLabel aspectLabel = new JLabel("Aspect to change:");
+                                    JTextField aspectTextField = new JTextField();
+
+                                    JLabel valueLabel = new JLabel("New Aspect Value:");
+                                    JTextField valueTextField = new JTextField();
+
+                                    // Create the Submit button
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Add action listener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the "Submit" button click event
+                                            // You can retrieve values from text fields and perform specific actions here
+
+                                            // For example, retrieve values from text fields
+                                            String providerName = nameTextField.getText();
+                                            String aspectToChange = aspectTextField.getText();
+                                            String newAspectValue = valueTextField.getText();
+
+                                            // Implement logic for updating a member with the entered information
+                                            // You can replace the following line with your actual implementation
+                                            providerController.updateProvider(providerName, aspectToChange, newAspectValue);
+                                            JOptionPane.showMessageDialog(updateMemberFrame, "If the provider exists, their information has been updated!");
+                                            // Close the updateMemberFrame after submitting
+                                            updateMemberFrame.dispose();
+                                        }
+                                    });
+
+                                    // Create a GridBagConstraints to make the "Submit" button span the entire width
+                                    GridBagConstraints gbc = new GridBagConstraints();
+                                    gbc.gridx = 0;
+                                    gbc.gridy = 3; // Row 3
+                                    gbc.gridwidth = 2; // Span 2 columns
+                                    gbc.fill = GridBagConstraints.HORIZONTAL; // Make the button expand horizontally
+
+                                    // Add labels and text fields to the frame with GridBagConstraints
+                                    updateMemberFrame.add(nameLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(nameTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(aspectLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(aspectTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(valueLabel, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(valueTextField, gbc);
+                                    gbc.gridy++;
+                                    updateMemberFrame.add(submitButton, gbc);
+
+                                    // Center the frame on the screen
+                                    updateMemberFrame.setLocationRelativeTo(null);
+
+                                    // Set frame properties
+                                    updateMemberFrame.setSize(400, 200);
+                                    updateMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    updateMemberFrame.setVisible(true);
+                                }
+                            });
+
+                            deleteProviderButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Create a new JFrame
+                                    JFrame deleteMemberFrame = new JFrame("What is the name of the provider you would like to delete?");
+
+                                    // Set the layout manager for the frame
+                                    deleteMemberFrame.setLayout(new GridBagLayout());
+
+                                    // Create labels and text fields
+                                    JLabel nameLabel = new JLabel("Name:");
+                                    JTextField nameTextField = new JTextField();
+
+                                    // Create the Submit button
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Add action listener to the Submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the "Submit" button click event
+                                            // You can retrieve values from text fields and perform specific actions here
+
+                                            // For example, retrieve the name from the text field
+                                            String providerNameToDelete = nameTextField.getText();
+                                            providerController.deleteProvider(providerNameToDelete);
+                                            JOptionPane.showMessageDialog(deleteMemberFrame, "Deleted provider " + providerNameToDelete + " if their file exists");
+
+                                            // Close the deleteMemberFrame after submitting
+                                            deleteMemberFrame.dispose();
+                                        }
+                                    });
+
+                                    // Create a GridBagConstraints to arrange components
+                                    GridBagConstraints gbc = new GridBagConstraints();
+                                    gbc.gridx = 0;
+                                    gbc.gridy = 0;
+                                    gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
+                                    gbc.anchor = GridBagConstraints.WEST; // Align components to the left
+
+                                    // Add labels and text fields to the frame with GridBagConstraints
+                                    deleteMemberFrame.add(nameLabel, gbc);
+                                    gbc.gridy++;
+                                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                                    deleteMemberFrame.add(nameTextField, gbc);
+                                    gbc.gridy++;
+                                    gbc.weightx = 1.0; // Make the submit button take up the entire width
+                                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                                    deleteMemberFrame.add(submitButton, gbc);
+
+                                    // Center the frame on the screen
+                                    deleteMemberFrame.setLocationRelativeTo(null);
+
+                                    // Set frame properties
+                                    deleteMemberFrame.setSize(300, 200);
+                                    deleteMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    deleteMemberFrame.setVisible(true);
+                                }
+                            });
+
+                            exitButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Handle the "Exit" button click event
+                                    optionsFrame.dispose(); // Close the options frame
+                                }
+                            });
+
+                            // Add buttons to the frame
+                            optionsFrame.add(title);
+                            optionsFrame.add(addProviderButton);
+                            optionsFrame.add(updateProviderButton);
+                            optionsFrame.add(deleteProviderButton);
+                            optionsFrame.add(exitButton);
+
+                            // Center the frame on the screen
+                            optionsFrame.setLocationRelativeTo(null);
+
+                            // Set frame properties
+                            optionsFrame.setSize(300, 200);
+                            optionsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            optionsFrame.setVisible(true);
                         }
+
                     });
 
                     backUpDataButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            oTerminal.backupData();
+                            //potentially implement actual backup functionality?
+                            JOptionPane.showMessageDialog(welcomeFrame, "Data backed up!");
                         }
                     });
                     viewMainMenu.addActionListener(new ActionListener() {

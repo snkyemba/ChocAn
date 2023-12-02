@@ -36,6 +36,9 @@ public class ProviderControllerOp {
         System.out.println("Provider added successfully");
         operatorTerminal.viewMainMenu();
     }
+    public void addProvider(String name, int number, String address, String city, String state, int zip, double fee) {
+        providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
+    }
 
     public void updateProvider() {
         System.out.println("Enter provider name to change: ");
@@ -83,10 +86,72 @@ public class ProviderControllerOp {
         }
         System.out.println("Provider updated successfully");
     }
+    public void updateProvider(String provName, String provAspect, String provNewValue) {
+        String name = provName;
+        String aspect = provAspect;
+        String newValue = provNewValue;
+        //search the json file for the name
+        try{
+            providerRecordVector = GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < providerRecordVector.size(); i++) {
+            if (providerRecordVector.get(i).getName().equals(name)) {
+                if (aspect.equals("name")) {
+                    providerRecord = new ProviderRecord(newValue, providerRecordVector.get(i).getNumber(), providerRecordVector.get(i).getAddress(), providerRecordVector.get(i).getCity(), providerRecordVector.get(i).getState(), providerRecordVector.get(i).getZip(), providerRecordVector.get(i).getFee());
 
+                } else if (aspect.equals("number")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), Integer.parseInt(newValue), providerRecordVector.get(i).getAddress(), providerRecordVector.get(i).getCity(), providerRecordVector.get(i).getState(), providerRecordVector.get(i).getZip(), providerRecordVector.get(i).getFee());
+
+                } else if (aspect.equals("address")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), providerRecordVector.get(i).getNumber(), newValue, providerRecordVector.get(i).getCity(), providerRecordVector.get(i).getState(), providerRecordVector.get(i).getZip(), providerRecordVector.get(i).getFee());
+
+                } else if (aspect.equals("city")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), providerRecordVector.get(i).getNumber(), providerRecordVector.get(i).getAddress(), newValue, providerRecordVector.get(i).getState(), providerRecordVector.get(i).getZip(), providerRecordVector.get(i).getFee());
+
+                } else if (aspect.equals("state")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), providerRecordVector.get(i).getNumber(), providerRecordVector.get(i).getAddress(), providerRecordVector.get(i).getCity(), newValue, providerRecordVector.get(i).getZip(), providerRecordVector.get(i).getFee());
+
+                } else if (aspect.equals("zip")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), providerRecordVector.get(i).getNumber(), providerRecordVector.get(i).getAddress(), providerRecordVector.get(i).getCity(), providerRecordVector.get(i).getState(), Integer.parseInt(newValue), providerRecordVector.get(i).getFee());
+
+                } else if (aspect.equals("fee")) {
+                    providerRecord = new ProviderRecord(providerRecordVector.get(i).getName(), providerRecordVector.get(i).getNumber(), providerRecordVector.get(i).getAddress(), providerRecordVector.get(i).getCity(), providerRecordVector.get(i).getState(), providerRecordVector.get(i).getZip(), Double.parseDouble(newValue));
+                }
+                providerRecordVector.set(i, providerRecord);
+            }
+        }
+        try{
+            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Provider updated successfully");
+    }
     public void deleteProvider() {
         System.out.println("Enter provider name to delete: ");
         String name = scanner.nextLine();
+
+        try{
+            GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (int i = 0; i < providerRecordVector.size(); i++) {
+            if (providerRecordVector.get(i).getName().equals(name)) {
+                providerRecordVector.remove(i);
+            }
+        }
+        try{
+            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Provider deleted successfully");
+    }
+    public void deleteProvider(String provName) {
+        String name = provName;
 
         try{
             GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
