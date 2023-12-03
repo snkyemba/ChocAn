@@ -22,15 +22,8 @@ public class ReportController {
     }
 
     public void generateMemberReport() {
-    	/*Calendar cal = Calendar.getInstance();
-    	cal.set(Calendar.YEAR, 1988);
-    	cal.set(Calendar.MONTH, Calendar.JANUARY);
-    	cal.set(Calendar.DAY_OF_MONTH, 1);
-    	String myDate = "01/01/1988";
-    	MemberReportService myService = new MemberReportService(myDate, "Provider1", "Service1");
-        memberReport.addService(myService);*/
         Vector<MemberRecord> vector = new Vector<MemberRecord>();
-        String filePath = "memberFile.json";
+        String filePath = "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json";
 
             // Step 1: Deserialize the existing JSON file into a Vector of objects
             try {
@@ -58,26 +51,42 @@ public class ReportController {
             catch (IOException e) {
                 e.printStackTrace();
             }
-
-        //GenericSerializer.deserializeJsonArray("memberReport.json", MemberReport.class);
-        //System.out.println("generate member report here");
     }
 
     public void generateManagerReport() {
-        /*ManagerReportProvider provider1 = new ManagerReportProvider("Provider1", 10, 100);
-        managerReport.addProvider(provider1);
-        managerReport.calculateTotals();*/
         System.out.println("generate manager report here");
     }
 
     public void generateProviderReport() {
-    	/*Calendar cal = Calendar.getInstance();
-    	cal.set(Calendar.YEAR, 1988);
-    	cal.set(Calendar.MONTH, Calendar.JANUARY);
-    	cal.set(Calendar.DAY_OF_MONTH, 1);
-        String myDate = "01/01/1988";
-        providerReport.addService(new ProviderReportService(myDate, "Provider1", "Service1", 50.0));*/
-        System.out.println("generate provider report here");
+        Vector<ProviderRecord> vector = new Vector<ProviderRecord>();
+        String filePath = "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json";
+
+        // Step 1: Deserialize the existing JSON file into a Vector of objects
+        try {
+            ProviderRecord record = new ProviderRecord();
+            vector = GenericSerializer.deserializeJsonArray(filePath, (Class<ProviderRecord>) record.getClass());
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exceptions or return from the method
+        }
+        //loop through vector and write contents to file
+        try {
+            FileWriter myWriter = new FileWriter("providerReport.txt");
+            for (int i = 0; i < vector.size(); i++) {
+                ProviderRecord record = vector.get(i);
+                myWriter.write("Provider name: " + record.getName() + "\n");
+                myWriter.write("Provider number: " + record.getNumber() + "\n");
+                myWriter.write("Provider address: " + record.getAddress() + "\n");
+                myWriter.write("Provider city: " + record.getCity() + "\n");
+                myWriter.write("Provider state: " + record.getState() + "\n");
+                myWriter.write("Provider zip: " + record.getZip() + "\n");
+                myWriter.write("\n");
+            }
+            myWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
