@@ -17,13 +17,13 @@ public class ReportController {
     }
 
     public void generateMemberReport() {
-    	Calendar cal = Calendar.getInstance();
+    	/*Calendar cal = Calendar.getInstance();
     	cal.set(Calendar.YEAR, 1988);
     	cal.set(Calendar.MONTH, Calendar.JANUARY);
     	cal.set(Calendar.DAY_OF_MONTH, 1);
     	String myDate = "01/01/1988";
     	MemberReportService myService = new MemberReportService(myDate, "Provider1", "Service1");
-        memberReport.addService(myService);
+        memberReport.addService(myService);*/
         System.out.println("generate member report here");
     }
 
