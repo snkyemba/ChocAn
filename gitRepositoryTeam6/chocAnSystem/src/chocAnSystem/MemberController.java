@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.Vector;
 import java.util.Scanner;
 
+/** This Class is by Joseph Hampton. */
 public class MemberController {
     MemberRecord memberRecord = new MemberRecord();
     Vector<MemberRecord> memberRecordVector = new Vector<>();

@@ -3,7 +3,7 @@ import java.util.Vector;
 import java.util.Scanner;
 
 
-
+/** This Class is By Joseph Hampton */
 public class OperatorTerminal {
     static Scanner scanner = new Scanner(System.in);
     static Vector<Integer> listID = new Vector<>();

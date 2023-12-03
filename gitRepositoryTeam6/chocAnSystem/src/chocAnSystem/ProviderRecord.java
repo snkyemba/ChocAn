@@ -1,5 +1,6 @@
 package chocAnSystem;
 
+/** This class is by Emily Steinbach*/
 public class ProviderRecord extends RosterRecord {
     private double fee;
 

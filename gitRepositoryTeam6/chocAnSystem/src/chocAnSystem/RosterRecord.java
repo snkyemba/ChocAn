@@ -1,5 +1,6 @@
 package chocAnSystem;
 
+/** This class is by Emily Steinbach*/
 public class RosterRecord {
     private String name, address, city, state;
     private long number;

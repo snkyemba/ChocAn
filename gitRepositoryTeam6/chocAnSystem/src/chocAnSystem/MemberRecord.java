@@ -1,5 +1,6 @@
 package chocAnSystem;
 
+/** This class is by Emily Steinbach*/
 public class MemberRecord extends RosterRecord {
     private double balance;
 
