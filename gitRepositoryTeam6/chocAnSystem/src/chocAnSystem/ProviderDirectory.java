@@ -2,8 +2,11 @@ package chocAnSystem;
 
 import com.google.gson.Gson;
 
-/*
-Class for entries in a Provider Directory that has elements for a service code, service name, and service fee.
+/**
+ * Class for Provider Directory entries
+ *
+ * @author Walter Mink
+ * @version 1.0
  */
 public class ProviderDirectory {
     // Class Attributes. Service code should be 6 digits and service name should be no more than 20 characters
@@ -11,7 +14,13 @@ public class ProviderDirectory {
     private String serviceName;
     private float serviceFee;
 
-    // Basic class constructor for creating new instances of the class
+    /**
+     * Basic class constructor for creating new instances of the class
+     *
+     * @param serviceCode 6 digit service code stored as an integer
+     * @param serviceName Service name stored as a string
+     * @param serviceFee Service fee stored as a float
+     */
     public ProviderDirectory(int serviceCode, String serviceName, float serviceFee) {
         // Validate service code
         if (Integer.toString(serviceCode).length() != 6) {
@@ -28,7 +37,11 @@ public class ProviderDirectory {
         this.serviceFee = serviceFee;
     }
 
-    // Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
+    /**
+     * Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
+     *
+     * @param jsonString JSON string to be converted to a Provider Directory Entry
+     */
     public ProviderDirectory(String jsonString) {
         Gson gson = new Gson();
         ProviderDirectory directoryEntry = gson.fromJson(jsonString, ProviderDirectory.class);
@@ -48,19 +61,39 @@ public class ProviderDirectory {
         this.serviceFee = directoryEntry.serviceFee;
     }
 
-    // Class function that converts a Provider Directory Entry to a JSON string for saving in a file
+    /**
+     * Method to convert a Provider Directory Entry to a JSON string
+     *
+     * @return JSON string
+     */
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
 
-    // Value getters
+    /**
+     * Method to get the service code
+     *
+     * @return Service code as an integer
+     */
     public int getServiceCode() {
         return serviceCode;
     }
+
+    /**
+     * Method to get the service name
+     *
+     * @return Service name as a string
+     */
     public String getServiceName() {
         return serviceName;
     }
+
+    /**
+     * Method to get the service fee
+     *
+     * @return Service fee as a float
+     */
     public float getServiceFee() {
         return serviceFee;
     }

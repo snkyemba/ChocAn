@@ -39,4 +39,12 @@ public class ProviderControllerTests {
         ProviderController testController = new ProviderController();
         testController.saveIDNumber(providerNumber, testUserIDNumberFilePath);
     }
+
+    // Test to make sure the checkIDNumber method works
+    @Test
+    public void testCheckIDNumber() {
+        ProviderController testController = new ProviderController();
+        testController.saveIDNumber(providerNumber, testUserIDNumberFilePath);
+        assertTrue(testController.checkIDNumber(providerNumber, testUserIDNumberFilePath));
+    }
 }

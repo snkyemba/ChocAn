@@ -3,15 +3,35 @@ package chocAnSystem;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/**
+ * Class for Service Records
+ *
+ * @author Walter Mink
+ * @version 1.0
+ */
 public class ServiceRecord {
+    // Class Attributes. Current date should be in the format MM-dd-yyyy HH:mm:ss
     private String currentDate;
+    // Service date should be in the format MM-dd-yyyy
     private String serviceDate;
+    // Provider number and Member number should be 9 digits
     private int providerNumber;
     private int memberNumber;
+    // Service code should be 6 digits
     private int serviceCode;
+    // Comments should be no more than 100 characters
     private String comments;
 
-    // Basic class constructor for creating new instances of the class
+    /**
+     * Basic class constructor for creating new instances of the class
+     *
+     * @param currentDate Date service was logged in the format MM-dd-yyyy HH:mm:ss stored as a string
+     * @param serviceDate Date service was provided in the format MM-dd-yyyy stored as a string
+     * @param providerNumber Provider number stored as an integer
+     * @param memberNumber Member number stored as an integer
+     * @param serviceCode Service code stored as an integer
+     * @param comments Comments stored as a string
+     */
     public ServiceRecord(String currentDate, String serviceDate, int providerNumber, int memberNumber, int serviceCode, String comments) {
         this.currentDate = currentDate;
         this.serviceDate = serviceDate;
@@ -45,7 +65,11 @@ public class ServiceRecord {
         this.comments = comments;
     }
 
-    // Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
+    /**
+     * Constructor that allows a class instance to be rebuilt from a JSON string. Uses Gson library for convenience.
+     *
+     * @param jsonString JSON string to be converted to a Service Record
+     */
     public ServiceRecord(String jsonString) {
         // Create a Gson instance
         GsonBuilder builder = new GsonBuilder();
@@ -84,32 +108,66 @@ public class ServiceRecord {
         this.comments = serviceRecord.comments;
     }
 
-    // Class function that converts a Service Record to a JSON string for saving in a file
+    /**
+     * Method to convert a Service Record to a JSON string
+     *
+     * @return JSON string
+     */
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
 
+    /**
+     * Method to get the current date
+     *
+     * @return Current date as a string
+     */
     public String getCurrentDate() {
         return currentDate;
     }
 
+    /**
+     * Method to get the service date
+     *
+     * @return Service date as a string
+     */
     public String getServiceDate() {
         return serviceDate;
     }
 
+    /**
+     * Method to get the provider number
+     *
+     * @return Provider number as an integer
+     */
     public int getProviderNumber() {
         return providerNumber;
     }
 
+    /**
+     * Method to get the member number
+     *
+     * @return Member number as an integer
+     */
     public int getMemberNumber() {
         return memberNumber;
     }
 
+    /**
+     * Method to get the service code
+     *
+     * @return Service code as an integer
+     */
     public int getServiceCode() {
         return serviceCode;
     }
 
+    /**
+     * Method to get the comments
+     *
+     * @return Comments as a string
+     */
     public String getComments() {
         return comments;
     }

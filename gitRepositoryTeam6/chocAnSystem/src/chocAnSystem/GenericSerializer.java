@@ -9,10 +9,26 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Vector;
 
+/**
+ * Class for serializing and deserializing JSON files
+ *
+ * @author Walter Mink
+ * @version 1.0
+ */
 public class GenericSerializer {
-    // Generic function for deserializing a JSON file into a Vector of classType objects
+    /**
+     * Generic function for deserializing a JSON file into a Vector of classType objects
+     *
+     * @param filePath Path to JSON file to be read from stored as a string
+     * @param classType Class type of objects to be deserialized
+     * @return Vector of classType objects
+     * @param <T> Generic type
+     * @throws IOException Exception thrown if file cannot be read
+     */
     public static <T> Vector<T> deserializeJsonArray(String filePath, Class<T> classType) throws IOException {
+        // Create a Gson instance
         Gson gson = new Gson();
+        // Create a Vector to hold the objects
         Vector<T> vector;
 
         // Use try-with-resources for automatic resource management
@@ -27,8 +43,15 @@ public class GenericSerializer {
         return vector;
     }
 
-    // Generic function for serializing a Vector of classType objects into a JSON file
-    public static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
+    /**
+     * Generic function for serializing a Vector of objects into a JSON file
+     *
+     * @param vector Vector of objects to be serialized
+     * @param filePath Path to JSON file to be written to stored as a string
+     * @param <T> Generic type
+     * @throws IOException Exception thrown if file cannot be written
+     */
+    private static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
         // Create a Gson instance
         Gson gson = new Gson();
 
@@ -45,14 +68,22 @@ public class GenericSerializer {
         writer.close();
     }
 
-    // Generic function for processing a JSON file
+    /**
+     * Generic function for processing a JSON file
+     *
+     * @param filePath Path to JSON file to be processed stored as a string
+     * @param newInstance New instance of the class to be processed
+     * @param <T> Generic type
+     */
     public static <T> void processJsonFile(String filePath, T newInstance) {
+        // Create a Vector to hold the objects
         Vector<T> vector = new Vector<>();
+        // Create a File object
         File file = new File(filePath);
 
         // Check if the file exists
         if (file.exists()) {
-            // Step 1: Deserialize the existing JSON file into a Vector of objects
+            // Deserialize the existing JSON file into a Vector of objects
             try {
                 vector = deserializeJsonArray(filePath, (Class<T>) newInstance.getClass());
             } catch (IOException e) {
