@@ -32,13 +32,13 @@ public class ProviderControllerOp {
         System.out.println("Enter provider fee: ");
         double fee = Double.parseDouble(scanner.nextLine());
         providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
-        GenericSerializer.processJsonFile("providerFile.json", providerRecord);
+        GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", providerRecord);
         System.out.println("Provider added successfully");
         operatorTerminal.viewMainMenu();
     }
     public void addProvider(String name, int number, String address, String city, String state, int zip, double fee) {
         providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
-        GenericSerializer.processJsonFile("providerFile.json", providerRecord);
+        GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", providerRecord);
     }
 
     public void updateProvider() {
@@ -50,7 +50,7 @@ public class ProviderControllerOp {
         String newValue = scanner.nextLine();
         //search the json file for the name
         try{
-            providerRecordVector = GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+            providerRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", ProviderRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -81,7 +81,7 @@ public class ProviderControllerOp {
             }
         }
         try{
-            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+            GenericSerializer.serializeJsonArray(providerRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -93,7 +93,7 @@ public class ProviderControllerOp {
         String newValue = provNewValue;
         //search the json file for the name
         try{
-            providerRecordVector = GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+            providerRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", ProviderRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -124,7 +124,7 @@ public class ProviderControllerOp {
             }
         }
         try{
-            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+            GenericSerializer.serializeJsonArray(providerRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -135,7 +135,7 @@ public class ProviderControllerOp {
         String name = scanner.nextLine();
 
         try{
-            GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+            GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", ProviderRecord.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -145,7 +145,7 @@ public class ProviderControllerOp {
             }
         }
         try{
-            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+            GenericSerializer.serializeJsonArray(providerRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -155,7 +155,7 @@ public class ProviderControllerOp {
         String name = provName;
 
         try{
-            GenericSerializer.deserializeJsonArray("providerFile.json", ProviderRecord.class);
+            GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", ProviderRecord.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -165,7 +165,7 @@ public class ProviderControllerOp {
             }
         }
         try{
-            GenericSerializer.serializeJsonArray(providerRecordVector,"providerFile.json");
+            GenericSerializer.serializeJsonArray(providerRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
