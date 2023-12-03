@@ -9,15 +9,15 @@ public class ProviderControllerTests {
     int serviceCode = 123456;
     String serviceName = "Test Service";
     float serviceFee = 123.45f;
-    String testSaveServiceFilePath = "chocAnSystem/TestFiles/testProviderDirectory.json";
+    String testSaveServiceFilePath = "gitRepositoryTeam6/chocAnSystem/TestFiles/testProviderDirectory.json";
 
     // Test data for saving service records
     String serviceDate = "01/01/2020";
     int providerNumber = 123456789;
     int memberNumber = 987654321;
     String comments = "Test comments";
-    String testServiceRecordFilePath = "chocAnSystem/TestFiles/testServiceRecords.json";
-    String testUserIDNumberFilePath = "chocAnSystem/TestFiles/testIDNumbers.json";
+    String testServiceRecordFilePath = "gitRepositoryTeam6/chocAnSystem/TestFiles/testServiceRecords.json";
+    String testUserIDNumberFilePath = "gitRepositoryTeam6/chocAnSystem/TestFiles/testIDNumbers.json";
 
     // Test to make sure the saveServiceType method works
     @Test
