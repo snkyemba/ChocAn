@@ -51,7 +51,7 @@ public class GenericSerializer {
      * @param <T> Generic type
      * @throws IOException Exception thrown if file cannot be written
      */
-    private static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
+    public static <T> void serializeJsonArray(Vector<T> vector, String filePath) throws IOException {
         // Create a Gson instance
         Gson gson = new Gson();
 
