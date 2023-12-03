@@ -50,6 +50,10 @@ public class ProviderController {
             // Handle exceptions or return from the method
         }
 
+        if (idNumbers.isEmpty()) {
+            return false;
+        }
+
         // Check if ID number is in Vector
         return idNumbers.contains(idNumber);
     }
@@ -117,5 +121,21 @@ public class ProviderController {
 
         // Return Vector
         return serviceTypes;
+    }
+
+    public Vector<ServiceRecord> getServiceRecords(String filePath) {
+        // Create new Vector to hold service records
+        Vector<ServiceRecord> serviceRecords = new Vector<>();
+
+        // Deserialize JSON file into Vector
+        try {
+            serviceRecords = GenericSerializer.deserializeJsonArray(filePath, ServiceRecord.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exceptions or return from the method
+        }
+
+        // Return Vector
+        return serviceRecords;
     }
 }

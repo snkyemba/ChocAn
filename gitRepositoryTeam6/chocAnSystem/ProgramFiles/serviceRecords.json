@@ -1,0 +1,82 @@
+[
+  {
+    "currentDate": "23-06-2023 00:27:00",
+    "serviceDate": "28-02-2023",
+    "providerNumber": 987987987,
+    "memberNumber": 789789789,
+    "serviceCode": 720717,
+    "comments": "Patient is well-prepared for relapse prevention."
+  },
+  {
+    "currentDate": "27-10-2023 14:54:16",
+    "serviceDate": "09-10-2023",
+    "providerNumber": 987654321,
+    "memberNumber": 123123123,
+    "serviceCode": 206004,
+    "comments": "Abstinence plan is proving effective."
+  },
+  {
+    "currentDate": "24-07-2023 21:47:55",
+    "serviceDate": "06-02-2023",
+    "providerNumber": 987654321,
+    "memberNumber": 789789789,
+    "serviceCode": 720717,
+    "comments": "Patient is well-prepared for relapse prevention."
+  },
+  {
+    "currentDate": "16-10-2023 03:10:56",
+    "serviceDate": "16-10-2023",
+    "providerNumber": 654654654,
+    "memberNumber": 456456456,
+    "serviceCode": 354802,
+    "comments": "Nutritional goals are being met."
+  },
+  {
+    "currentDate": "15-12-2023 17:43:43",
+    "serviceDate": "30-09-2023",
+    "providerNumber": 654654654,
+    "memberNumber": 456456456,
+    "serviceCode": 828124,
+    "comments": "Cravings are significantly reduced."
+  },
+  {
+    "currentDate": "24-07-2023 03:53:28",
+    "serviceDate": "20-04-2023",
+    "providerNumber": 987987987,
+    "memberNumber": 456456456,
+    "serviceCode": 301275,
+    "comments": "Patient is responding well to therapy."
+  },
+  {
+    "currentDate": "25-06-2023 10:00:41",
+    "serviceDate": "14-06-2023",
+    "providerNumber": 987654321,
+    "memberNumber": 123123123,
+    "serviceCode": 828124,
+    "comments": "Cravings are significantly reduced."
+  },
+  {
+    "currentDate": "24-12-2023 16:37:30",
+    "serviceDate": "02-10-2023",
+    "providerNumber": 321321321,
+    "memberNumber": 123456789,
+    "serviceCode": 828124,
+    "comments": "Cravings are significantly reduced."
+  },
+  {
+    "currentDate": "24-12-2023 20:55:38",
+    "serviceDate": "28-05-2023",
+    "providerNumber": 987987987,
+    "memberNumber": 123123123,
+    "serviceCode": 828124,
+    "comments": "Cravings are significantly reduced."
+  },
+  {
+    "currentDate": "18-05-2023 23:51:18",
+    "serviceDate": "02-02-2023",
+    "providerNumber": 987654321,
+    "memberNumber": 456456456,
+    "serviceCode": 434267,
+    "comments": "Counseling sessions are progressing well."
+  }
+]
