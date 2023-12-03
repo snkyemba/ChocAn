@@ -9,9 +9,12 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 
 public class TerminalGUI extends JFrame {
     private JTextArea terminalOutput;
+    private boolean isPlaying = false;
     ProviderControllerOp providerController = new ProviderControllerOp();
     MemberController memberController = new MemberController();
     ManagerTerminal mTerminal = new ManagerTerminal();
@@ -37,8 +40,19 @@ public class TerminalGUI extends JFrame {
         JLabel noEmoji = new JLabel(emoji);
         ImageIcon chocolatePic = new ImageIcon(getClass().getResource("Chocolate.jpeg"));
         JLabel chocolate = new JLabel(chocolatePic);
+        JButton playPauseButton = new JButton("Play/Pause Music");
 
         // Add action listeners to the buttons
+        playPauseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isPlaying) {
+                    pauseBackgroundMusic();
+                } else {
+                    playBackgroundMusic();
+                }
+            }
+        });
         managerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,7 +83,7 @@ public class TerminalGUI extends JFrame {
         imagePanel.add(chocolate);
         mainPanel.add(imagePanel, BorderLayout.CENTER);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 3));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 5));
 
         Dimension buttonSize = new Dimension(600, 200);
         managerButton.setPreferredSize(buttonSize);
@@ -79,6 +93,7 @@ public class TerminalGUI extends JFrame {
         buttonPanel.add(managerButton);
         buttonPanel.add(providerButton);
         buttonPanel.add(operatorButton);
+        buttonPanel.add(playPauseButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         setContentPane(mainPanel);
@@ -106,11 +121,18 @@ public class TerminalGUI extends JFrame {
 
 
     private void playBackgroundMusic() {
-        if (clip != null) {
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        if (clip != null && !clip.isRunning()) {
+            clip.start();
+            isPlaying = true;
         }
     }
 
+    private void pauseBackgroundMusic() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+            isPlaying = false;
+        }
+    }
     private void openManagerTerminal() {
         JFrame managerTerminalFrame = new JFrame("Manager Terminal");
         managerTerminalFrame.setSize(400, 200);
