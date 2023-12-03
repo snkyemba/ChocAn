@@ -4,9 +4,17 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.Optional;
 
-// This Provider Terminal Class is by Walter Mink and Rayshaun Dunkin
+/**
+ * Class for controlling logic for Provider Terminal
+ *
+ * @author Walter Mink
+ * @version 1.0
+ */
 public class ProviderTerminal {
-    // Main method
+    /**
+     * Main method for Provider Terminal
+     * @param args Command line arguments (unused)
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ProviderController controller = new ProviderController();
@@ -14,7 +22,13 @@ public class ProviderTerminal {
         mainMenu(sc, controller);
     }
 
-    // Method to scan for valid integer length
+    /**
+     * Method to scan for valid integer length
+     *
+     * @param sc Scanner object
+     * @param length Length of integer to be scanned
+     * @return Valid integer
+     */
     public static int scanValidIntLength(Scanner sc, int length) {
         int input;
         while (true) {
@@ -29,7 +43,13 @@ public class ProviderTerminal {
         return input;
     }
 
-    // Method to scan for valid string length
+    /**
+     * Method to scan for valid string length
+     *
+     * @param sc Scanner object
+     * @param length Length of string to be scanned
+     * @return Valid string
+     */
     public static String scanValidStringLength(Scanner sc, int length) {
         String input;
         while (true) {
@@ -44,8 +64,13 @@ public class ProviderTerminal {
         return input;
     }
 
-
-    // Method to verify provider ID
+    /**
+     * Method to verify provider ID
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     * @return Valid provider ID
+     */
     public static int providerVerify(Scanner sc, ProviderController controller) {
         int ID;
 
@@ -64,10 +89,16 @@ public class ProviderTerminal {
         return ID;
     }
 
-    // Method to search for service in provider directory
+    /**
+     * Method to search provider directory
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void providerDirectorySearch(Scanner sc, ProviderController controller) {
         int choice;
 
+        // Display search options
         System.out.println("""
                 Would you like to:
                 1. Search by Service Code
@@ -135,7 +166,12 @@ public class ProviderTerminal {
         }
     }
 
-    // Method to log a service
+    /**
+     * Method to log a service
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void logService(Scanner sc, ProviderController controller) {
         // Get member ID
         int memberID;
@@ -247,7 +283,12 @@ public class ProviderTerminal {
         controller.saveServiceRecord(serviceDate, providerVerify(sc, controller), memberID, serviceCode, comments, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
     }
 
-    // Method to add member ID
+    /**
+     * Method to add member ID
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void addMemberID(Scanner sc, ProviderController controller) {
         int memberID;
 
@@ -282,7 +323,12 @@ public class ProviderTerminal {
         controller.saveIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json");
     }
 
-    // Method to add provider ID
+    /**
+     * Method to add provider ID
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void addProviderID(Scanner sc, ProviderController controller) {
         int providerID;
 
@@ -317,7 +363,12 @@ public class ProviderTerminal {
         controller.saveIDNumber(providerID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json");
     }
 
-    // Method to add provider directory entry
+    /**
+     * Method to add provider directory entry
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void addProviderDirectoryEntry(Scanner sc, ProviderController controller) {
         int serviceCode;
         String serviceName;
@@ -404,7 +455,11 @@ public class ProviderTerminal {
         controller.saveServiceType(serviceCode, serviceName, serviceFee, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
     }
 
-    // Method to print all service records
+    /**
+     * Method to print all service records
+     *
+     * @param controller ProviderController object
+     */
     public static void printAllServiceRecords(ProviderController controller) {
         Vector<ServiceRecord> serviceRecords;
         serviceRecords = controller.getServiceRecords("gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
@@ -419,7 +474,12 @@ public class ProviderTerminal {
         }
     }
 
-    // Method to display main menu
+    /**
+     * Method to display main menu
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void mainMenu(Scanner sc, ProviderController controller) {
         System.out.println("""
                 What would you like to do?
@@ -451,7 +511,12 @@ public class ProviderTerminal {
         }
     }
 
-    // Method to display developer options
+    /**
+     * Method to display developer options
+     *
+     * @param sc Scanner object
+     * @param controller ProviderController object
+     */
     public static void developerOptions(Scanner sc, ProviderController controller) {
         System.out.println("""
                 What would you like to do?
