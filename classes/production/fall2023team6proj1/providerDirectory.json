@@ -1,0 +1,52 @@
+[
+  {
+    "serviceCode": 301275,
+    "serviceName": "Mood Enhancement Therapy",
+    "serviceFee": 151.49
+  },
+  {
+    "serviceCode": 206004,
+    "serviceName": "Chocolate Abstinence Plan",
+    "serviceFee": 78.4
+  },
+  {
+    "serviceCode": 277282,
+    "serviceName": "Sugar Intake Analysis",
+    "serviceFee": 197.38
+  },
+  {
+    "serviceCode": 857990,
+    "serviceName": "Behavioral Adjustment",
+    "serviceFee": 90.69
+  },
+  {
+    "serviceCode": 828124,
+    "serviceName": "Sweet Cravings Management",
+    "serviceFee": 181.56
+  },
+  {
+    "serviceCode": 720717,
+    "serviceName": "Relapse Prevention Training",
+    "serviceFee": 135.12
+  },
+  {
+    "serviceCode": 434267,
+    "serviceName": "Choco Counseling",
+    "serviceFee": 166.95
+  },
+  {
+    "serviceCode": 354802,
+    "serviceName": "Nutritional Rehabilitation",
+    "serviceFee": 94.83
+  },
+  {
+    "serviceCode": 363744,
+    "serviceName": "Family Support Session",
+    "serviceFee": 77.61
+  },
+  {
+    "serviceCode": 771035,
+    "serviceName": "Cocoa Detox Therapy",
+    "serviceFee": 181.01
+  }
+]
