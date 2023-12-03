@@ -178,8 +178,9 @@ public class TerminalGUI extends JFrame {
                     memberReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
+                            //JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport(1);
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Member Report Generated");
                         }
                     });
 
