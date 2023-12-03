@@ -6,14 +6,15 @@ import java.util.Optional;
 
 // This Provider Terminal Class is by Walter Mink and Rayshaun Dunkin
 public class ProviderTerminal {
+    // Main method
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ProviderController controller = new ProviderController();
-
         providerVerify(sc, controller);
         mainMenu(sc, controller);
     }
 
+    // Method to scan for valid integer length
     public static int scanValidIntLength(Scanner sc, int length) {
         int input;
         while (true) {
@@ -28,9 +29,9 @@ public class ProviderTerminal {
         return input;
     }
 
+    // Method to scan for valid string length
     public static String scanValidStringLength(Scanner sc, int length) {
         String input;
-
         while (true) {
             input = sc.nextLine();
             sc.nextLine(); // consume the remaining newline
@@ -63,6 +64,7 @@ public class ProviderTerminal {
         return ID;
     }
 
+    // Method to search for service in provider directory
     public static void providerDirectorySearch(Scanner sc, ProviderController controller) {
         int choice;
 
@@ -73,9 +75,11 @@ public class ProviderTerminal {
                 3. View all Services
                 4. Return to Main Menu""");
 
+        // Get user choice
         choice = sc.nextInt();
         sc.nextLine(); // consume the remaining newline
         switch (choice) {
+            // Search by service code
             case 1:
                 int serviceCode;
                 System.out.println("Enter the Six Digit Service Code you would like to search for:");
@@ -91,6 +95,8 @@ public class ProviderTerminal {
                     providerDirectorySearch(sc, controller);
                 }
                 break;
+
+            // Search by service name
             case 2:
                 System.out.println("Enter the Service Name you would like to search for:");
                 String serviceName = scanValidStringLength(sc, 20);
@@ -105,6 +111,8 @@ public class ProviderTerminal {
                     providerDirectorySearch(sc, controller);
                 }
                 break;
+
+            // View all services
             case 3:
                 Vector<ProviderDirectory> serviceTypes;
                 serviceTypes = controller.getServiceTypes("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
@@ -115,15 +123,19 @@ public class ProviderTerminal {
                             "Service Fee: " + entry.getServiceFee() + "\n");
                 }
                 break;
+
+            // Return to main menu
             case 4:
                 System.out.println("Returning to Main Menu...");
                 break;
+
             default:
                 System.out.println("Invalid choice. Please enter a valid choice.");
                 providerDirectorySearch(sc, controller);
         }
     }
 
+    // Method to log a service
     public static void logService(Scanner sc, ProviderController controller) {
         // Get member ID
         int memberID;
@@ -131,6 +143,7 @@ public class ProviderTerminal {
             System.out.println("Enter the Nine Digit Member ID of the Member you would like to log a service for:");
             memberID = scanValidIntLength(sc, 9);
 
+            // Validate member ID
             if (!controller.checkIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")) {
                 System.out.println("Invalid Member ID. Please enter a valid Member ID.");
             } else {
@@ -159,6 +172,7 @@ public class ProviderTerminal {
             System.out.println("Enter the Service Code of the Service you would like to log:");
             serviceCode = scanValidIntLength(sc, 6);
 
+            // Validate service code
             Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(serviceCode, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
             if (serviceByCode.isPresent()) {
                 // Double check service code
@@ -233,13 +247,16 @@ public class ProviderTerminal {
         controller.saveServiceRecord(serviceDate, providerVerify(sc, controller), memberID, serviceCode, comments, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
     }
 
+    // Method to add member ID
     public static void addMemberID(Scanner sc, ProviderController controller) {
         int memberID;
 
+        // Get member ID
         loop: while (true) {
             System.out.println("Enter the Nine Digit Member ID you would like to add:");
             memberID = scanValidIntLength(sc, 9);
 
+            // Validate member ID
             if (controller.checkIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")) {
                 System.out.println("Member ID already exists. Please enter a valid Member ID.");
             } else {
@@ -265,13 +282,16 @@ public class ProviderTerminal {
         controller.saveIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json");
     }
 
+    // Method to add provider ID
     public static void addProviderID(Scanner sc, ProviderController controller) {
         int providerID;
 
+        // Get provider ID
         loop: while (true) {
             System.out.println("Enter the Nine Digit Provider ID you would like to add:");
             providerID = scanValidIntLength(sc, 9);
 
+            // Validate provider ID
             if (controller.checkIDNumber(providerID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json")) {
                 System.out.println("Provider ID already exists. Please enter a valid Provider ID.");
             } else {
@@ -297,15 +317,18 @@ public class ProviderTerminal {
         controller.saveIDNumber(providerID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json");
     }
 
+    // Method to add provider directory entry
     public static void addProviderDirectoryEntry(Scanner sc, ProviderController controller) {
         int serviceCode;
         String serviceName;
         float serviceFee;
 
+        // Get service code
         loop: while (true) {
             System.out.println("Enter the Six Digit Service Code you would like to add:");
             serviceCode = scanValidIntLength(sc, 6);
 
+            // Validate service code
             if (controller.searchServiceCode(serviceCode, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json").isPresent()) {
                 System.out.println("Service Code already exists. Please enter a valid Service Code.");
             } else {
@@ -327,6 +350,7 @@ public class ProviderTerminal {
             }
         }
 
+        // Get service name
         loop: while (true) {
             System.out.println("Enter the Service Name you would like to add:");
             serviceName = scanValidStringLength(sc, 20);
@@ -348,6 +372,7 @@ public class ProviderTerminal {
             }
         }
 
+        // Get service fee
         loop: while (true) {
             System.out.println("Enter the Service Fee you would like to add:");
             serviceFee = sc.nextFloat();
@@ -379,10 +404,12 @@ public class ProviderTerminal {
         controller.saveServiceType(serviceCode, serviceName, serviceFee, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
     }
 
+    // Method to print all service records
     public static void printAllServiceRecords(ProviderController controller) {
         Vector<ServiceRecord> serviceRecords;
         serviceRecords = controller.getServiceRecords("gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
 
+        // Print all service records
         for (ServiceRecord record : serviceRecords) {
             System.out.println("Date of Service: " + record.getServiceDate() + "\n" +
                     "Provider Number: " + record.getProviderNumber() + "\n" +
@@ -392,6 +419,7 @@ public class ProviderTerminal {
         }
     }
 
+    // Method to display main menu
     public static void mainMenu(Scanner sc, ProviderController controller) {
         System.out.println("""
                 What would you like to do?
@@ -423,6 +451,7 @@ public class ProviderTerminal {
         }
     }
 
+    // Method to display developer options
     public static void developerOptions(Scanner sc, ProviderController controller) {
         System.out.println("""
                 What would you like to do?
