@@ -73,10 +73,11 @@ public class ReportController {
         int numProvidersGivenConsults = 0;
         double totalFee = 0;
         String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerFile.json";
+        String filePath2 = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json";
         try{
             FileWriter myWriter = new FileWriter("managerReport.txt");
             providerVector = GenericSerializer.deserializeJsonArray(filePath, (Class<ProviderRecord>) ProviderRecord.class);
-            serviceVector = GenericSerializer.deserializeJsonArray(filePath, (Class<ServiceRecord>) ServiceRecord.class);
+            serviceVector = GenericSerializer.deserializeJsonArray(filePath2, (Class<ServiceRecord>) ServiceRecord.class);
             //list every provider to be paid
             for (int i = 0; i < providerVector.size(); i++){
                 ProviderRecord record = providerVector.get(i);
