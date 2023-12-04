@@ -1,6 +1,6 @@
 package chocAnSystem;
 
-import jdk.internal.foreign.abi.Binding;
+
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,7 +13,6 @@ import java.util.Vector;
  */
 public class ProviderControllerOp {
 
-    public Binding.Allocate providerList;
     ProviderRecord providerRecord = new ProviderRecord();
     Vector<ProviderRecord> providerRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
@@ -102,6 +101,7 @@ public class ProviderControllerOp {
         } catch (IOException e){
             e.printStackTrace();
         }
+        //find what aspect to change
         for (int i = 0; i < providerRecordVector.size(); i++) {
             if (providerRecordVector.get(i).getName().equals(name)) {
                 if (aspect.equals("name")) {
@@ -152,6 +152,7 @@ public class ProviderControllerOp {
         } catch (IOException e){
             e.printStackTrace();
         }
+        //find what aspect to change
         for (int i = 0; i < providerRecordVector.size(); i++) {
             if (providerRecordVector.get(i).getName().equals(name)) {
                 if (aspect.equals("name")) {
@@ -192,7 +193,7 @@ public class ProviderControllerOp {
     public void deleteProvider() {
         System.out.println("Enter provider name to delete: ");
         String name = scanner.nextLine();
-
+        //search the json file for the name
         try{
             GenericSerializer.deserializeJsonArray(filePath, ProviderRecord.class);
         } catch (IOException e) {
@@ -217,7 +218,7 @@ public class ProviderControllerOp {
      */
     public void deleteProvider(String provName) {
         String name = provName;
-
+        //search the json file for the name
         try{
             GenericSerializer.deserializeJsonArray(filePath, ProviderRecord.class);
         } catch (IOException e) {
