@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.io.*;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 public class JHamptonJUnitTest {
@@ -35,8 +36,8 @@ public class JHamptonJUnitTest {
     @Test
     public void testAddProvider() throws IOException {
         ProviderControllerOp providerController = new ProviderControllerOp();
-        providerController.addProvider("John", 1234567891, "123 Main St", "Moscow", "Russia", 54321, 32.25,"/gitRepositoryTeam6/chocAnSystem/TestFiles/testProviderFile.json");
-        assertTrue(providerController.getProviderName("John", "/gitRepositoryTeam6/chocAnSystem/TestFiles/testProviderFile.json"));
+        providerController.addProvider("John", 1234567891, "123 Main St", "Moscow", "Russia", 54321, 32.25,"Project 4 - Implementation and Testing/chocAnSystem/TestFiles/testProviderFile.json");
+        assertTrue(providerController.getProviderName("John", "Project 4 - Implementation and Testing/chocAnSystem/TestFiles/testProviderFile.json"));
     }
 }
 
