@@ -46,6 +46,16 @@ public class ReportController {
                     myWriter.write("Member state: " + record.getState() + "\n");
                     myWriter.write("Member zip: " + record.getZip() + "\n");
                     myWriter.write("\n");
+                    for (int j = 0; j < vector2.size(); j++){
+                        ServiceRecord record2 = vector2.get(j);
+                        if (record2.getMemberNumber() == memberReport.getMemNumber()){
+                            myWriter.write("Service date: " + record2.getServiceDate() + "\n");
+                            myWriter.write("Provider number: " + record2.getProviderNumber() + "\n");
+                            myWriter.write("Service code: " + record2.getServiceCode() + "\n");
+                            myWriter.write("Comments: " + record2.getComments() + "\n");
+                            myWriter.write("\n");
+                        }
+                    }
                 }
 
                 myWriter.close();

@@ -13,8 +13,9 @@ public class ReportControllerTest {
 	}
 
 	@Test
-	public final void testGenerateMemberReport() {
+	public final void testGenerateMemberReportSuccess() {
 		reportController.generateMemberReport();
+
 
 	}
 }
