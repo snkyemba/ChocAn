@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 
 /**
- * Describe what the class is for
+ * Class for Controlling the logic for the Operator Terminal
  *
  * @author Joseph Hampton
  * @version 1.0
  */
 public class OperatorTerminal {
     static Scanner scanner = new Scanner(System.in);
-    static Vector<Integer> listID = new Vector<>();
 
     private static MemberController memberController = new MemberController();
 
@@ -21,14 +20,14 @@ public class OperatorTerminal {
     static boolean isOperator = false;
     static boolean viewMain = true;
 
-    static{
-        listID.add(123456789);
-        listID.add(987654321);
-        listID.add(321654987);
-        listID.add(456123789);
 
-    }
-
+    /**
+     * Function to check if ID number is in JSON file
+     *
+     * @param idNumber ID number to be checked
+     * @param filePath Path to JSON file to be read from
+     * @return Boolean value indicating whether ID number is in JSON file
+     */
     public static boolean checkIDNumber(int idNumber, String filePath) {
         // Create new Vector to hold ID numbers
         Vector<Integer> idNumbers = new Vector<>();
@@ -49,6 +48,9 @@ public class OperatorTerminal {
         return idNumbers.contains(idNumber);
     }
 
+    /**
+     * Function to print out the main menu for the Member Terminal
+     */
     private static void viewMainMemberMenu(){
         System.out.println("What would you like to do?");
         System.out.println("1. Add Member");
@@ -56,13 +58,18 @@ public class OperatorTerminal {
         System.out.println("3. Delete Member");
         System.out.println("4. Exit");
     }
+    /**
+     * Function to print out the main menu for the Provider Terminal
+     */
     private static void viewMainProviderMenu(){
         System.out.println("What would you like to do?");
         System.out.println("1. Add Provider");
         System.out.println("2. Update Provider");
         System.out.println("3. Delete Provider");
         System.out.println("4. Exit");
-    }
+    }/**
+     * Function to print out the main menu for the Operator Terminal
+     */
     private static void viewMainOperatorMenu(){
         System.out.println("What would you like to do?");
         System.out.println("1. Manage Member Records");
@@ -70,36 +77,54 @@ public class OperatorTerminal {
         System.out.println("3. Backup Data");
         System.out.println("4. Exit");
     }
+    /**
+     * Function to read in the user's choice from the main menu for Operator
+     * @return int value of the user's choice
+     */
     private static int getMenuChoiceOperator() {
         viewMainOperatorMenu();
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+    /**
+     * Function to read in the user's choice from the main menu for Member
+     * @return int value of the user's choice
+     */
     private static int getMenuChoiceMember() {
         viewMainMemberMenu();
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+    /**
+     * Function to read in the user's choice from the main menu for Provider
+     * @return int value of the user's choice
+     */
     private static int getMenuChoiceProvider() {
         viewMainProviderMenu();
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-
+    /**
+     * Function to control the logic of the Member Terminal in a switch statement
+     */
     public static void manageMemberRecords(){
         int choice = 0;
         while (choice != 4) {
             switch (choice = getMenuChoiceMember()) {
                 case 1:
+                    //add member
                     memberController.addMember();
                     break;
                 case 2:
+                    //update member
                     memberController.updateMember();
                     break;
                 case 3:
+                    //delete member
                     memberController.deleteMember();
                     break;
                 case 4:
+                    //exit
                     System.out.println("Exiting...");
                     break;
                 default:
@@ -110,20 +135,27 @@ public class OperatorTerminal {
 
 
     }
+    /**
+     * Function to control the logic of the Provider Terminal in a switch statement
+     */
     public static void manageProviderRecords(){
         int choice = 0;
         while (choice != 4) {
             switch (choice = getMenuChoiceProvider()) {
                 case 1:
+                    //add provider
                     providerController.addProvider();
                     break;
                 case 2:
+                    //update provider
                     providerController.updateProvider();
                     break;
                 case 3:
+                    //delete provider
                     providerController.deleteProvider();
                     break;
                 case 4:
+                    //exit
                     System.out.println("Exiting...");
                     break;
                 default:
@@ -133,19 +165,26 @@ public class OperatorTerminal {
         }
 
     }
+    /**
+     * Function to backup data
+     */
     public static void backupData(){
         System.out.println("Backing up data...");
         System.out.println("Data backed up successfully.");
 
     }
+    /**
+     * Function to view the main menu, used for testing
+     */
     public void viewMainMenu(){
         viewMain = true;
     }
 
 
-    public static boolean checkID(int testID){
-        return listID.contains(testID);
-    }
+    /**
+     * Function to run the Operator Terminal
+     * @param args
+     */
     public static void main(String[] args){
 
         int testOpID;

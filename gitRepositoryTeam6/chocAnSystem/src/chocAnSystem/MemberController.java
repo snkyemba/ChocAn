@@ -3,7 +3,12 @@ import java.io.*;
 import java.util.Vector;
 import java.util.Scanner;
 
-/** This Class is by Joseph Hampton. */
+/**
+ * Class for Controlling the logic for the Member Terminal
+ *
+ * @author Joseph Hampton
+ * @version 1.0
+ */
 public class MemberController {
     MemberRecord memberRecord = new MemberRecord();
     Vector<MemberRecord> memberRecordVector = new Vector<>();
@@ -12,11 +17,21 @@ public class MemberController {
 
     static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Function to save member record to JSON file, used for testing
+     *
+     * @param memberRecord Member record to be saved
+     * @param operatorTerminal OperatorTerminal object to be used to call viewMainMenu()
+     */
     public void MemberController(MemberRecord memberRecord, OperatorTerminal operatorTerminal) {
         this.memberRecord = memberRecord;
         this.operatorTerminal = operatorTerminal;
     }
 
+    /**
+     * Function to add and save member record to JSON file
+     *
+     */
     public void addMember() {
         System.out.println("Enter member name: ");
         String name = scanner.nextLine();
@@ -37,12 +52,20 @@ public class MemberController {
         System.out.println("Member added successfully");
         operatorTerminal.viewMainMenu();
     }
+    /**
+     * Function to add and save member record to JSON file in the GUI
+     *
+     */
     public void addMember(String name, int number, String address, String city, String state, int zip, double balance) {
         memberRecord = new MemberRecord(name, number, address, city, state, zip, balance);
         GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", memberRecord);
 //        memberToFile(memberFile, memberRecord);
 
     }
+    /**
+     * Function to get the memberRecord from the vector
+     *
+     */
     public MemberRecord getMemberRecord(String name){
         MemberRecord record = new MemberRecord();
         for (int i = 0; i < memberRecordVector.size(); i++) {
@@ -53,6 +76,9 @@ public class MemberController {
         return record;
     }
 
+    /**
+     * Function to update and save the member to the JSON file
+     */
     public void updateMember(){
         System.out.println("Enter member name to change: ");
         String name = scanner.nextLine();
@@ -106,6 +132,9 @@ public class MemberController {
         System.out.println("Member updated successfully");
 
     }
+    /**
+     * Function to update and save the member to the JSON file in the GUI
+     */
     public void updateMember(String selectedName, String selectedAspect, String selectedNewValue){
         String name = selectedName;
         String aspect = selectedAspect;
@@ -157,6 +186,9 @@ public class MemberController {
 
     }
 
+    /**
+     * Function to delete the member from the JSON file
+     */
     public void deleteMember(){
         System.out.println("Enter member name to delete: ");
         String name = scanner.nextLine();
@@ -179,6 +211,9 @@ public class MemberController {
         System.out.println("Member deleted successfully");
 
     }
+    /**
+     * Function to delete the member from the JSON file in the GUI
+     */
     public void deleteMember(String memName){
         String name = memName;
         //search the json file for the name
