@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * Class for controlling logic for Provider Terminal
  *
- * @author Walter Mink
+ * @author Walter Mink, Rayshaun Dunkin
  * @version 1.0
  */
 public class ProviderController {
