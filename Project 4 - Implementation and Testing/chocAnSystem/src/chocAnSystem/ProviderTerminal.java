@@ -3,7 +3,10 @@ package chocAnSystem;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.Vector;
-
+import java.net.URL;
+import java.net.URI;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 /**
  * Class for controlling logic for Provider Terminal
  *
@@ -79,7 +82,7 @@ public class ProviderTerminal {
             ID = scanValidIntLength(sc, 9);
 
             // Validate ID
-            if (controller.checkIDNumber(ID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
+            if (controller.checkIDNumber(ID, "Project s4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
                 System.out.println("Verification Successful.");
                 break;
             } else {
@@ -348,6 +351,7 @@ public class ProviderTerminal {
             providerID = scanValidIntLength(sc, 9);
 
             // Validate provider ID
+
             if (controller.checkIDNumber(providerID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
                 System.out.println("Provider ID already exists. Please enter a valid Provider ID.");
             } else {

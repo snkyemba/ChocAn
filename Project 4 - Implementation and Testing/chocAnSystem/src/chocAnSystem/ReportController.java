@@ -81,48 +81,52 @@ public class ReportController {
      *
      */
     public void generateManagerReport() {
-        Vector<ProviderRecord> providerVector = new Vector<ProviderRecord>();
-        Vector<ServiceRecord> serviceVector = new Vector<ServiceRecord>();
+        Vector<ProviderRecord> providerVector = new Vector<>();
+        Vector<ServiceRecord> serviceVector = new Vector<>();
         int numConsults = 0;
         int numProvidersGivenConsults = 0;
         double totalFee = 0;
         String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerFile.json";
         String filePath2 = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json";
-        try{
-            FileWriter myWriter = new FileWriter("managerReport.txt");
-            providerVector = GenericSerializer.deserializeJsonArray(filePath, (Class<ProviderRecord>) ProviderRecord.class);
-            serviceVector = GenericSerializer.deserializeJsonArray(filePath2, (Class<ServiceRecord>) ServiceRecord.class);
-            //list every provider to be paid
-            for (int i = 0; i < providerVector.size(); i++){
-                ProviderRecord record = providerVector.get(i);
+
+        try (FileWriter myWriter = new FileWriter("managerReport.txt")) {
+            providerVector = GenericSerializer.deserializeJsonArray(filePath, ProviderRecord.class);
+            serviceVector = GenericSerializer.deserializeJsonArray(filePath2, ServiceRecord.class);
+
+            // list every provider to be paid
+            for (ProviderRecord record : providerVector) {
+                numConsults = 0; // Reset numConsults for each provider
+
                 myWriter.write("Provider name: " + record.getName() + "\n");
-                //list number of consultations for each provider
-                for (int j = 0; j < serviceVector.size(); j++){
-                    ServiceRecord record2 = serviceVector.get(j);
-                    if (record2.getProviderNumber() == (int) record.getProviderNumber()){
+
+                // list number of consultations for each provider
+                for (ServiceRecord record2 : serviceVector) {
+                    if (record2.getProviderNumber() == record.getProviderNumber()) {
                         numConsults++;
                     }
                 }
-                if(numConsults > 0){
+
+                if (numConsults > 0) {
                     numProvidersGivenConsults++;
                 }
+
                 myWriter.write("\tNumber of consultations: " + numConsults + "\n");
-                //list total fee for each provider
-                myWriter.write("\tTotal fee for week: " + record.getFee()*numConsults + "\n");
-                totalFee += record.getFee()*numConsults;
+                myWriter.write(String.format("\tTotal fee for week: %.2f\n", record.getFee() * numConsults));
+                totalFee += record.getFee() * numConsults;
                 myWriter.write("\n");
             }
-            //total number of providers with numconsults > 0
-            myWriter.write("Total number of providers given consultations: " + numProvidersGivenConsults + "\n");
-            //overall total fee for week
-            myWriter.write("Overall total fee for week: " + totalFee + "\n");
 
-        }
-        catch (IOException e) {
+            // total number of providers with numconsults > 0
+            myWriter.write("Total number of providers given consultations: " + numProvidersGivenConsults + "\n");
+            // overall total fee for week
+            myWriter.write(String.format("Overall total fee for week: %.2f\n", totalFee));
+
+        } catch (IOException e) {
             e.printStackTrace();
             // Handle exceptions or return from the method
         }
     }
+
 
     /**
      * Function to generate a provider report

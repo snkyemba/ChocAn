@@ -1273,7 +1273,7 @@ public class TerminalGUI extends JFrame {
                 } else {
                     // If invalid, show a message or prompt for re-input
                     JOptionPane.showMessageDialog(operatorTerminalFrame,
-                            "Invalid manager ID. Please enter a valid 9-digit ID. " + (5 - attempts) + " attempts left",
+                            "Invalid operator ID. Please enter a valid 9-digit ID. " + (5 - attempts) + " attempts left",
                             "Invalid ID", JOptionPane.ERROR_MESSAGE);
 
                     // Optionally clear the input field for re-entry
