@@ -8,13 +8,16 @@ import java.awt.event.ActionListener;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class TerminalGUI extends JFrame {
-    private JTextArea terminalOutput;
     private boolean isPlaying = false;
+    String [] pTerminalArgs = new String[1];
+    ProviderController controller = new ProviderController();
     ProviderControllerOp providerController = new ProviderControllerOp();
     MemberController memberController = new MemberController();
     ManagerTerminal mTerminal = new ManagerTerminal();
@@ -188,9 +191,10 @@ public class TerminalGUI extends JFrame {
                     JButton managerReportButton = new JButton("Manager Report");
                     JButton viewMainMenu = new JButton("View Main Menu");
                     // Set layout manager for the new JFrame
-                    welcomeFrame.setLayout(new GridLayout(4, 1));
+                    welcomeFrame.setLayout(new GridLayout(5, 1));
 
                     // Add components to the new JFrame
+                    welcomeFrame.add(welcomeLabel);
                     welcomeFrame.add(memberReportButton);
                     welcomeFrame.add(providerReportButton);
                     welcomeFrame.add(managerReportButton);
@@ -271,8 +275,363 @@ public class TerminalGUI extends JFrame {
     }
 
     private void openProviderTerminal() {
-        // Add logic to open Provider Terminal
-        JOptionPane.showMessageDialog(this, "Opening Provider Terminal");
+       JFrame providerTerminalFrame = new JFrame("Provider Terminal");
+        providerTerminalFrame.setSize(400, 200);
+        providerTerminalFrame.setLocationRelativeTo(this);
+        providerTerminalFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Create components for the JFrame
+        JLabel welcomeLabel = new JLabel("Welcome to Provider Terminal.");
+        JLabel idLabel = new JLabel("Enter your 9-digit provider ID:");
+        JTextField idTextField = new JTextField();
+        JButton submitButton = new JButton("Submit");
+
+        // Set layout manager for the JFrame
+        providerTerminalFrame.setLayout(new GridLayout(4, 1));
+
+        // Add components to the JFrame
+        providerTerminalFrame.add(welcomeLabel);
+        providerTerminalFrame.add(idLabel);
+        providerTerminalFrame.add(idTextField);
+        providerTerminalFrame.add(submitButton);
+
+        submitButton.addActionListener(new ActionListener() {
+            private int attempts = 0;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Check if the user has exceeded the maximum number of attempts
+                if (attempts >= 5) {
+                    JOptionPane.showMessageDialog(providerTerminalFrame,
+                            "You have exceeded the maximum number of attempts.",
+                            "Max Attempts Exceeded", JOptionPane.ERROR_MESSAGE);
+                    providerTerminalFrame.dispose();
+                    return;
+                }
+
+                // Get the entered manager ID
+                String providerID = idTextField.getText();
+
+                // Check the validity of the manager ID (customize as needed)
+                if (pTerminal.providerVerify(Integer.parseInt(providerID), controller)) {
+                    // If valid, create a new window
+                    JFrame welcomeFrame = new JFrame("Welcome to the Provider Terminal!");
+                    welcomeFrame.setSize(400, 200);
+                    welcomeFrame.setLocationRelativeTo(providerTerminalFrame);
+                    welcomeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                    // Create components for the new JFrame
+                    JLabel welcomeLabel = new JLabel("What would you like to do?");
+                    JButton requestProviderDirecButton = new JButton("Request Provider Directory");
+                    JButton logServiceButton = new JButton("Log a Service");
+                    JButton viewMainMenu = new JButton("View Main Menu");
+                    // Set layout manager for the new JFrame
+                    welcomeFrame.setLayout(new GridLayout(5, 1));
+
+                    // Add components to the new JFrame
+                    welcomeFrame.add(welcomeLabel);
+                    welcomeFrame.add(requestProviderDirecButton);
+                    welcomeFrame.add(logServiceButton);
+                    welcomeFrame.add(viewMainMenu);
+
+
+                    // Add ActionListener to the buttons (you will implement the actions)
+                    requestProviderDirecButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            JFrame actionFrame = new JFrame("Service Options");
+                            actionFrame.setSize(400, 200);
+                            actionFrame.setLocationRelativeTo(providerTerminalFrame);
+                            actionFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                            // Create components for the new JFrame
+                            JLabel titleLabel = new JLabel("What would you like to do?");
+                            JButton searchByServiceCodeButton = new JButton("Search by Service Code");
+                            JButton searchByServiceNameButton = new JButton("Search by Service Name");
+                            JButton viewAllServicesButton = new JButton("View all Services");
+                            JButton returnToMainMenuButton = new JButton("Return to Main Menu");
+
+                            // Set layout manager for the new JFrame
+                            actionFrame.setLayout(new GridLayout(5, 1));
+
+                            // Add components to the new JFrame
+                            actionFrame.add(titleLabel);
+                            actionFrame.add(searchByServiceCodeButton);
+                            actionFrame.add(searchByServiceNameButton);
+                            actionFrame.add(viewAllServicesButton);
+                            actionFrame.add(returnToMainMenuButton);
+
+                            // Add ActionListener to the buttons
+                            searchByServiceCodeButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    JFrame searchByServiceCodeFrame = new JFrame("Search by Service Code");
+                                    searchByServiceCodeFrame.setSize(400, 200);
+                                    searchByServiceCodeFrame.setLocationRelativeTo(providerTerminalFrame);
+                                    searchByServiceCodeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                    // Create components for the new JFrame
+                                    JLabel titleLabel = new JLabel("Enter the Service Code you would like to search for:");
+                                    JTextField serviceCodeTextField = new JTextField();
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Set layout manager for the new JFrame
+                                    searchByServiceCodeFrame.setLayout(new GridLayout(3, 1));
+
+                                    // Add components to the new JFrame
+                                    searchByServiceCodeFrame.add(titleLabel);
+                                    searchByServiceCodeFrame.add(serviceCodeTextField);
+                                    searchByServiceCodeFrame.add(submitButton);
+
+                                    // Add ActionListener to the submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the action for the submit button
+                                            String enteredServiceCode = serviceCodeTextField.getText();
+                                            // Add your code here to perform the search using the entered service code
+                                            Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(enteredServiceCode), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+
+                                            if (serviceByCode.isPresent()) {
+                                                JOptionPane.showMessageDialog(searchByServiceCodeFrame, "Service Code: " + serviceByCode.get().getServiceCode() + "\n" +
+                                                        "Service Name: " + serviceByCode.get().getServiceName() + "\n" +
+                                                        "Service Fee: " + serviceByCode.get().getServiceFee(), "Service Record", JOptionPane.INFORMATION_MESSAGE);
+                                            } else {
+                                                JOptionPane.showMessageDialog(searchByServiceCodeFrame, "Service Code not found. Please enter a valid Service Code.");
+                                            }
+                                        }
+                                    });
+
+                                    // Show the new window
+                                    searchByServiceCodeFrame.setVisible(true);
+                                }
+                            });
+
+
+                            searchByServiceNameButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    JFrame searchByServiceNameFrame = new JFrame("Search by Service Name");
+                                    searchByServiceNameFrame.setSize(400, 200);
+                                    searchByServiceNameFrame.setLocationRelativeTo(providerTerminalFrame);
+                                    searchByServiceNameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                    // Create components for the new JFrame
+                                    JLabel titleLabel = new JLabel("Enter the Service Name you would like to search for:");
+                                    JTextField serviceNameTextField = new JTextField();
+                                    JButton submitButton = new JButton("Submit");
+
+                                    // Set layout manager for the new JFrame
+                                    searchByServiceNameFrame.setLayout(new GridLayout(3, 1));
+
+                                    // Add components to the new JFrame
+                                    searchByServiceNameFrame.add(titleLabel);
+                                    searchByServiceNameFrame.add(serviceNameTextField);
+                                    searchByServiceNameFrame.add(submitButton);
+
+                                    // Add ActionListener to the submit button
+                                    submitButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            // Handle the action for the submit button
+                                            String enteredServiceName = serviceNameTextField.getText();
+                                            Optional<ProviderDirectory> serviceByName = controller.searchServiceName(enteredServiceName, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+
+                                            if (serviceByName.isPresent()) {
+                                                JOptionPane.showMessageDialog(searchByServiceNameFrame, "Service Code: " + serviceByName.get().getServiceCode() + "\n" +
+                                                        "Service Name: " + serviceByName.get().getServiceName() + "\n" +
+                                                        "Service Fee: " + serviceByName.get().getServiceFee(), "Service Record", JOptionPane.INFORMATION_MESSAGE);
+                                            } else {
+                                                JOptionPane.showMessageDialog(searchByServiceNameFrame, "Service Name not found. Please enter a valid Service Code.");
+                                            }
+                                        }
+                                    });
+
+                                    // Show the new window
+                                    searchByServiceNameFrame.setVisible(true);
+                                }
+                            });
+
+                            viewAllServicesButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Handle the action for "View all Services" button
+                                    // Add your code here
+                                    Vector<ProviderDirectory> serviceTypes;
+                                    serviceTypes = controller.getServiceTypes("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+
+                                    // Create and show the frame
+                                    SwingUtilities.invokeLater(() -> {
+                                        JFrame frame = new JFrame("View all Services");
+                                        frame.setSize(400, 400);
+                                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                        JTextArea textArea = new JTextArea();
+                                        textArea.setEditable(false);
+
+                                        // Loop through the service records and append them to the text area
+                                        for (ProviderDirectory entry : serviceTypes) {
+                                            textArea.append("Service Code: " + entry.getServiceCode() + "\n" +
+                                                    "Service Name: " + entry.getServiceName() + "\n" +
+                                                    "Service Fee: " + entry.getServiceFee() + "\n\n");
+                                        }
+
+                                        // Create a JScrollPane to make the text area scrollable
+                                        JScrollPane scrollPane = new JScrollPane(textArea);
+
+                                        // Add the scroll pane to the frame
+                                        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+
+                                        // Make the frame visible
+                                        frame.setVisible(true);
+                                    });
+                                }
+
+                            });
+
+                            returnToMainMenuButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Handle the action for "Return to Main Menu" button
+                                    // Add your code here
+                                    actionFrame.dispose(); // Close the current frame
+                                    // You may also show the main menu frame or perform other actions here
+                                }
+                            });
+
+                            // Show the new window
+                            actionFrame.setVisible(true);
+                        }
+                    });
+
+
+                    logServiceButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // ...
+
+// Create and show the frame
+                            SwingUtilities.invokeLater(() -> {
+                                JFrame frame = new JFrame("Enter Service Information");
+                                frame.setSize(400, 300);
+                                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                                JTextField memberIDTextField = new JTextField();
+                                JTextField serviceCodeTextField = new JTextField();
+                                JTextField dateTextField = new JTextField();
+                                JTextField commentsTextField = new JTextField();
+
+                                JButton submitButton = new JButton("Submit");
+
+                                // Set layout manager for the new JFrame
+                                frame.setLayout(new BorderLayout());
+
+                                // Create a panel to hold your labels and text fields
+                                JPanel inputPanel = new JPanel(new GridLayout(4, 2));
+
+                                // Add components to the input panel
+                                inputPanel.add(new JLabel("9-Digit Member ID:"));
+                                inputPanel.add(memberIDTextField);
+
+                                inputPanel.add(new JLabel("Service Code:"));
+                                inputPanel.add(serviceCodeTextField);
+
+                                inputPanel.add(new JLabel("Date of Service (MM-DD-YYYY):"));
+                                inputPanel.add(dateTextField);
+
+                                inputPanel.add(new JLabel("Comments:"));
+                                inputPanel.add(commentsTextField);
+
+                                // Add the input panel to the frame's center
+                                frame.add(inputPanel, BorderLayout.CENTER);
+
+                                // Add the submit button to the frame's south
+                                frame.add(submitButton, BorderLayout.SOUTH);
+
+                                // Add ActionListener to the submit button
+                                submitButton.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        // Get the input values as strings
+                                        String memberID = memberIDTextField.getText();
+                                        if(!controller.checkIDNumber(Integer.parseInt(memberID), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")){
+                                            JOptionPane.showMessageDialog(frame, "Member ID not found. Please enter a valid Member ID.");
+                                            return;
+                                        }
+                                        String serviceCode = serviceCodeTextField.getText();
+                                        String dateOfService = dateTextField.getText();
+                                        if(dateOfService.length() != 10){
+                                            JOptionPane.showMessageDialog(frame, "Invalid date. Please enter a valid date. (MM-DD-YYYY)");
+                                            return;
+                                        }
+                                        String comments = commentsTextField.getText();
+                                        Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(serviceCode), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                                        if (serviceByCode.isPresent()) {
+                                            // Ask the user to confirm the selected service
+                                            int option = JOptionPane.showConfirmDialog(frame,
+                                                    "Is this the correct service?\n" +
+                                                            "Service Code: " + serviceByCode.get().getServiceCode() + "\n" +
+                                                            "Service Name: " + serviceByCode.get().getServiceName() + "\n" +
+                                                            "Service Fee: " + serviceByCode.get().getServiceFee(),
+                                                    "Confirm Service",
+                                                    JOptionPane.YES_NO_OPTION);
+
+                                            if (option == JOptionPane.YES_OPTION) {
+                                                // User confirmed, process the data further
+                                                // Add your code here to handle the input values
+                                                controller.saveServiceRecord(dateOfService, Integer.parseInt(providerID), Integer.parseInt(memberID), Integer.parseInt(serviceCode), comments, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
+                                                JOptionPane.showMessageDialog(frame, "Successfully logged service!");
+                                                // Optionally, close the frame after submitting
+                                                frame.dispose();
+                                            } else {
+                                                return;
+                                            }
+                                        }
+                                        else {
+                                            JOptionPane.showMessageDialog(frame, "Service Code not found. Please enter a valid Service Code.");
+                                            return;
+                                        }
+
+                                        // frame.dispose(); // Optionally close the frame here after processing
+                                    }
+                                });
+
+                                // Make the frame visible
+                                frame.setVisible(true);
+                            });
+
+                        }
+
+                    });
+
+                    viewMainMenu.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            welcomeFrame.setVisible(false);
+                        }
+                    });
+
+                    // Show the new window
+                    welcomeFrame.setVisible(true);
+
+                    // Close the Manager Terminal window
+                    providerTerminalFrame.dispose();
+                } else {
+                    // If invalid, show a message or prompt for re-input
+                    JOptionPane.showMessageDialog(providerTerminalFrame,
+                            "Invalid provider ID. Please enter a valid 9-digit ID. " + (5 - attempts) + " attempts left",
+                            "Invalid ID", JOptionPane.ERROR_MESSAGE);
+
+                    // Optionally clear the input field for re-entry
+                    idTextField.setText("");
+
+                    // Increment the attempts counter
+                    attempts++;
+                }
+//                pTerminal.main(pTerminalArgs);
+            }
+        });
+        providerTerminalFrame.setVisible(true);
     }
 
     private void openOperatorTerminal() {
@@ -315,7 +674,7 @@ public class TerminalGUI extends JFrame {
                 String operatorID = idTextField.getText();
 
                 // Check the validity of the manager ID (customize as needed)
-                if (oTerminal.checkID(Integer.parseInt(operatorID))) {
+                if (oTerminal.checkIDNumber(Integer.parseInt(operatorID), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/operatorIDs.json")) {
                     // If valid, create a new window
                     JFrame welcomeFrame = new JFrame("Welcome to the Operator Terminal!");
                     welcomeFrame.setSize(400, 200);
