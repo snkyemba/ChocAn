@@ -1,0 +1,22 @@
+[
+  {"serviceCode": 483722, "serviceName": "Chocolate Dependency Analysis", "serviceFee": 33.94},
+  {"serviceCode": 969743, "serviceName": "Gourmet Chocolate Counseling", "serviceFee": 170.98},
+  {"serviceCode": 267152, "serviceName": "Sugary Snack Substitution", "serviceFee": 190.76},
+  {"serviceCode": 508310, "serviceName": "Dark Chocolate Detox", "serviceFee": 136.09},
+  {"serviceCode": 767129, "serviceName": "Cocoa Craving Meditation", "serviceFee": 88.72},
+  {"serviceCode": 303133, "serviceName": "Sweet Tooth Counseling", "serviceFee": 101.82},
+  {"serviceCode": 252837, "serviceName": "Milk Chocolate Moderation", "serviceFee": 259.94},
+  {"serviceCode": 911273, "serviceName": "Chocolate Temptation Resistance", "serviceFee": 176.46},
+  {"serviceCode": 512433, "serviceName": "Cocoa Comfort Alternatives", "serviceFee": 60.08},
+  {"serviceCode": 419633, "serviceName": "Chocolate Consumption Control", "serviceFee": 113.87},
+  {"serviceCode": 793014, "serviceName": "Sugar Relapse Prevention", "serviceFee": 234.32},
+  {"serviceCode": 733628, "serviceName": "Healthy Eating Habits", "serviceFee": 117.03},
+  {"serviceCode": 598853, "serviceName": "Chocolate Aversion Therapy", "serviceFee": 157.56},
+  {"serviceCode": 463686, "serviceName": "Non-Sugary Pleasure Therapy", "serviceFee": 185.08},
+  {"serviceCode": 317512, "serviceName": "Cocoa Craving Management", "serviceFee": 260.02},
+  {"serviceCode": 246608, "serviceName": "Cocoa Bean Therapy", "serviceFee": 157.8},
+  {"serviceCode": 296800, "serviceName": "Confectionery Intake Reduction", "serviceFee": 130.81},
+  {"serviceCode": 332523, "serviceName": "Artisan Chocolate Therapy", "serviceFee": 64.46},
+  {"serviceCode": 725491, "serviceName": "Chocolaty Impulse Control", "serviceFee": 209.46},
+  {"serviceCode": 430076, "serviceName": "Cocoa Product Withdrawal", "serviceFee": 118.41}
+]

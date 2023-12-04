@@ -1,0 +1,12 @@
+[
+    {"fee": 293.49, "name": "Jennifer Lawrence", "address": "674 Park St", "city": "Honolulu", "state": "MN", "number": 520190016, "zip": 23302},
+    {"fee": 254.29, "name": "Nicole Kidman", "address": "554 Park Blvd", "city": "Nashville", "state": "WY", "number": 147095201, "zip": 17381},
+    {"fee": 154.33, "name": "Sandra Bullock", "address": "755 Main St", "city": "Charlotte", "state": "AL", "number": 524587044, "zip": 14359},
+    {"fee": 176.4, "name": "Scarlett Johansson", "address": "208 Sunset Ln", "city": "Salt Lake City", "state": "NH", "number": 904935240, "zip": 43598},
+    {"fee": 14.06, "name": "Emma Watson", "address": "761 Cedar Way", "city": "Columbia", "state": "OH", "number": 961306313, "zip": 51337},
+    {"fee": 272.34, "name": "Sandra Bullock", "address": "246 Washington St", "city": "Chicago", "state": "HI", "number": 932369482, "zip": 21802},
+    {"fee": 48.49, "name": "Emma Watson", "address": "174 Elm Ln", "city": "Columbia", "state": "NJ", "number": 685386734, "zip": 29013},
+    {"fee": 42.44, "name": "Jennifer Lawrence", "address": "190 Sunset Blvd", "city": "Montgomery", "state": "IN", "number": 339743824, "zip": 37288},
+    {"fee": 43.81, "name": "Nicole Kidman", "address": "800 Cedar Rd", "city": "Jacksonville", "state": "TX", "number": 132741297, "zip": 85327},
+    {"fee": 120.46, "name": "George Clooney", "address": "520 Elm Ave", "city": "Boston", "state": "UT", "number": 647475644, "zip": 91927}
+]

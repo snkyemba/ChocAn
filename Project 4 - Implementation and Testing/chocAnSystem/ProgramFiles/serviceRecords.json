@@ -1,82 +1,402 @@
 [
-  {
-    "currentDate": "23-06-2023 00:27:00",
-    "serviceDate": "28-02-2023",
-    "providerNumber": 987987987,
-    "memberNumber": 789789789,
-    "serviceCode": 720717,
-    "comments": "Patient is well-prepared for relapse prevention."
-  },
-  {
-    "currentDate": "27-10-2023 14:54:16",
-    "serviceDate": "09-10-2023",
-    "providerNumber": 987654321,
-    "memberNumber": 123123123,
-    "serviceCode": 206004,
-    "comments": "Abstinence plan is proving effective."
-  },
-  {
-    "currentDate": "24-07-2023 21:47:55",
-    "serviceDate": "06-02-2023",
-    "providerNumber": 987654321,
-    "memberNumber": 789789789,
-    "serviceCode": 720717,
-    "comments": "Patient is well-prepared for relapse prevention."
-  },
-  {
-    "currentDate": "16-10-2023 03:10:56",
-    "serviceDate": "16-10-2023",
-    "providerNumber": 654654654,
-    "memberNumber": 456456456,
-    "serviceCode": 354802,
-    "comments": "Nutritional goals are being met."
-  },
-  {
-    "currentDate": "15-12-2023 17:43:43",
-    "serviceDate": "30-09-2023",
-    "providerNumber": 654654654,
-    "memberNumber": 456456456,
-    "serviceCode": 828124,
-    "comments": "Cravings are significantly reduced."
-  },
-  {
-    "currentDate": "24-07-2023 03:53:28",
-    "serviceDate": "20-04-2023",
-    "providerNumber": 987987987,
-    "memberNumber": 456456456,
-    "serviceCode": 301275,
-    "comments": "Patient is responding well to therapy."
-  },
-  {
-    "currentDate": "25-06-2023 10:00:41",
-    "serviceDate": "14-06-2023",
-    "providerNumber": 987654321,
-    "memberNumber": 123123123,
-    "serviceCode": 828124,
-    "comments": "Cravings are significantly reduced."
-  },
-  {
-    "currentDate": "24-12-2023 16:37:30",
-    "serviceDate": "02-10-2023",
-    "providerNumber": 321321321,
-    "memberNumber": 123456789,
-    "serviceCode": 828124,
-    "comments": "Cravings are significantly reduced."
-  },
-  {
-    "currentDate": "24-12-2023 20:55:38",
-    "serviceDate": "28-05-2023",
-    "providerNumber": 987987987,
-    "memberNumber": 123123123,
-    "serviceCode": 828124,
-    "comments": "Cravings are significantly reduced."
-  },
-  {
-    "currentDate": "18-05-2023 23:51:18",
-    "serviceDate": "02-02-2023",
-    "providerNumber": 987654321,
-    "memberNumber": 456456456,
-    "serviceCode": 434267,
-    "comments": "Counseling sessions are progressing well."
-  }
+    {
+        "currentDate": "12-11-2023 05:08:57",
+        "serviceDate": "12-06-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 495928634,
+        "serviceCode": 333264,
+        "comments": "Resistance to temptation improving."
+    },
+    {
+        "currentDate": "02-12-2023 12:44:12",
+        "serviceDate": "02-10-2023",
+        "providerNumber": 745921452,
+        "memberNumber": 495928634,
+        "serviceCode": 944740,
+        "comments": "Artisan chocolate therapy beneficial."
+    },
+    {
+        "currentDate": "08-23-2023 02:07:27",
+        "serviceDate": "08-18-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 269471502,
+        "serviceCode": 954925,
+        "comments": "Management of cravings successful."
+    },
+    {
+        "currentDate": "04-20-2023 12:35:30",
+        "serviceDate": "04-16-2023",
+        "providerNumber": 850604643,
+        "memberNumber": 893020544,
+        "serviceCode": 294966,
+        "comments": "Patient finding comfort in alternatives."
+    },
+    {
+        "currentDate": "10-31-2023 07:46:39",
+        "serviceDate": "10-31-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 245656533,
+        "serviceCode": 819565,
+        "comments": "Impulse control techniques working."
+    },
+    {
+        "currentDate": "11-02-2023 17:31:14",
+        "serviceDate": "11-02-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 527046618,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "05-18-2023 20:21:24",
+        "serviceDate": "05-15-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 120534625,
+        "serviceCode": 954925,
+        "comments": "Management of cravings successful."
+    },
+    {
+        "currentDate": "02-08-2023 07:20:25",
+        "serviceDate": "02-07-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 245656533,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "12-23-2023 10:33:02",
+        "serviceDate": "12-20-2023",
+        "providerNumber": 849644234,
+        "memberNumber": 906249549,
+        "serviceCode": 944740,
+        "comments": "Artisan chocolate therapy beneficial."
+    },
+    {
+        "currentDate": "06-17-2023 02:52:58",
+        "serviceDate": "06-15-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 245656533,
+        "serviceCode": 443886,
+        "comments": "Counseling session went well."
+    },
+    {
+        "currentDate": "06-01-2023 04:28:03",
+        "serviceDate": "05-27-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 527730914,
+        "serviceCode": 790235,
+        "comments": "Withdrawal symptoms managed effectively."
+    },
+    {
+        "currentDate": "02-06-2023 06:34:20",
+        "serviceDate": "02-02-2023",
+        "providerNumber": 921093937,
+        "memberNumber": 861246198,
+        "serviceCode": 418963,
+        "comments": "Patient adapting well to snack substitution."
+    },
+    {
+        "currentDate": "01-03-2024 07:31:19",
+        "serviceDate": "12-30-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 418961358,
+        "serviceCode": 940754,
+        "comments": "Therapy sessions are impactful."
+    },
+    {
+        "currentDate": "10-10-2023 11:33:00",
+        "serviceDate": "10-08-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 906249549,
+        "serviceCode": 217508,
+        "comments": "Aversion therapy showing results."
+    },
+    {
+        "currentDate": "05-08-2023 04:20:20",
+        "serviceDate": "05-06-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 400500312,
+        "serviceCode": 954925,
+        "comments": "Management of cravings successful."
+    },
+    {
+        "currentDate": "08-22-2023 16:50:51",
+        "serviceDate": "08-17-2023",
+        "providerNumber": 849644234,
+        "memberNumber": 400500312,
+        "serviceCode": 893971,
+        "comments": "Intake reduction progressing well."
+    },
+    {
+        "currentDate": "10-26-2023 23:43:41",
+        "serviceDate": "10-24-2023",
+        "providerNumber": 921093937,
+        "memberNumber": 893020544,
+        "serviceCode": 311147,
+        "comments": "Control over consumption improving."
+    },
+    {
+        "currentDate": "10-21-2023 06:52:37",
+        "serviceDate": "10-16-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 418961358,
+        "serviceCode": 652646,
+        "comments": "Effective analysis for chocolate dependency."
+    },
+    {
+        "currentDate": "04-22-2023 08:38:16",
+        "serviceDate": "04-20-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 772294996,
+        "serviceCode": 217508,
+        "comments": "Aversion therapy showing results."
+    },
+    {
+        "currentDate": "01-19-2023 09:48:34",
+        "serviceDate": "01-18-2023",
+        "providerNumber": 745921452,
+        "memberNumber": 540735152,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "07-28-2023 16:52:19",
+        "serviceDate": "07-28-2023",
+        "providerNumber": 849644234,
+        "memberNumber": 529631199,
+        "serviceCode": 886352,
+        "comments": "Moderation techniques effective."
+    },
+    {
+        "currentDate": "04-21-2023 07:24:41",
+        "serviceDate": "04-19-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 527730914,
+        "serviceCode": 944740,
+        "comments": "Artisan chocolate therapy beneficial."
+    },
+    {
+        "currentDate": "02-04-2023 08:08:05",
+        "serviceDate": "02-04-2023",
+        "providerNumber": 850604643,
+        "memberNumber": 269471502,
+        "serviceCode": 954925,
+        "comments": "Management of cravings successful."
+    },
+    {
+        "currentDate": "01-31-2023 14:47:32",
+        "serviceDate": "01-26-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 893020544,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "11-06-2023 23:43:09",
+        "serviceDate": "11-01-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 861246198,
+        "serviceCode": 443886,
+        "comments": "Counseling session went well."
+    },
+    {
+        "currentDate": "04-14-2023 04:47:00",
+        "serviceDate": "04-10-2023",
+        "providerNumber": 102592437,
+        "memberNumber": 120534625,
+        "serviceCode": 418963,
+        "comments": "Patient adapting well to snack substitution."
+    },
+    {
+        "currentDate": "10-06-2023 19:50:19",
+        "serviceDate": "10-05-2023",
+        "providerNumber": 850604643,
+        "memberNumber": 420589250,
+        "serviceCode": 944740,
+        "comments": "Artisan chocolate therapy beneficial."
+    },
+    {
+        "currentDate": "08-15-2023 15:16:01",
+        "serviceDate": "08-10-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 452663345,
+        "serviceCode": 217508,
+        "comments": "Aversion therapy showing results."
+    },
+    {
+        "currentDate": "01-05-2023 02:11:51",
+        "serviceDate": "01-03-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 375195035,
+        "serviceCode": 790235,
+        "comments": "Withdrawal symptoms managed effectively."
+    },
+    {
+        "currentDate": "04-27-2023 12:30:12",
+        "serviceDate": "04-25-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 687923742,
+        "serviceCode": 940754,
+        "comments": "Therapy sessions are impactful."
+    },
+    {
+        "currentDate": "01-10-2023 05:24:00",
+        "serviceDate": "01-05-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 687923742,
+        "serviceCode": 418963,
+        "comments": "Patient adapting well to snack substitution."
+    },
+    {
+        "currentDate": "05-22-2023 20:00:41",
+        "serviceDate": "05-17-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 540735152,
+        "serviceCode": 233628,
+        "comments": "Healthy eating habits being established."
+    },
+    {
+        "currentDate": "02-13-2023 04:49:55",
+        "serviceDate": "02-08-2023",
+        "providerNumber": 102592437,
+        "memberNumber": 893020544,
+        "serviceCode": 333264,
+        "comments": "Resistance to temptation improving."
+    },
+    {
+        "currentDate": "04-07-2023 18:46:56",
+        "serviceDate": "04-04-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 540735152,
+        "serviceCode": 311147,
+        "comments": "Control over consumption improving."
+    },
+    {
+        "currentDate": "11-23-2023 03:26:26",
+        "serviceDate": "11-20-2023",
+        "providerNumber": 849644234,
+        "memberNumber": 687923742,
+        "serviceCode": 294966,
+        "comments": "Patient finding comfort in alternatives."
+    },
+    {
+        "currentDate": "09-05-2023 21:11:07",
+        "serviceDate": "09-05-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 418961358,
+        "serviceCode": 886352,
+        "comments": "Moderation techniques effective."
+    },
+    {
+        "currentDate": "10-19-2023 07:45:21",
+        "serviceDate": "10-14-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 120534625,
+        "serviceCode": 893971,
+        "comments": "Intake reduction progressing well."
+    },
+    {
+        "currentDate": "01-27-2023 14:07:32",
+        "serviceDate": "01-22-2023",
+        "providerNumber": 745921452,
+        "memberNumber": 529631199,
+        "serviceCode": 905843,
+        "comments": "Counseling shows promising results."
+    },
+    {
+        "currentDate": "01-22-2023 11:07:02",
+        "serviceDate": "01-17-2023",
+        "providerNumber": 958884185,
+        "memberNumber": 120534625,
+        "serviceCode": 940754,
+        "comments": "Therapy sessions are impactful."
+    },
+    {
+        "currentDate": "05-18-2023 04:54:07",
+        "serviceDate": "05-15-2023",
+        "providerNumber": 102592437,
+        "memberNumber": 527730914,
+        "serviceCode": 311147,
+        "comments": "Control over consumption improving."
+    },
+    {
+        "currentDate": "08-24-2023 00:16:32",
+        "serviceDate": "08-23-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 538513956,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "10-15-2023 23:59:35",
+        "serviceDate": "10-12-2023",
+        "providerNumber": 850604643,
+        "memberNumber": 772294996,
+        "serviceCode": 233628,
+        "comments": "Healthy eating habits being established."
+    },
+    {
+        "currentDate": "12-29-2023 15:11:08",
+        "serviceDate": "12-29-2023",
+        "providerNumber": 921093937,
+        "memberNumber": 245656533,
+        "serviceCode": 927731,
+        "comments": "Meditation aiding in craving reduction."
+    },
+    {
+        "currentDate": "04-29-2023 13:12:32",
+        "serviceDate": "04-27-2023",
+        "providerNumber": 921093937,
+        "memberNumber": 418961358,
+        "serviceCode": 333264,
+        "comments": "Resistance to temptation improving."
+    },
+    {
+        "currentDate": "02-12-2023 21:33:04",
+        "serviceDate": "02-12-2023",
+        "providerNumber": 921093937,
+        "memberNumber": 418961358,
+        "serviceCode": 443886,
+        "comments": "Counseling session went well."
+    },
+    {
+        "currentDate": "03-19-2023 09:38:27",
+        "serviceDate": "03-17-2023",
+        "providerNumber": 440585701,
+        "memberNumber": 120534625,
+        "serviceCode": 886352,
+        "comments": "Moderation techniques effective."
+    },
+    {
+        "currentDate": "12-16-2023 17:26:54",
+        "serviceDate": "12-14-2023",
+        "providerNumber": 102592437,
+        "memberNumber": 687923742,
+        "serviceCode": 253767,
+        "comments": "Finding pleasure in non-sugary alternatives."
+    },
+    {
+        "currentDate": "10-01-2023 13:50:23",
+        "serviceDate": "09-28-2023",
+        "providerNumber": 745921452,
+        "memberNumber": 120534625,
+        "serviceCode": 325331,
+        "comments": "Relapse prevention strategies effective."
+    },
+    {
+        "currentDate": "12-18-2023 18:01:44",
+        "serviceDate": "12-18-2023",
+        "providerNumber": 515734996,
+        "memberNumber": 540735152,
+        "serviceCode": 940754,
+        "comments": "Therapy sessions are impactful."
+    },
+    {
+        "currentDate": "07-18-2023 07:14:53",
+        "serviceDate": "07-18-2023",
+        "providerNumber": 799803077,
+        "memberNumber": 269471502,
+        "serviceCode": 233628,
+        "comments": "Healthy eating habits being established."
+    }
 ]

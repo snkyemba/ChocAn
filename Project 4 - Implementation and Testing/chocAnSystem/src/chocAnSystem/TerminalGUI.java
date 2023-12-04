@@ -13,7 +13,6 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-
 public class TerminalGUI extends JFrame {
     private boolean isPlaying = false;
     String [] pTerminalArgs = new String[1];

@@ -1,10 +1,7 @@
 package chocAnSystem;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import chocAnSystem.ReportController;
 
 /** This test was written by Sophia Kyemba */
@@ -19,7 +16,5 @@ public class ReportControllerTest {
 	public final void testGenerateMemberReport() {
 		reportController.generateMemberReport();
 
-
 	}
-
 }
