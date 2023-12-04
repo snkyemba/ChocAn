@@ -88,6 +88,16 @@ public class ProviderTerminal {
         }
         return ID;
     }
+    public boolean providerVerify(int ID, ProviderController controller) {
+        // Validate ID
+        if (controller.checkIDNumber(ID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json")) {
+            System.out.println("Verification Successful.");
+            return true;
+        } else {
+            System.out.println("Invalid ID number. Please enter a valid ID.");
+            return false;
+        }
+    }
 
     /**
      * Method to search provider directory
