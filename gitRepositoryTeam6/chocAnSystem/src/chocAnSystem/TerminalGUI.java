@@ -133,6 +133,7 @@ public class TerminalGUI extends JFrame {
             isPlaying = false;
         }
     }
+
     private void openManagerTerminal() {
         JFrame managerTerminalFrame = new JFrame("Manager Terminal");
         managerTerminalFrame.setSize(400, 200);
@@ -209,8 +210,9 @@ public class TerminalGUI extends JFrame {
                     providerReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
+                            //JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport(2);
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Provider Report Generated");
                         }
                     });
 
@@ -711,7 +713,7 @@ public class TerminalGUI extends JFrame {
                                                 throw new IllegalArgumentException("ZIP must be 5 digits");
                                             }
                                             double balance = Double.parseDouble(balanceTextField.getText());
-                                            if(Double.isNaN(balance)){
+                                            if (Double.isNaN(balance)) {
                                                 JOptionPane.showMessageDialog(addProviderFrame, "Balance must be a double");
                                                 throw new IllegalArgumentException("Balance must be a double");
                                             }
