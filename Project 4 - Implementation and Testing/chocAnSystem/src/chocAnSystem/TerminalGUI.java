@@ -5,13 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
-import java.util.Scanner;
 import java.util.Vector;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TerminalGUI extends JFrame {
     private boolean isPlaying = false;
