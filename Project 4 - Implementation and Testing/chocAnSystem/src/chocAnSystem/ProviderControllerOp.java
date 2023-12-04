@@ -17,7 +17,7 @@ public class ProviderControllerOp {
     ProviderRecord providerRecord = new ProviderRecord();
     Vector<ProviderRecord> providerRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
-    String filePath = "Project 4 - Implementation and Testing/chocAnSystem/src/ProgramFiles/providerFile.json";
+    String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerFile.json";
 
     static Scanner scanner = new Scanner(System.in);
 

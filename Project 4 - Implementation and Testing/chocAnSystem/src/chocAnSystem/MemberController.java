@@ -14,7 +14,7 @@ public class MemberController {
     Vector<MemberRecord> memberRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
 
-    String filePath = "Project 4 - Implementation and Testing/chocAnSystem/src/ProgramFiles/memberFile.json";
+    String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberFile.json";
 
 
     static Scanner scanner = new Scanner(System.in);

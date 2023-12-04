@@ -17,7 +17,7 @@ public class OperatorTerminal {
 
     private static ProviderControllerOp providerController = new ProviderControllerOp();
 
-    private static String filePath = "Project 4 - Implementation and Testing/chocAnSystem/src/ProgramFiles/operatorIDs.json";
+    private static String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/operatorIDs.json";
 
     static boolean isOperator = false;
     static boolean viewMain = true;
