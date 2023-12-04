@@ -3,7 +3,7 @@
     <property name="src.dir" value="chocAnSystem/src"/>
     <property name="lib.dir" value="chocAnSystem/lib"/>
     <property name="build.dir" value="build"/>
-    <property name="dist.dir" value="dist"/>
+    <property name="release.dir" value="release"/>
     <property name="program-files" value="chocAnSystem/ProgramFiles"/>
     <property name="main-class" value="chocAnSystem.TerminalGUI"/>
 
@@ -11,7 +11,7 @@
     
     <target name="init">
         <mkdir dir="${build.dir}"/>
-        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${release.dir}"/>
     </target>
 
     <target name="compile" depends="init">
@@ -31,7 +31,7 @@
     </target>
 
     <target name="jar" depends="compile">
-        <jar destfile="${dist.dir}/build.jar" basedir="${build.dir}">
+        <jar destfile="${release.dir}/build.jar" basedir="${build.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${main-class}"/>
                 <attribute name="Class-Path" value="lib/gson-2.10.1.jar"/>
@@ -49,6 +49,6 @@
 
     <target name="clean">
         <delete dir="${build.dir}"/>
-        <delete dir="${dist.dir}"/>
+        <delete dir="${release.dir}"/>
     </target>
 </project>
