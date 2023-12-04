@@ -16,8 +16,10 @@ public class ReportControllerTest {
 	}
 
 	@Test
-	public final void test() {
-		assertEquals(2,2);
+	public final void testGenerateMemberReport() {
+		reportController.generateMemberReport();
+
+
 	}
 
 }
