@@ -23,12 +23,13 @@ public class ReportController {
 
     public void generateMemberReport() {
         Vector<MemberRecord> vector = new Vector<MemberRecord>();
+        Vector<ServiceRecord> vector2 = new Vector<ServiceRecord>();
         String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberFile.json";
-
+        String filePath2 = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json";
             // Step 1: Deserialize the existing JSON file into a Vector of objects
             try {
-                MemberRecord record = new MemberRecord();
-                vector = GenericSerializer.deserializeJsonArray(filePath, (Class<MemberRecord>) record.getClass());
+                vector = GenericSerializer.deserializeJsonArray(filePath, (Class<MemberRecord>) MemberRecord.class);
+                vector2 = GenericSerializer.deserializeJsonArray(filePath2, (Class<ServiceRecord>) ServiceRecord.class);
             } catch (IOException e) {
                 e.printStackTrace();
                 // Handle exceptions or return from the method
@@ -46,6 +47,7 @@ public class ReportController {
                     myWriter.write("Member zip: " + record.getZip() + "\n");
                     myWriter.write("\n");
                 }
+
                 myWriter.close();
             }
             catch (IOException e) {
