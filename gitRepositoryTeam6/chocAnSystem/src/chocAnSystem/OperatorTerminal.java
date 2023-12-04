@@ -1,9 +1,15 @@
 package chocAnSystem;
+import java.io.IOException;
 import java.util.Vector;
 import java.util.Scanner;
 
 
-/** This Class is By Joseph Hampton */
+/**
+ * Describe what the class is for
+ *
+ * @author Joseph Hampton
+ * @version 1.0
+ */
 public class OperatorTerminal {
     static Scanner scanner = new Scanner(System.in);
     static Vector<Integer> listID = new Vector<>();
@@ -21,6 +27,26 @@ public class OperatorTerminal {
         listID.add(321654987);
         listID.add(456123789);
 
+    }
+
+    public static boolean checkIDNumber(int idNumber, String filePath) {
+        // Create new Vector to hold ID numbers
+        Vector<Integer> idNumbers = new Vector<>();
+
+        // Deserialize JSON file into Vector
+        try {
+            idNumbers = GenericSerializer.deserializeJsonArray(filePath, Integer.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exceptions or return from the method
+        }
+
+        if (idNumbers.isEmpty()) {
+            return false;
+        }
+
+        // Check if ID number is in Vector
+        return idNumbers.contains(idNumber);
     }
 
     private static void viewMainMemberMenu(){
@@ -127,7 +153,7 @@ public class OperatorTerminal {
         while(tries > 0 && !isOperator){
             System.out.println("Hello, please input your 9 digit Operator ID");
             testOpID = Integer.parseInt(scanner.nextLine());
-            if (checkID(testOpID)) {
+            if (checkIDNumber(testOpID,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/operatorIDs.json")) {
                 System.out.println("Access Granted!");
                 System.out.println("Welcome to the Operator Terminal!");
                 isOperator = true;
