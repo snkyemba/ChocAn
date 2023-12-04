@@ -23,7 +23,7 @@ public class ReportController {
 
     public void generateMemberReport() {
         Vector<MemberRecord> vector = new Vector<MemberRecord>();
-        String filePath = "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json";
+        String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberFile.json";
 
             // Step 1: Deserialize the existing JSON file into a Vector of objects
             try {
@@ -59,7 +59,7 @@ public class ReportController {
 
     public void generateProviderReport() {
         Vector<ProviderRecord> vector = new Vector<ProviderRecord>();
-        String filePath = "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json";
+        String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerFile.json";
 
         // Step 1: Deserialize the existing JSON file into a Vector of objects
         try {
