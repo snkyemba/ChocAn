@@ -6,6 +6,11 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.Vector;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 /**
  * Class for serializing and deserializing JSON files
  *
@@ -29,13 +34,15 @@ public class GenericSerializer {
         Vector<T> vector;
 
         // Use try-with-resources for automatic resource management
-        try (FileReader reader = new FileReader(filePath)) {
+        try (InputStream inputStream = Files.newInputStream(Paths.get(filePath));
+             InputStreamReader reader = new InputStreamReader(inputStream)) {
+
             // Correctly create a Type that represents Vector<T>
             Type type = TypeToken.getParameterized(Vector.class, classType).getType();
 
             // Deserialize the JSON file into a Vector of classType objects
             vector = gson.fromJson(reader, type);
-        }  // FileReader is automatically closed here
+        } // InputStream is automatically closed here
 
         return vector;
     }
