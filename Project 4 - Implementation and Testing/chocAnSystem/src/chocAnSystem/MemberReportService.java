@@ -1,7 +1,5 @@
 package chocAnSystem;
 
-import java.util.Date;
-
 public class MemberReportService{
 	private String date;
 	private String providerName;
