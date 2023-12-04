@@ -2,10 +2,7 @@ package chocAnSystem;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.Vector;
 
@@ -55,17 +52,16 @@ public class GenericSerializer {
         // Create a Gson instance
         Gson gson = new Gson();
 
-        // Create a FileWriter instance
-        FileWriter writer = new FileWriter(filePath);
+        // Use try-with-resources for automatic resource management
+        try (OutputStream outputStream = new FileOutputStream(new File(filePath));
+             OutputStreamWriter writer = new OutputStreamWriter(outputStream)) {
 
-        // Serialize the vector into a JSON string
-        String jsonString = gson.toJson(vector);
+            // Serialize the vector into a JSON string
+            String jsonString = gson.toJson(vector);
 
-        // Write the JSON string to the file
-        writer.write(jsonString);
-
-        // Close the writer
-        writer.close();
+            // Write the JSON string to the file
+            writer.write(jsonString);
+        }
     }
 
     /**
