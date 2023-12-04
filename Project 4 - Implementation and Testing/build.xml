@@ -23,10 +23,11 @@
     </target>
 
     <target name="jar" depends="compile">
-        <jar destfile="${build.dir}/chocAnSystem.jar" basedir="${build.dir}">
+        <jar destfile="chocAnSystem/build.jar" basedir="${build.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${main-class}"/>
                 <attribute name="Class-Path" value="lib/gson-2.10.1.jar"/>
+                <attribute name="src" value="${src.dir}"/>
             </manifest>
         </jar>
     </target>
