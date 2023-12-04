@@ -1,8 +1,8 @@
 package chocAnSystem;
 
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Vector;
-import java.util.Optional;
 
 /**
  * Class for controlling logic for Provider Terminal
