@@ -25,7 +25,7 @@ public class SKyembaJUnitTest {
 		reportController.generateProviderReport();
 		assertTrue(new File("providerReport.txt").exists());
 	}
-	
+
 	//unit test for method I did not create
 	@Test(expected = AssertionError.class)
 	public void testStartOperatorTerminalOutput(){

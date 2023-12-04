@@ -1,26 +1,36 @@
 package chocAnSystem;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Vector;
 
-/** This class is by Sophia Kyemba. */
+/**
+ * Class for controlling the request report logic for the Manager Terminal
+ *
+ * @author Sophia Kyemba
+ * @version 1.0
+ */
 public class ReportController {
 
 	private MemberReport memberReport;
 	private ManagerReport managerReport;
 	private ProviderReport providerReport;
 	//private ManagerTerminal view;
-	
+
+    /**
+     * Constructor for ReportController
+     *
+     */
 	public ReportController() {
         this.memberReport = new MemberReport("John Doe", 123, "123 Main St", "City", "State", 12345);
         this.managerReport = new ManagerReport();
         this.providerReport = new ProviderReport("Provider Name", 456, "456 Oak St", "City", "State", 67890);
     }
 
+    /**
+     * Function to generate a member report
+     *
+     */
     public void generateMemberReport() {
         Vector<MemberRecord> vector = new Vector<MemberRecord>();
         Vector<ServiceRecord> vector2 = new Vector<ServiceRecord>();
@@ -66,6 +76,10 @@ public class ReportController {
             }
     }
 
+    /**
+     * Function to generate a manager report
+     *
+     */
     public void generateManagerReport() {
         Vector<ProviderRecord> providerVector = new Vector<ProviderRecord>();
         Vector<ServiceRecord> serviceVector = new Vector<ServiceRecord>();
@@ -110,6 +124,10 @@ public class ReportController {
         }
     }
 
+    /**
+     * Function to generate a provider report
+     *
+     */
     public void generateProviderReport() {
         int numConsults = 0;
         Vector<ProviderRecord> vector = new Vector<ProviderRecord>();
