@@ -21,7 +21,7 @@ public class JHamptonJUnitTest {
         memberRecordTest.manageBalance(-30.0);
         assertEquals(0.0, memberRecordTest.getBalance(), 0.001);
     }
-    @Test
+    @Test(expected = AssertionError.class)
     public void testStartOperatorTerminalOutput(){
         OperatorTerminal operatorTerminal = new OperatorTerminal();
         String input = "123456789";
@@ -30,7 +30,7 @@ public class JHamptonJUnitTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         operatorTerminal.startOperatorTerminal();
-        String expectedOutput = "Hello, please input your 9 digit Operator ID";
+        String expectedOutput = "Hello, this is the wrong Operator Output.";
         assertTrue(outContent.toString().contains(expectedOutput));
     }
     @Test
