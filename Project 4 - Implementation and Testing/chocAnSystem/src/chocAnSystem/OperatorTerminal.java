@@ -17,6 +17,8 @@ public class OperatorTerminal {
 
     private static ProviderControllerOp providerController = new ProviderControllerOp();
 
+    private static String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/operatorIDs.json";
+
     static boolean isOperator = false;
     static boolean viewMain = true;
 
@@ -179,6 +181,12 @@ public class OperatorTerminal {
     public void viewMainMenu(){
         viewMain = true;
     }
+    /**
+     * Function to start the Operator Terminal, used for testing
+     */
+    public static void startOperatorTerminal() {
+        System.out.println("Hello, please input your 9 digit Operator ID");
+    }
 
 
     /**
@@ -190,9 +198,9 @@ public class OperatorTerminal {
         int testOpID;
         int tries = 3;
         while(tries > 0 && !isOperator){
-            System.out.println("Hello, please input your 9 digit Operator ID");
+            startOperatorTerminal();
             testOpID = Integer.parseInt(scanner.nextLine());
-            if (checkIDNumber(testOpID,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/operatorIDs.json")) {
+            if (checkIDNumber(testOpID,filePath)) {
                 System.out.println("Access Granted!");
                 System.out.println("Welcome to the Operator Terminal!");
                 isOperator = true;

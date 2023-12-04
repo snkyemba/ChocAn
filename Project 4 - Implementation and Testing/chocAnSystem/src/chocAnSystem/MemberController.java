@@ -14,6 +14,8 @@ public class MemberController {
     Vector<MemberRecord> memberRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
 
+    String filePath = "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberFile.json";
+
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -48,7 +50,7 @@ public class MemberController {
         System.out.println("Enter member balance: ");
         double balance = Double.parseDouble(scanner.nextLine());
         memberRecord = new MemberRecord(name, number, address, city, state, zip, balance);
-        GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", memberRecord);
+        GenericSerializer.processJsonFile(filePath, memberRecord);
         System.out.println("Member added successfully");
         operatorTerminal.viewMainMenu();
     }
@@ -58,7 +60,7 @@ public class MemberController {
      */
     public void addMember(String name, int number, String address, String city, String state, int zip, double balance) {
         memberRecord = new MemberRecord(name, number, address, city, state, zip, balance);
-        GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", memberRecord);
+        GenericSerializer.processJsonFile(filePath, memberRecord);
 //        memberToFile(memberFile, memberRecord);
 
     }
@@ -88,7 +90,7 @@ public class MemberController {
         String newValue = scanner.nextLine();
         //search the json file for the name
         try{
-            memberRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", MemberRecord.class);
+            memberRecordVector = GenericSerializer.deserializeJsonArray(filePath, MemberRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -125,7 +127,7 @@ public class MemberController {
         }
 
         try {
-            GenericSerializer.serializeJsonArray(memberRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json");
+            GenericSerializer.serializeJsonArray(memberRecordVector,filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -141,7 +143,7 @@ public class MemberController {
         String newValue = selectedNewValue;
         //search the json file for the name
         try{
-            memberRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", MemberRecord.class);
+            memberRecordVector = GenericSerializer.deserializeJsonArray(filePath, MemberRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -178,7 +180,7 @@ public class MemberController {
         }
 
         try {
-            GenericSerializer.serializeJsonArray(memberRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json");
+            GenericSerializer.serializeJsonArray(memberRecordVector,filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -194,7 +196,7 @@ public class MemberController {
         String name = scanner.nextLine();
         //search the json file for the name
         try{
-            memberRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", MemberRecord.class);
+            memberRecordVector = GenericSerializer.deserializeJsonArray(filePath, MemberRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -204,7 +206,7 @@ public class MemberController {
             }
         }
         try {
-            GenericSerializer.serializeJsonArray(memberRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json");
+            GenericSerializer.serializeJsonArray(memberRecordVector,filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -218,7 +220,7 @@ public class MemberController {
         String name = memName;
         //search the json file for the name
         try{
-            memberRecordVector = GenericSerializer.deserializeJsonArray("gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json", MemberRecord.class);
+            memberRecordVector = GenericSerializer.deserializeJsonArray(filePath, MemberRecord.class);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -228,7 +230,7 @@ public class MemberController {
             }
         }
         try {
-            GenericSerializer.serializeJsonArray(memberRecordVector,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberFile.json");
+            GenericSerializer.serializeJsonArray(memberRecordVector,filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
