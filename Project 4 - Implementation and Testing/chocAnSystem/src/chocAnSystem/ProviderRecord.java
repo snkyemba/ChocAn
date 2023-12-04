@@ -54,4 +54,8 @@ package chocAnSystem;
         return fee;
     }
 
+    //  Getter
+    public long getProviderNumber() {
+        return super.getNumber();
+    }
 }

@@ -53,4 +53,8 @@ public class MemberRecord extends RosterRecord {
         return balance;
     }
 
+    // Getter
+    public String getName() {
+        return super.getName();
+    }
 }

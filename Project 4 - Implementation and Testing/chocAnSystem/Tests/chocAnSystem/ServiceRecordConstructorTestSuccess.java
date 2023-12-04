@@ -1,9 +1,11 @@
 package chocAnSystem;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
-import java.util.Date;
+
 import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 public class ServiceRecordConstructorTestSuccess {
 

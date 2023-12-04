@@ -5,13 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
-import java.util.Scanner;
 import java.util.Vector;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TerminalGUI extends JFrame {
     private boolean isPlaying = false;
@@ -222,8 +219,9 @@ public class TerminalGUI extends JFrame {
                     managerReportButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
+                            //JOptionPane.showMessageDialog(managerTerminalFrame, "Request report functionality to be implemented.");
                             mTerminal.requestReport(3);
+                            JOptionPane.showMessageDialog(managerTerminalFrame, "Manager Report Generated");
                         }
                     });
                     viewMainMenu.addActionListener(new ActionListener() {

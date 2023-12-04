@@ -1,8 +1,8 @@
 package chocAnSystem;
 
 import org.junit.Test;
-import java.io.IOException;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
 
 public class ProviderControllerTests {
     // Test data for saving provider directory entries

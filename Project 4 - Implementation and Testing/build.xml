@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<project name="Project 4 - Implementation and Testing" default="jar" basedir=".">
+    <property name="src.dir" value="chocAnSystem/src"/>
+    <property name="lib.dir" value="chocAnSystem/lib"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="main-class" value="chocAnSystem.TerminalGUI"/>
+
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac destdir="${build.dir}" includeantruntime="true">
+            <src path="${src.dir}"/>
+            <classpath>
+                <pathelement path="${lib.dir}/gson-2.10.1.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="${main-class}" classpath="${build.dir}${path.separator}${lib.dir}/gson-2.10.1.jar"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${dist.dir}/build.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+                <attribute name="Class-Path" value="lib/gson-2.10.1.jar"/>
+            </manifest>
+            <!-- Include Java files, JPEG images, and JSON files -->
+            <zipfileset dir="${src.dir}" includes="**/*.java"/>
+            <zipfileset dir="${src.dir}" includes="**/*.jpeg"/>
+            <zipfileset dir="${src.dir}" includes="**/*.wav"/>
+            <zipfileset dir="${src.dir}" includes="**/*.json"/>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+</project>

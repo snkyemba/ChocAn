@@ -1,8 +1,6 @@
 package chocAnSystem;
+
 import java.util.Vector;
-//Provider Report Class created by EvanChilders
-import java.util.*;
-import java.util.Date;
 //Provider Report class by EvanChilders
 /*
  * This class is used to create a provider report for the manager to view
