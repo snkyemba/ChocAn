@@ -1,0 +1,37 @@
+[
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  },
+  {
+    "serviceCode": 123456,
+    "serviceName": "Test Service",
+    "serviceFee": 123.45
+  }
+]

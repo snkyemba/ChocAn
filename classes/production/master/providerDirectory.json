@@ -1,0 +1,102 @@
+[
+    {
+        "serviceCode": 435594,
+        "serviceName": "Dark Chocolate Detox",
+        "serviceFee": 253.7
+    },
+    {
+        "serviceCode": 893971,
+        "serviceName": "Confectionery Intake Reduction",
+        "serviceFee": 268.52
+    },
+    {
+        "serviceCode": 418963,
+        "serviceName": "Sugary Snack Substitution",
+        "serviceFee": 63.24
+    },
+    {
+        "serviceCode": 233628,
+        "serviceName": "Healthy Eating Habits",
+        "serviceFee": 140.24
+    },
+    {
+        "serviceCode": 217508,
+        "serviceName": "Chocolate Aversion Therapy",
+        "serviceFee": 171.04
+    },
+    {
+        "serviceCode": 954925,
+        "serviceName": "Cocoa Craving Management",
+        "serviceFee": 227.79
+    },
+    {
+        "serviceCode": 294966,
+        "serviceName": "Cocoa Comfort Alternatives",
+        "serviceFee": 275.22
+    },
+    {
+        "serviceCode": 253767,
+        "serviceName": "Non-Sugary Pleasure Therapy",
+        "serviceFee": 88.44
+    },
+    {
+        "serviceCode": 333264,
+        "serviceName": "Chocolate Temptation Resistance",
+        "serviceFee": 77.75
+    },
+    {
+        "serviceCode": 886352,
+        "serviceName": "Milk Chocolate Moderation",
+        "serviceFee": 104.79
+    },
+    {
+        "serviceCode": 940754,
+        "serviceName": "Cocoa Bean Therapy",
+        "serviceFee": 55.33
+    },
+    {
+        "serviceCode": 325331,
+        "serviceName": "Sugar Relapse Prevention",
+        "serviceFee": 120.95
+    },
+    {
+        "serviceCode": 790235,
+        "serviceName": "Cocoa Product Withdrawal",
+        "serviceFee": 230.8
+    },
+    {
+        "serviceCode": 944740,
+        "serviceName": "Artisan Chocolate Therapy",
+        "serviceFee": 169.12
+    },
+    {
+        "serviceCode": 652646,
+        "serviceName": "Chocolate Dependency Analysis",
+        "serviceFee": 170.99
+    },
+    {
+        "serviceCode": 311147,
+        "serviceName": "Chocolate Consumption Control",
+        "serviceFee": 288.33
+    },
+    {
+        "serviceCode": 819565,
+        "serviceName": "Chocolaty Impulse Control",
+        "serviceFee": 63.27
+    },
+    {
+        "serviceCode": 443886,
+        "serviceName": "Gourmet Chocolate Counseling",
+        "serviceFee": 160.0
+    },
+    {
+        "serviceCode": 905843,
+        "serviceName": "Sweet Tooth Counseling",
+        "serviceFee": 251.87
+    },
+    {
+        "serviceCode": 927731,
+        "serviceName": "Cocoa Craving Meditation",
+        "serviceFee": 285.12
+    }
+]
