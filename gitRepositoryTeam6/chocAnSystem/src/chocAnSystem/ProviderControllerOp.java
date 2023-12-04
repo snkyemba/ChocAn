@@ -1,5 +1,7 @@
 package chocAnSystem;
 
+import jdk.internal.foreign.abi.Binding;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
@@ -11,6 +13,7 @@ import java.util.Vector;
  */
 public class ProviderControllerOp {
 
+    public Binding.Allocate providerList;
     ProviderRecord providerRecord = new ProviderRecord();
     Vector<ProviderRecord> providerRecordVector = new Vector<>();
     OperatorTerminal operatorTerminal = new OperatorTerminal();
@@ -64,6 +67,22 @@ public class ProviderControllerOp {
     public void addProvider(String name, int number, String address, String city, String state, int zip, double fee) {
         providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
         GenericSerializer.processJsonFile("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerFile.json", providerRecord);
+    }
+
+
+    /**
+     * Function to add and save provider to JSON file from the GUI
+     * @param name Name of provider
+     * @param number Number of provider
+     * @param address Address of provider
+     * @param city City of provider
+     * @param state State of provider
+     * @param zip Zip code of provider
+     * @param fee Fee of provider
+     */
+    public void addProvider(String name, int number, String address, String city, String state, int zip, double fee, String filePath) {
+        providerRecord = new ProviderRecord(name, number, address, city, state, zip, fee);
+        GenericSerializer.processJsonFile(filePath, providerRecord);
     }
 
     /**
@@ -214,5 +233,30 @@ public class ProviderControllerOp {
             throw new RuntimeException(e);
         }
         System.out.println("Provider deleted successfully");
+    }
+
+    public ProviderRecord getProviderRecord() {
+        return providerRecord;
+    }
+
+    public void setProviderRecord(ProviderRecord providerRecord) {
+        this.providerRecord = providerRecord;
+    }
+
+    /**
+     * Function to get provider name from JSON file
+     * @param name Name of provider
+     * @param filePath Path to JSON file
+     * @return True if provider name is found, false otherwise
+     * @throws IOException
+     */
+    public boolean getProviderName(String name, String filePath) throws IOException {
+        providerRecordVector = GenericSerializer.deserializeJsonArray(filePath, ProviderRecord.class);
+        for(int i = 0; i < providerRecordVector.size(); i++){
+            if(providerRecordVector.get(i).getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
     }
 }
