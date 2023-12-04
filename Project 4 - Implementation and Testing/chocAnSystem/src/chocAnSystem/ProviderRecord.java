@@ -25,4 +25,8 @@ public class ProviderRecord extends RosterRecord {
         return fee;
     }
 
+    //  Getter
+    public long getProviderNumber() {
+        return super.getNumber();
+    }
 }
