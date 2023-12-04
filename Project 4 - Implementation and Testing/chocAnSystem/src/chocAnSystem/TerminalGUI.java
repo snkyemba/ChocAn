@@ -13,7 +13,6 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-
 public class TerminalGUI extends JFrame {
     private boolean isPlaying = false;
     String [] pTerminalArgs = new String[1];
@@ -390,7 +389,7 @@ public class TerminalGUI extends JFrame {
                                             // Handle the action for the submit button
                                             String enteredServiceCode = serviceCodeTextField.getText();
                                             // Add your code here to perform the search using the entered service code
-                                            Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(enteredServiceCode), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                                            Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(enteredServiceCode), "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
 
                                             if (serviceByCode.isPresent()) {
                                                 JOptionPane.showMessageDialog(searchByServiceCodeFrame, "Service Code: " + serviceByCode.get().getServiceCode() + "\n" +
@@ -406,7 +405,6 @@ public class TerminalGUI extends JFrame {
                                     searchByServiceCodeFrame.setVisible(true);
                                 }
                             });
-
 
                             searchByServiceNameButton.addActionListener(new ActionListener() {
                                 @Override
@@ -435,7 +433,7 @@ public class TerminalGUI extends JFrame {
                                         public void actionPerformed(ActionEvent e) {
                                             // Handle the action for the submit button
                                             String enteredServiceName = serviceNameTextField.getText();
-                                            Optional<ProviderDirectory> serviceByName = controller.searchServiceName(enteredServiceName, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                                            Optional<ProviderDirectory> serviceByName = controller.searchServiceName(enteredServiceName, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
 
                                             if (serviceByName.isPresent()) {
                                                 JOptionPane.showMessageDialog(searchByServiceNameFrame, "Service Code: " + serviceByName.get().getServiceCode() + "\n" +
@@ -458,7 +456,7 @@ public class TerminalGUI extends JFrame {
                                     // Handle the action for "View all Services" button
                                     // Add your code here
                                     Vector<ProviderDirectory> serviceTypes;
-                                    serviceTypes = controller.getServiceTypes("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                                    serviceTypes = controller.getServiceTypes("Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
 
                                     // Create and show the frame
                                     SwingUtilities.invokeLater(() -> {
@@ -554,7 +552,7 @@ public class TerminalGUI extends JFrame {
                                     public void actionPerformed(ActionEvent e) {
                                         // Get the input values as strings
                                         String memberID = memberIDTextField.getText();
-                                        if(!controller.checkIDNumber(Integer.parseInt(memberID), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")){
+                                        if(!controller.checkIDNumber(Integer.parseInt(memberID), "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberIDs.json")){
                                             JOptionPane.showMessageDialog(frame, "Member ID not found. Please enter a valid Member ID.");
                                             return;
                                         }
@@ -565,7 +563,7 @@ public class TerminalGUI extends JFrame {
                                             return;
                                         }
                                         String comments = commentsTextField.getText();
-                                        Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(serviceCode), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                                        Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(Integer.parseInt(serviceCode), "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
                                         if (serviceByCode.isPresent()) {
                                             // Ask the user to confirm the selected service
                                             int option = JOptionPane.showConfirmDialog(frame,
@@ -579,7 +577,7 @@ public class TerminalGUI extends JFrame {
                                             if (option == JOptionPane.YES_OPTION) {
                                                 // User confirmed, process the data further
                                                 // Add your code here to handle the input values
-                                                controller.saveServiceRecord(dateOfService, Integer.parseInt(providerID), Integer.parseInt(memberID), Integer.parseInt(serviceCode), comments, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
+                                                controller.saveServiceRecord(dateOfService, Integer.parseInt(providerID), Integer.parseInt(memberID), Integer.parseInt(serviceCode), comments, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json");
                                                 JOptionPane.showMessageDialog(frame, "Successfully logged service!");
                                                 // Optionally, close the frame after submitting
                                                 frame.dispose();
@@ -674,7 +672,7 @@ public class TerminalGUI extends JFrame {
                 String operatorID = idTextField.getText();
 
                 // Check the validity of the manager ID (customize as needed)
-                if (oTerminal.checkIDNumber(Integer.parseInt(operatorID), "gitRepositoryTeam6/chocAnSystem/ProgramFiles/operatorIDs.json")) {
+                if (oTerminal.checkIDNumber(Integer.parseInt(operatorID), "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/operatorIDs.json")) {
                     // If valid, create a new window
                     JFrame welcomeFrame = new JFrame("Welcome to the Operator Terminal!");
                     welcomeFrame.setSize(400, 200);

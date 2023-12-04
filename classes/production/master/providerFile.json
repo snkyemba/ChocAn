@@ -1,0 +1,92 @@
+[
+    {
+        "fee": 296.29,
+        "name": "Grace Park",
+        "address": "657 Oak St",
+        "city": "Atlanta",
+        "state": "NM",
+        "number": 850604643,
+        "zip": 66359
+    },
+    {
+        "fee": 203.45,
+        "name": "Jordan Battle",
+        "address": "471 Oak St",
+        "city": "Providence",
+        "state": "IN",
+        "number": 799803077,
+        "zip": 36103
+    },
+    {
+        "fee": 168.91,
+        "name": "Mason James",
+        "address": "212 Park Way",
+        "city": "Newark",
+        "state": "MS",
+        "number": 440585701,
+        "zip": 74777
+    },
+    {
+        "fee": 114.09,
+        "name": "Phidarian Mathis",
+        "address": "831 Pine Terrace",
+        "city": "Portland",
+        "state": "AR",
+        "number": 849644234,
+        "zip": 58171
+    },
+    {
+        "fee": 130.24,
+        "name": "Jameson Williams",
+        "address": "766 Sunset Pl",
+        "city": "Tuscaloosa",
+        "state": "AR",
+        "number": 745921452,
+        "zip": 60668
+    },
+    {
+        "fee": 83.51,
+        "name": "Will Anderson Jr.",
+        "address": "911 Park Dr",
+        "city": "Wilmington",
+        "state": "ND",
+        "number": 921093937,
+        "zip": 54278
+    },
+    {
+        "fee": 143.83,
+        "name": "Olivia Wilde",
+        "address": "484 Pine Ave",
+        "city": "Jacksonville",
+        "state": "MA",
+        "number": 515734996,
+        "zip": 20144
+    },
+    {
+        "fee": 64.64,
+        "name": "Liam Hemsworth",
+        "address": "953 Cedar Rd",
+        "city": "Phoenix",
+        "state": "PA",
+        "number": 102592437,
+        "zip": 87777
+    },
+    {
+        "fee": 171.39,
+        "name": "Samuel Jackson",
+        "address": "125 Washington Way",
+        "city": "Chicago",
+        "state": "MS",
+        "number": 958884185,
+        "zip": 28389
+    },
+    {
+        "fee": 59.94,
+        "name": "Natalie Portman",
+        "address": "557 View Ct",
+        "city": "Portland",
+        "state": "CT",
+        "number": 374765950,
+        "zip": 30974
+    }
+]

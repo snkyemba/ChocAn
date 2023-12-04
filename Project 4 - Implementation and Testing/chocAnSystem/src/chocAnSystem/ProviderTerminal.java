@@ -79,7 +79,7 @@ public class ProviderTerminal {
             ID = scanValidIntLength(sc, 9);
 
             // Validate ID
-            if (controller.checkIDNumber(ID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json")) {
+            if (controller.checkIDNumber(ID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
                 System.out.println("Verification Successful.");
                 break;
             } else {
@@ -90,7 +90,7 @@ public class ProviderTerminal {
     }
     public boolean providerVerify(int ID, ProviderController controller) {
         // Validate ID
-        if (controller.checkIDNumber(ID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json")) {
+        if (controller.checkIDNumber(ID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
             System.out.println("Verification Successful.");
             return true;
         } else {
@@ -126,7 +126,7 @@ public class ProviderTerminal {
                 System.out.println("Enter the Six Digit Service Code you would like to search for:");
                 serviceCode = scanValidIntLength(sc, 6);
 
-                Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(serviceCode, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(serviceCode, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
                 if (serviceByCode.isPresent()) {
                     System.out.println("Service Code: " + serviceByCode.get().getServiceCode() + "\n" +
                             "Service Name: " + serviceByCode.get().getServiceName() + "\n" +
@@ -142,7 +142,7 @@ public class ProviderTerminal {
                 System.out.println("Enter the Service Name you would like to search for:");
                 String serviceName = scanValidStringLength(sc, 20);
 
-                Optional<ProviderDirectory> serviceByName = controller.searchServiceName(serviceName, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                Optional<ProviderDirectory> serviceByName = controller.searchServiceName(serviceName, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
                 if (serviceByName.isPresent()) {
                     System.out.println("Service Code: " + serviceByName.get().getServiceCode() + "\n" +
                             "Service Name: " + serviceByName.get().getServiceName() + "\n" +
@@ -156,7 +156,7 @@ public class ProviderTerminal {
             // View all services
             case 3:
                 Vector<ProviderDirectory> serviceTypes;
-                serviceTypes = controller.getServiceTypes("gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+                serviceTypes = controller.getServiceTypes("Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
 
                 for (ProviderDirectory entry : serviceTypes) {
                     System.out.println("Service Code: " + entry.getServiceCode() + "\n" +
@@ -190,7 +190,7 @@ public class ProviderTerminal {
             memberID = scanValidIntLength(sc, 9);
 
             // Validate member ID
-            if (!controller.checkIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")) {
+            if (!controller.checkIDNumber(memberID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberIDs.json")) {
                 System.out.println("Invalid Member ID. Please enter a valid Member ID.");
             } else {
                 // Double check member ID
@@ -219,7 +219,7 @@ public class ProviderTerminal {
             serviceCode = scanValidIntLength(sc, 6);
 
             // Validate service code
-            Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(serviceCode, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+            Optional<ProviderDirectory> serviceByCode = controller.searchServiceCode(serviceCode, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
             if (serviceByCode.isPresent()) {
                 // Double check service code
                 System.out.println("Is this the correct Service? 1 for yes, 2 for no.\n" +
@@ -290,7 +290,7 @@ public class ProviderTerminal {
         }
 
         // Save service record
-        controller.saveServiceRecord(serviceDate, providerVerify(sc, controller), memberID, serviceCode, comments, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
+        controller.saveServiceRecord(serviceDate, providerVerify(sc, controller), memberID, serviceCode, comments, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json");
     }
 
     /**
@@ -308,7 +308,7 @@ public class ProviderTerminal {
             memberID = scanValidIntLength(sc, 9);
 
             // Validate member ID
-            if (controller.checkIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json")) {
+            if (controller.checkIDNumber(memberID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberIDs.json")) {
                 System.out.println("Member ID already exists. Please enter a valid Member ID.");
             } else {
                 // Double check member ID
@@ -330,7 +330,7 @@ public class ProviderTerminal {
         }
 
         // Save member ID
-        controller.saveIDNumber(memberID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/memberIDs.json");
+        controller.saveIDNumber(memberID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/memberIDs.json");
     }
 
     /**
@@ -348,7 +348,7 @@ public class ProviderTerminal {
             providerID = scanValidIntLength(sc, 9);
 
             // Validate provider ID
-            if (controller.checkIDNumber(providerID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json")) {
+            if (controller.checkIDNumber(providerID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json")) {
                 System.out.println("Provider ID already exists. Please enter a valid Provider ID.");
             } else {
                 // Double check provider ID
@@ -370,7 +370,7 @@ public class ProviderTerminal {
         }
 
         // Save provider ID
-        controller.saveIDNumber(providerID, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerIDs.json");
+        controller.saveIDNumber(providerID, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerIDs.json");
     }
 
     /**
@@ -390,7 +390,7 @@ public class ProviderTerminal {
             serviceCode = scanValidIntLength(sc, 6);
 
             // Validate service code
-            if (controller.searchServiceCode(serviceCode, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json").isPresent()) {
+            if (controller.searchServiceCode(serviceCode, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json").isPresent()) {
                 System.out.println("Service Code already exists. Please enter a valid Service Code.");
             } else {
                 // Double check service code
@@ -462,7 +462,7 @@ public class ProviderTerminal {
         }
 
         // Save provider directory entry
-        controller.saveServiceType(serviceCode, serviceName, serviceFee, "gitRepositoryTeam6/chocAnSystem/ProgramFiles/providerDirectory.json");
+        controller.saveServiceType(serviceCode, serviceName, serviceFee, "Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/providerDirectory.json");
     }
 
     /**
@@ -472,7 +472,7 @@ public class ProviderTerminal {
      */
     public static void printAllServiceRecords(ProviderController controller) {
         Vector<ServiceRecord> serviceRecords;
-        serviceRecords = controller.getServiceRecords("gitRepositoryTeam6/chocAnSystem/ProgramFiles/serviceRecords.json");
+        serviceRecords = controller.getServiceRecords("Project 4 - Implementation and Testing/chocAnSystem/ProgramFiles/serviceRecords.json");
 
         // Print all service records
         for (ServiceRecord record : serviceRecords) {
