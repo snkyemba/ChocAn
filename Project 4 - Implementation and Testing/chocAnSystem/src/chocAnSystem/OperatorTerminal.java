@@ -17,6 +17,8 @@ public class OperatorTerminal {
 
     private static ProviderControllerOp providerController = new ProviderControllerOp();
 
+    private static String filePath = "Project 4 - Implementation and Testing/chocAnSystem/src/ProgramFiles/operatorIDs.json";
+
     static boolean isOperator = false;
     static boolean viewMain = true;
 
@@ -198,7 +200,7 @@ public class OperatorTerminal {
         while(tries > 0 && !isOperator){
             startOperatorTerminal();
             testOpID = Integer.parseInt(scanner.nextLine());
-            if (checkIDNumber(testOpID,"gitRepositoryTeam6/chocAnSystem/ProgramFiles/operatorIDs.json")) {
+            if (checkIDNumber(testOpID,filePath)) {
                 System.out.println("Access Granted!");
                 System.out.println("Welcome to the Operator Terminal!");
                 isOperator = true;
