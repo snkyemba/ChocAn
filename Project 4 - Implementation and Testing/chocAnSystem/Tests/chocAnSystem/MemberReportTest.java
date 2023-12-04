@@ -3,6 +3,8 @@ package chocAnSystem;
 import junit.framework.TestCase;
 //This is Evan's test for ManagerReport
 //Member Report was created by EvanChilders
+
+//all of the included test cases test for success.
 public class MemberReportTest extends TestCase {
     MemberReport memberReport = new MemberReport("Evan Childers", 1, "123 Awesome Street", "Lit City", "Alabama", 12345);
     public void testGetName() {
@@ -51,9 +53,5 @@ public class MemberReportTest extends TestCase {
         MemberReportService service1 = new MemberReportService("11/27/2023", "Aijun Song", "ECE 380");
         memberReport.addService(service1);
         assertEquals(service1, memberReport.getServiceList().elementAt(0));
-    }
-    public void testToFile() {
-        //figure out formatting for vector data into file or database
-
     }
 }
