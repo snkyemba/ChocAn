@@ -11,6 +11,7 @@ public class WeeklyReportGenerator {
             generateMemberReport(myWriter);
             generateProviderReport(myWriter);
             generateManagerReport(myWriter);
+            myWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
             // Handle exceptions or return from the method
@@ -55,7 +56,7 @@ public class WeeklyReportGenerator {
                 myWriter.write("\n");
             }
 
-            myWriter.close();
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -171,7 +172,7 @@ public class WeeklyReportGenerator {
                 myWriter.write("Total number of consultations: " + numConsults + "\n");
                 myWriter.write("Total fee for week: " + record.getFee()*numConsults + "\n\n");
             }
-            myWriter.close();
+
         }
         catch (IOException e) {
             e.printStackTrace();
