@@ -19,6 +19,7 @@ public class TerminalGUI extends JFrame {
     ManagerTerminal mTerminal = new ManagerTerminal();
     ProviderTerminal pTerminal = new ProviderTerminal();
     OperatorTerminal oTerminal = new OperatorTerminal();
+    WeeklyReportGenerator weeklyReportGenerator = new WeeklyReportGenerator();
     private Clip clip;
 
     public TerminalGUI() {
@@ -40,6 +41,7 @@ public class TerminalGUI extends JFrame {
         ImageIcon chocolatePic = new ImageIcon(getClass().getResource("Chocolate.jpeg"));
         JLabel chocolate = new JLabel(chocolatePic);
         JButton playPauseButton = new JButton("Play/Pause Music");
+        JButton accountingProcedure = new JButton("Run Accounting Procedure");
 
         // Add action listeners to the buttons
         playPauseButton.addActionListener(new ActionListener() {
@@ -50,6 +52,12 @@ public class TerminalGUI extends JFrame {
                 } else {
                     playBackgroundMusic();
                 }
+            }
+        });
+        accountingProcedure.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                runAccountingProcedure();
             }
         });
         managerButton.addActionListener(new ActionListener() {
@@ -92,6 +100,7 @@ public class TerminalGUI extends JFrame {
         buttonPanel.add(managerButton);
         buttonPanel.add(providerButton);
         buttonPanel.add(operatorButton);
+        buttonPanel.add(accountingProcedure);
         buttonPanel.add(playPauseButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
@@ -1286,6 +1295,10 @@ public class TerminalGUI extends JFrame {
         });
 
         operatorTerminalFrame.setVisible(true);
+    }
+    private void runAccountingProcedure(){
+        weeklyReportGenerator.generateSummaryReport();
+        JOptionPane.showMessageDialog(this, "Summary Report Generated!");
     }
 
     public static void main(String[] args) {
